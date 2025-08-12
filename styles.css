@@ -16,6 +16,10 @@ html, body {
   margin: 0; padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Ograniči širinu na samom body-ju */
 body { max-width: var(--maxw); margin: 0 auto; padding: 2rem 1.2rem; }
 
@@ -45,3 +49,25 @@ blockquote {
 
 hr { border:0; border-top:1px solid rgba(127,127,127,.3); margin:2rem 0; }
 nav#TOC, .toc { background: rgba(127,127,127,.08); padding:1rem; border-radius:8px; }
+
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #0078d7; /* plava boja, možeš promeniti */
+  color: white;
+  font-size: 28px;
+  padding: 12px 18px;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 9999;
+}
+
+.back-to-top:hover {
+  background-color: #005a9e; /* tamnija plava */
+  transform: scale(1.1);
+}
+
