@@ -68,3 +68,32 @@ nav#TOC, .toc { background: rgba(127,127,127,.08); padding:1rem; border-radius:8
   transform: scale(1.1);
 }
 
+details.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 0.8em;
+  margin: 1em 0;
+  background: #f9f9f9;
+}
+
+details.card[open] {
+  background: #eef6ff;
+}
+
+details.card summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+details.card summary::-webkit-details-marker {
+  display: none;
+}
+
+details.card summary::after {
+  content: " ▼";
+  font-size: 0.8em;
+}
+
+details.card[open] summary::after {
+  content: " ▲";
+}
