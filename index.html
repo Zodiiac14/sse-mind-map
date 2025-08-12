@@ -47,63 +47,56 @@
 </header>
 <nav id="TOC" role="doc-toc">
 <ul>
-<li><a href="#mind-map-kursa-estimacije-sse"
-id="toc-mind-map-kursa-estimacije-sse"><span
-class="toc-section-number">1</span> Mind map kursa estimacije (SSE)</a>
-<ul>
 <li><a href="#uvod-i-motivacija" id="toc-uvod-i-motivacija"><span
-class="toc-section-number">1.1</span> 0) Uvod i motivacija</a></li>
+class="toc-section-number">1</span> 0) Uvod i motivacija</a></li>
 <li><a href="#metrika-kvaliteta-skg-pomeraj-varijansa"
 id="toc-metrika-kvaliteta-skg-pomeraj-varijansa"><span
-class="toc-section-number">1.2</span> 1) Metrika kvaliteta: SKG,
-pomeraj, varijansa</a></li>
+class="toc-section-number">2</span> 1) Metrika kvaliteta: SKG, pomeraj,
+varijansa</a></li>
 <li><a href="#nemv-nepomeren-estimator-minimalne-varijanse"
 id="toc-nemv-nepomeren-estimator-minimalne-varijanse"><span
-class="toc-section-number">1.3</span> 2) NEMV – Nepomeren Estimator
+class="toc-section-number">3</span> 2) NEMV – Nepomeren Estimator
 Minimalne Varijanse</a></li>
 <li><a href="#crlb-cramérrao-donja-granica-fišerova-informacija"
 id="toc-crlb-cramérrao-donja-granica-fišerova-informacija"><span
-class="toc-section-number">1.4</span> 3) CRLB – Cramér–Rao Donja Granica
+class="toc-section-number">4</span> 3) CRLB – Cramér–Rao Donja Granica
 (Fišerova informacija)</a></li>
 <li><a href="#lgm-linearni-gaussovski-model-ols"
 id="toc-lgm-linearni-gaussovski-model-ols"><span
-class="toc-section-number">1.5</span> 4) LGM – Linearni Gaussovski Model
+class="toc-section-number">5</span> 4) LGM – Linearni Gaussovski Model
 (OLS)</a></li>
 <li><a href="#nlne-blue-najbolji-linearan-nepomeren-estimator"
 id="toc-nlne-blue-najbolji-linearan-nepomeren-estimator"><span
-class="toc-section-number">1.6</span> 5) NLNE / BLUE – Najbolji Linearan
+class="toc-section-number">6</span> 5) NLNE / BLUE – Najbolji Linearan
 Nepomeren Estimator</a></li>
 <li><a href="#emv-mle-estimator-maksimalne-verodostojnosti"
 id="toc-emv-mle-estimator-maksimalne-verodostojnosti"><span
-class="toc-section-number">1.7</span> 6) EMV / MLE – Estimator
-Maksimalne Verodostojnosti</a></li>
+class="toc-section-number">7</span> 6) EMV / MLE – Estimator Maksimalne
+Verodostojnosti</a></li>
 <li><a href="#bayesovska-filozofija-i-emskg-posteriorna-sredina"
 id="toc-bayesovska-filozofija-i-emskg-posteriorna-sredina"><span
-class="toc-section-number">1.8</span> 7) Bayesovska filozofija i EMSKG
+class="toc-section-number">8</span> 7) Bayesovska filozofija i EMSKG
 (posteriorna sredina)</a></li>
 <li><a href="#opšta-bayesovska-estimacija-cena-i-rizik"
 id="toc-opšta-bayesovska-estimacija-cena-i-rizik"><span
-class="toc-section-number">1.9</span> 8) Opšta Bayesovska estimacija:
-cena i rizik</a></li>
+class="toc-section-number">9</span> 8) Opšta Bayesovska estimacija: cena
+i rizik</a></li>
 <li><a href="#linearna-bayesovska-estimacija-lemskg-i-geometrija"
 id="toc-linearna-bayesovska-estimacija-lemskg-i-geometrija"><span
-class="toc-section-number">1.10</span> 9) Linearna Bayesovska estimacija
+class="toc-section-number">10</span> 9) Linearna Bayesovska estimacija
 (LEMSKG) i geometrija</a></li>
 <li><a href="#kalmanov-filter-kf" id="toc-kalmanov-filter-kf"><span
-class="toc-section-number">1.11</span> 10) Kalmanov filter (KF)</a></li>
+class="toc-section-number">11</span> 10) Kalmanov filter (KF)</a></li>
 <li><a href="#povezanosti-redosled-učenja"
 id="toc-povezanosti-redosled-učenja"><span
-class="toc-section-number">1.12</span> Povezanosti (redosled
+class="toc-section-number">12</span> Povezanosti (redosled
 učenja)</a></li>
-</ul></li>
 </ul>
 </nav>
-<h1 data-number="1" id="mind-map-kursa-estimacije-sse"><span
-class="header-section-number">1</span> Mind map kursa estimacije
-(SSE)</h1>
+<p><a id="top"></a> # Mind map kursa estimacije (SSE)</p>
 <hr />
-<h2 data-number="1.1" id="uvod-i-motivacija"><span
-class="header-section-number">1.1</span> 0) Uvod i motivacija</h2>
+<h2 data-number="1" id="uvod-i-motivacija"><span
+class="header-section-number">1</span> 0) Uvod i motivacija</h2>
 <ul>
 <li><strong>Poenta:</strong> Estimiramo nepoznate parametre iz
 zašumljenih merenja; estimator <span
@@ -117,8 +110,8 @@ modelovanju merenja i metrikama kvaliteta.</li>
 <li><strong>Primer:</strong> GPS pozicija, linearni trend na berzi.</li>
 </ul>
 <hr />
-<h2 data-number="1.2" id="metrika-kvaliteta-skg-pomeraj-varijansa"><span
-class="header-section-number">1.2</span> 1) Metrika kvaliteta: SKG,
+<h2 data-number="2" id="metrika-kvaliteta-skg-pomeraj-varijansa"><span
+class="header-section-number">2</span> 1) Metrika kvaliteta: SKG,
 pomeraj, varijansa</h2>
 <ul>
 <li><strong>Poenta:</strong> Poređenje estimatora ide preko
@@ -135,9 +128,9 @@ class="math inline">\hat A_1=\bar x</span> vs <span
 class="math inline">\hat A_2=x[0]</span>.</li>
 </ul>
 <hr />
-<h2 data-number="1.3"
+<h2 data-number="3"
 id="nemv-nepomeren-estimator-minimalne-varijanse"><span
-class="header-section-number">1.3</span> 2) NEMV – Nepomeren Estimator
+class="header-section-number">3</span> 2) NEMV – Nepomeren Estimator
 Minimalne Varijanse</h2>
 <ul>
 <li><strong>Poenta:</strong> Ako tražimo <strong>nepomeren</strong>
@@ -156,9 +149,9 @@ class="math inline">a</span> u <span class="math inline">\hat A=a\sum
 x[n]</span>.</li>
 </ul>
 <hr />
-<h2 data-number="1.4"
+<h2 data-number="4"
 id="crlb-cramérrao-donja-granica-fišerova-informacija"><span
-class="header-section-number">1.4</span> 3) CRLB – Cramér–Rao Donja
+class="header-section-number">4</span> 3) CRLB – Cramér–Rao Donja
 Granica (Fišerova informacija)</h2>
 <ul>
 <li><strong>Poenta:</strong> Donja granica varijanse
@@ -180,8 +173,8 @@ class="math inline">\operatorname{var}(\hat A)\ge
 \sigma^2/N</span>.</li>
 </ul>
 <hr />
-<h2 data-number="1.5" id="lgm-linearni-gaussovski-model-ols"><span
-class="header-section-number">1.5</span> 4) LGM – Linearni Gaussovski
+<h2 data-number="5" id="lgm-linearni-gaussovski-model-ols"><span
+class="header-section-number">5</span> 4) LGM – Linearni Gaussovski
 Model (OLS)</h2>
 <ul>
 <li><strong>Model:</strong> <span
@@ -201,9 +194,9 @@ optimalnosti pod Gaussom.</li>
 identifikacija.</li>
 </ul>
 <hr />
-<h2 data-number="1.6"
+<h2 data-number="6"
 id="nlne-blue-najbolji-linearan-nepomeren-estimator"><span
-class="header-section-number">1.6</span> 5) NLNE / BLUE – Najbolji
+class="header-section-number">6</span> 5) NLNE / BLUE – Najbolji
 Linearan Nepomeren Estimator</h2>
 <ul>
 <li><strong>Poenta:</strong> Kada ne znamo kompletnu raspodelu, ali
@@ -223,9 +216,9 @@ je čak i optimalan (NLNE=NEMV).</li>
 merenja različite.</li>
 </ul>
 <hr />
-<h2 data-number="1.7"
+<h2 data-number="7"
 id="emv-mle-estimator-maksimalne-verodostojnosti"><span
-class="header-section-number">1.7</span> 6) EMV / MLE – Estimator
+class="header-section-number">7</span> 6) EMV / MLE – Estimator
 Maksimalne Verodostojnosti</h2>
 <ul>
 <li><strong>Poenta:</strong> Maksimizuje <span
@@ -242,10 +235,10 @@ p=\frac{1}{N}\sum x[n]</span>; konstanta u WGN: <span
 class="math inline">\hat A=\bar x</span>.</li>
 </ul>
 <hr />
-<h2 data-number="1.8"
+<h2 data-number="8"
 id="bayesovska-filozofija-i-emskg-posteriorna-sredina"><span
-class="header-section-number">1.8</span> 7) Bayesovska filozofija i
-EMSKG (posteriorna sredina)</h2>
+class="header-section-number">8</span> 7) Bayesovska filozofija i EMSKG
+(posteriorna sredina)</h2>
 <ul>
 <li><strong>Poenta:</strong> Parametar <span
 class="math inline">\theta</span> je slučajan; koristimo apriorno <span
@@ -263,9 +256,8 @@ NEMV u proseku.</li>
 priorom ⇒ shrinkage ka <span class="math inline">\mu_A</span>.</li>
 </ul>
 <hr />
-<h2 data-number="1.9"
-id="opšta-bayesovska-estimacija-cena-i-rizik"><span
-class="header-section-number">1.9</span> 8) Opšta Bayesovska estimacija:
+<h2 data-number="9" id="opšta-bayesovska-estimacija-cena-i-rizik"><span
+class="header-section-number">9</span> 8) Opšta Bayesovska estimacija:
 cena i rizik</h2>
 <ul>
 <li><strong>Poenta:</strong> Definišeš <strong>cenu</strong> <span
@@ -284,9 +276,9 @@ aplikacije (robustnost, tolerancija, greške tipa „preko praga“).</li>
 „odsečena“ Gaussova posteriorna.</li>
 </ul>
 <hr />
-<h2 data-number="1.10"
+<h2 data-number="10"
 id="linearna-bayesovska-estimacija-lemskg-i-geometrija"><span
-class="header-section-number">1.10</span> 9) Linearna Bayesovska
+class="header-section-number">10</span> 9) Linearna Bayesovska
 estimacija (LEMSKG) i geometrija</h2>
 <ul>
 <li><strong>LEMSKG:</strong> <span
@@ -305,8 +297,8 @@ za Kalmanov filter.</li>
 komponentu inovacije.</li>
 </ul>
 <hr />
-<h2 data-number="1.11" id="kalmanov-filter-kf"><span
-class="header-section-number">1.11</span> 10) Kalmanov filter (KF)</h2>
+<h2 data-number="11" id="kalmanov-filter-kf"><span
+class="header-section-number">11</span> 10) Kalmanov filter (KF)</h2>
 <ul>
 <li><strong>Model:</strong> Gauss–Markov stanje + BGŠ merenja.</li>
 <li><strong>Rekurzije (skalar):</strong>
@@ -328,8 +320,8 @@ odziv zavisi od <span
 class="math inline">\sigma_u^2,\sigma_w^2</span>.</li>
 </ul>
 <hr />
-<h2 data-number="1.12" id="povezanosti-redosled-učenja"><span
-class="header-section-number">1.12</span> Povezanosti (redosled
+<h2 data-number="12" id="povezanosti-redosled-učenja"><span
+class="header-section-number">12</span> Povezanosti (redosled
 učenja)</h2>
 <ol type="1">
 <li><strong>Uvod → SKG/bias–var</strong> (razumevanje metrike)</li>
