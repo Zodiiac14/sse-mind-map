@@ -68,26 +68,49 @@ nav#TOC, .toc { background: rgba(127,127,127,.08); padding:1rem; border-radius:8
   transform: scale(1.1);
 }
 
+/* Flash kartice – minimalno, bez bordera i pozadina */
 details.card {
-  border-radius: 8px;
-  padding: 0.8em;
-  margin: 1em 0;
-  background: #ffffff;
+  margin: .6rem 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
-details.card[open] {
-  background: #ffffff;
-}
-
-details.card summary {
-  font-weight: bold;
+/* Naslov (pitanje) u jednom redu sa strelicom */
+details.card > summary {
+  list-style: none;                 /* skida default marker */
   cursor: pointer;
+  display: inline-flex;             /* strelica + tekst u liniji */
+  align-items: center;
+  gap: .5rem;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  color: inherit;
+  background: none;
+  border: 0;
 }
 
-details.card summary::-webkit-details-marker {
-  display: none;
+/* sakrij WebKit marker */
+details.card > summary::-webkit-details-marker { display: none; }
+
+/* Naša strelica */
+details.card > summary::before {
+  content: "▸";                     /* trokut udesno */
+  display: inline-block;
+  transform-origin: center;
+  transition: transform .2s ease;
+  font-size: 0.95em;                /* malo manja od teksta */
 }
 
-details.card summary::after {
-  font-size: 0.8em;
+/* Kad je otvoreno, okreni strelicu nadole */
+details.card[open] > summary::before {
+  transform: rotate(90deg);         /* ▸ → zakreni u ▾ */
 }
+
+/* Telo odgovora: blago uvučeno ispod pitanja */
+details.card .card-body {
+  margin-top: .5rem;
+  padding-left: 1.5rem;             /* poravnaj sa strelicom */
+}
+
