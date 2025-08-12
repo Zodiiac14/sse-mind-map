@@ -64,7 +64,7 @@ nav#TOC, .toc { background: rgba(127,127,127,.08); padding:1rem; border-radius:8
 }
 
 .back-to-top:hover {
-  background-color: #2e2c2c; /* tamnija plava */
+  background-color: #2e2c2c;
   transform: scale(1.1);
 }
 
@@ -109,8 +109,12 @@ details.card[open] > summary::before {
 }
 
 /* Telo odgovora: blago uvučeno ispod pitanja */
+details.card > summary,
 details.card .card-body {
-  margin-top: .5rem;
-  padding-left: 1.5rem;             /* poravnaj sa strelicom */
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 400; /* ili 600 ako hoćeš malo bold pitanja */
+  color: inherit;
 }
 
