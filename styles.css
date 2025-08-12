@@ -91,6 +91,3 @@ details.card summary::-webkit-details-marker {
 details.card summary::after {
   font-size: 0.8em;
 }
-
-details.card[open] summary::after {
-}
