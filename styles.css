@@ -16,9 +16,6 @@ html, body {
   margin: 0; padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
 
 /* Ograniči širinu na samom body-ju */
 body { max-width: var(--maxw); margin: 0 auto; padding: 2rem 1.2rem; }
