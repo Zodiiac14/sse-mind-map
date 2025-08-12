@@ -75,6 +75,9 @@ details.card {
   background: #ffffff;
 }
 
+details.card[open] {
+  background: #ffffff;
+}
 
 details.card summary {
   font-weight: bold;
@@ -83,4 +86,11 @@ details.card summary {
 
 details.card summary::-webkit-details-marker {
   display: none;
+}
+
+details.card summary::after {
+  font-size: 0.8em;
+}
+
+details.card[open] summary::after {
 }
