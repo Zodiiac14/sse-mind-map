@@ -16,7 +16,6 @@ html, body {
   margin: 0; padding: 0;
 }
 
-
 /* Ograniči širinu na samom body-ju */
 body { max-width: var(--maxw); margin: 0 auto; padding: 2rem 1.2rem; }
 
@@ -51,7 +50,7 @@ nav#TOC, .toc { background: rgba(127,127,127,.08); padding:1rem; border-radius:8
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #000000; /* plava boja, možeš promeniti */
+  background-color: #000000;
   color: white;
   font-size: 28px;
   padding: 12px 18px;
@@ -76,16 +75,19 @@ details.card {
   background: transparent;
 }
 
-/* Naslov (pitanje) u jednom redu sa strelicom */
+/* Naslov (pitanje) */
 details.card > summary {
-  list-style: none;                 /* skida default marker */
+  list-style: none;
   cursor: pointer;
-  display: inline-flex;             /* strelica + tekst u liniji */
+  display: inline-flex;
   align-items: center;
   gap: .5rem;
-  margin: 1;
+  margin: 0;
   padding: 0;
-  font-weight: 600;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: 600; /* bold pitanje */
   color: inherit;
   background: none;
   border: 0;
@@ -96,25 +98,25 @@ details.card > summary::-webkit-details-marker { display: none; }
 
 /* Naša strelica */
 details.card > summary::before {
-  content: "▸";                     /* trokut udesno */
+  content: "▸";
   display: inline-block;
   transform-origin: center;
   transition: transform .2s ease;
-  font-size: 0.95em;                /* malo manja od teksta */
+  font-size: 0.95em;
 }
 
 /* Kad je otvoreno, okreni strelicu nadole */
 details.card[open] > summary::before {
-  transform: rotate(90deg);         /* ▸ → zakreni u ▾ */
+  transform: rotate(90deg);
 }
 
-/* Telo odgovora: blago uvučeno ispod pitanja */
-details.card > summary,
+/* Odgovor (telo kartice) */
 details.card .card-body {
+  margin-top: .5rem;
+  padding-left: 1.5rem;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-  font-weight: 400; /* ili 600 ako hoćeš malo bold pitanja */
+  font-weight: 400; /* normalan tekst */
   color: inherit;
 }
-
