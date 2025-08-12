@@ -54,11 +54,11 @@ nav#TOC, .toc { background: rgba(127,127,127,.08); padding:1rem; border-radius:8
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #0078d7; /* plava boja, možeš promeniti */
+  background-color: #000000; /* plava boja, možeš promeniti */
   color: white;
   font-size: 28px;
   padding: 12px 18px;
-  border-radius: 50%;
+  border-radius: 100%;
   text-align: center;
   text-decoration: none;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -67,7 +67,7 @@ nav#TOC, .toc { background: rgba(127,127,127,.08); padding:1rem; border-radius:8
 }
 
 .back-to-top:hover {
-  background-color: #005a9e; /* tamnija plava */
+  background-color: #282a2c; /* tamnija plava */
   transform: scale(1.1);
 }
 
