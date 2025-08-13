@@ -53,39 +53,50 @@ class="toc-section-number">1</span> Uvod i motivacija</a></li>
 id="toc-nemv-nepomeren-estimator-minimalne-varijanse"><span
 class="toc-section-number">2</span> NEMV – Nepomeren Estimator Minimalne
 Varijanse</a></li>
-<li><a href="#crlb-cramérrao-donja-granica-fišerova-informacija"
-id="toc-crlb-cramérrao-donja-granica-fišerova-informacija"><span
-class="toc-section-number">3</span> CRLB – Cramér–Rao Donja Granica
-(Fišerova informacija)</a></li>
+<li><a href="#crdg-cramérrao-donja-granica"
+id="toc-crdg-cramérrao-donja-granica"><span
+class="toc-section-number">3</span> CRDG – Cramér–Rao Donja
+Granica</a></li>
+<li><a href="#fišerova-informacija" id="toc-fišerova-informacija"><span
+class="toc-section-number">4</span> Fišerova informacija</a></li>
+<li><a href="#uslov-regularnosti" id="toc-uslov-regularnosti"><span
+class="toc-section-number">5</span> Uslov regularnosti</a></li>
+<li><a href="#crdg-teorema" id="toc-crdg-teorema"><span
+class="toc-section-number">6</span> CRDG – Teorema</a></li>
+<li><a href="#crdg-za-funkciju-parametra"
+id="toc-crdg-za-funkciju-parametra"><span
+class="toc-section-number">7</span> CRDG za funkciju parametra</a></li>
+<li><a href="#vektorski-slučaj" id="toc-vektorski-slučaj"><span
+class="toc-section-number">8</span> Vektorski slučaj</a></li>
 <li><a href="#lgm-linearni-gaussovski-model-ols"
 id="toc-lgm-linearni-gaussovski-model-ols"><span
-class="toc-section-number">4</span> LGM – Linearni Gaussovski Model
+class="toc-section-number">9</span> LGM – Linearni Gaussovski Model
 (OLS)</a></li>
 <li><a href="#nlne-blue-najbolji-linearan-nepomeren-estimator"
 id="toc-nlne-blue-najbolji-linearan-nepomeren-estimator"><span
-class="toc-section-number">5</span> NLNE / BLUE – Najbolji Linearan
+class="toc-section-number">10</span> NLNE / BLUE – Najbolji Linearan
 Nepomeren Estimator</a></li>
 <li><a href="#emv-mle-estimator-maksimalne-verodostojnosti"
 id="toc-emv-mle-estimator-maksimalne-verodostojnosti"><span
-class="toc-section-number">6</span> EMV / MLE – Estimator Maksimalne
+class="toc-section-number">11</span> EMV / MLE – Estimator Maksimalne
 Verodostojnosti</a></li>
 <li><a href="#bayesovska-filozofija-i-emskg-posteriorna-sredina"
 id="toc-bayesovska-filozofija-i-emskg-posteriorna-sredina"><span
-class="toc-section-number">7</span> Bayesovska filozofija i EMSKG
+class="toc-section-number">12</span> Bayesovska filozofija i EMSKG
 (posteriorna sredina)</a></li>
 <li><a href="#opšta-bayesovska-estimacija-cena-i-rizik"
 id="toc-opšta-bayesovska-estimacija-cena-i-rizik"><span
-class="toc-section-number">8</span> Opšta Bayesovska estimacija: cena i
+class="toc-section-number">13</span> Opšta Bayesovska estimacija: cena i
 rizik</a></li>
 <li><a href="#linearna-bayesovska-estimacija-lemskg-i-geometrija"
 id="toc-linearna-bayesovska-estimacija-lemskg-i-geometrija"><span
-class="toc-section-number">9</span> Linearna Bayesovska estimacija
+class="toc-section-number">14</span> Linearna Bayesovska estimacija
 (LEMSKG) i geometrija</a></li>
 <li><a href="#kalmanov-filter-kf" id="toc-kalmanov-filter-kf"><span
-class="toc-section-number">10</span> Kalmanov filter (KF)</a></li>
+class="toc-section-number">15</span> Kalmanov filter (KF)</a></li>
 <li><a href="#povezanosti-redosled-učenja"
 id="toc-povezanosti-redosled-učenja"><span
-class="toc-section-number">11</span> Povezanosti (redosled
+class="toc-section-number">16</span> Povezanosti (redosled
 učenja)</a></li>
 </ul>
 </nav>
@@ -152,89 +163,189 @@ postoji.</li>
 nepomerenih estimatora; često služi kao referenca (donja granica).</li>
 </ul>
 <hr />
-<h2 data-number="3"
-id="crlb-cramérrao-donja-granica-fišerova-informacija"><span
-class="header-section-number">3</span> CRLB – Cramér–Rao Donja Granica
-(Fišerova informacija)</h2>
+<h2 data-number="3" id="crdg-cramérrao-donja-granica"><span
+class="header-section-number">3</span> CRDG – Cramér–Rao Donja
+Granica</h2>
 <details class="card">
 <summary>
-<strong>Šta je verodostojnost estimatora?</strong>
+<strong>Šta je verodostojnost?</strong>
 </summary>
 <div class="card-body">
-<p>Verodostojnost je f.g.v u funkcijii od <span
-class="math inline">\theta</span> za fiksno <span
-class="math inline">X</span>: <span
-class="math inline">L(\theta)=p(X;\theta)</span>.</p>
+<p>Verodostojnost je funkcija gustine verovatnoće posmatrana kao
+funkcija od <span class="math inline">\theta</span> za fiksno <span
+class="math inline">x</span>:<br />
+<span class="math inline">L(\theta) = p(x; \theta)</span>.<br />
+Za razliku od FGV, ne mora biti normirana: <span
+class="math inline">\int L(\theta) \, d\theta \neq 1</span> u opštem
+slučaju.</p>
 </div></details>
 <details class="card">
 <summary>
-<strong>Koje pravilo važi za logaritam verodostojnosti kod nezavisnih
-jednako distribuiranih <span class="math inline">X[n]</span>?</strong>
+<strong>Kako izgleda verodostojnost za <span class="math inline">x =
+\theta w, \; w \sim \mathcal{N}(0, 1)</span>?</strong>
 </summary>
 <div class="card-body">
-<p>Važi pravilo aditivnosti: <span class="math inline">\ell(\theta) =
-\ln L(\theta) = \sum_{i=0}^{N-1} \ln p(x_i;\theta)</span></p>
+<p>Tada je <span class="math inline">x \sim \mathcal{N}(0,
+\theta^2)</span> i:<br />
+<span class="math inline">L(\theta) = \frac{1}{\sqrt{2\pi \theta^2}}
+\exp\left( -\frac{x^2}{2\theta^2} \right)</span></p>
 </div></details>
 <details class="card">
 <summary>
-<strong>Šta je Fišerova informacija?</strong>
+<strong>Kako izgleda verodostojnost za <span class="math inline">x \sim
+U[0, \theta]</span>?</strong>
 </summary>
 <div class="card-body">
-<p>Prosečna zakrivljenost <span class="math inline">l(\theta): I(\theta)
-= -E\left[ \frac{\partial^2}{\partial \theta^2} \ln p(X;\theta)
-\right]</span></p>
+<p><span class="math display">
+L(\theta) =
+\begin{cases}
+\frac{1}{\theta}, &amp; \theta \geq x \\
+0, &amp; \theta &lt; x
+\end{cases}
+</span></p>
 </div></details>
 <details class="card">
 <summary>
-<strong>Šta je Fišerov skor?</strong>
+<strong>Od čega zavisi tačnost estimatora u smislu
+verodostojnosti?</strong>
 </summary>
 <div class="card-body">
-<p>Fišerov skor je definisan kao: <span
-class="math inline">\frac{\partial}{\partial \theta} \ln
-p(X;\theta)</span></p>
+<p>Od “zašiljenosti” funkcije verodostojnosti — uži i viši vrh znači
+veću tačnost estimacije.</p>
 </div></details>
-<details class="card">
-<summary>
-<strong>Koji je uslov regularnosti CRDG?</strong>
-</summary>
-<div class="card-body">
-<p>Uslov regularnosti CRDG je: <span
-class="math inline">E\left[\frac{\partial}{\partial \theta} \ln
-p(X;\theta) \right] = 0, \forall\theta</span></p>
-</div></details>
-<details class="card">
-<summary>
-<strong>Ako je uslov regularnosti ispunjen, šta važi za Fišerovu
-informaciju? (dokaz)</strong>
-</summary>
-<div class="card-body">
-<p>Važi: <span class="math inline">I(\theta) = -E\left[
-\frac{\partial^2}{\partial \theta^2} \ln p(X;\theta) \right]
-= E\left[ \left( \frac{\partial}{\partial \theta} \ln p(X;\theta)
-\right)^2 \right]</span></p>
-</div></details>
-<ul>
-<li><strong>Poenta:</strong> Donja granica varijanse
-<strong>svakog</strong> nepomerenog estimatora: <span
-class="math inline">\operatorname{var}(\hat{\theta})\ge
-I(\theta)^{-1}</span>.</li>
-<li><strong>Formule:</strong>
-<ul>
-<li>Fišerova informacija: <span
-class="math inline">I(\theta)=-E\,\partial^2_\theta\ln
-p(x;\theta)=E\left[(\partial_\theta\ln p)^2\right]</span>.</li>
-<li>Uslov regularnosti (UR) da bi važilo.</li>
-</ul></li>
-<li><strong>Zašto:</strong> meri „oštrinu” verodostojnosti – više info ⇒
-manja minimalna varijansa; cilj je dostići CRLB (efikasnost).</li>
-<li><strong>Primer:</strong> konstanta u WGN ⇒ <span
-class="math inline">I=N/\sigma^2</span>, pa <span
-class="math inline">\operatorname{var}(\hat A)\ge
-\sigma^2/N</span>.</li>
-</ul>
 <hr />
-<h2 data-number="4" id="lgm-linearni-gaussovski-model-ols"><span
-class="header-section-number">4</span> LGM – Linearni Gaussovski Model
+<h2 data-number="4" id="fišerova-informacija"><span
+class="header-section-number">4</span> Fišerova informacija</h2>
+<details class="card">
+<summary>
+<strong>Kako definišemo log-verodostojnost i Fišerovu
+informaciju?</strong>
+</summary>
+<div class="card-body">
+<p>Log-verodostojnost: <span class="math inline">\ell(\theta) = \ln p(x;
+\theta)</span><br />
+Fišerova informacija: <span class="math display">
+I(\theta) = -E\left[ \frac{\partial^2}{\partial \theta^2} \ln p(x;
+\theta) \right]
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Koja je intuicija iza Fišerove informacije?</strong>
+</summary>
+<div class="card-body">
+<p>Ona meri prosečnu zakrivljenost log-verodostojnosti — što je kriva
+“oštrija”, to imamo više informacije o <span
+class="math inline">\theta</span>.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako se Fišerova informacija računa za nezavisne jednako
+raspodeljene uzorke?</strong>
+</summary>
+<div class="card-body">
+<p>Važi aditivnost:<br />
+<span class="math inline">\ell(\theta) = \sum_{n=0}^{N-1} \ln p(x[n];
+\theta)</span><br />
+<span class="math inline">I(\theta) = \sum_{n=0}^{N-1}
+I_n(\theta)</span></p>
+</div></details>
+<hr />
+<h2 data-number="5" id="uslov-regularnosti"><span
+class="header-section-number">5</span> Uslov regularnosti</h2>
+<details class="card">
+<summary>
+<strong>Kako glasi uslov regularnosti CRDG?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+E\left[ \frac{\partial}{\partial \theta} \ln p(x; \theta) \right] = 0,
+\quad \forall\theta
+</span><br />
+Ovaj izraz nazivamo Fišerov skor.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kada važi ekvivalencija dve definicije Fišerove
+informacije?</strong>
+</summary>
+<div class="card-body">
+<p>Ako je ispunjen uslov regularnosti, tada: <span class="math display">
+I(\theta) = -E\left[ \frac{\partial^2}{\partial \theta^2} \ln p(x;
+\theta) \right]
+= E\left[ \left( \frac{\partial}{\partial \theta} \ln p(x; \theta)
+\right)^2 \right]
+</span></p>
+</div></details>
+<hr />
+<h2 data-number="6" id="crdg-teorema"><span
+class="header-section-number">6</span> CRDG – Teorema</h2>
+<details class="card">
+<summary>
+<strong>Kako glasi Cramér–Rao donja granica za nepomereni
+estimator?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+\mathrm{var}(\hat{\theta}) \geq \frac{1}{I(\theta)}
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kada postoji efikasan estimator koji dostiže CRDG?</strong>
+</summary>
+<div class="card-body">
+<p>Ako postoji faktorizacija: <span class="math display">
+\frac{\partial}{\partial \theta} \ln p(x; \theta) = i(\theta) \, [g(x) -
+\theta]
+</span> tada je <span class="math inline">\hat{\theta}_{\mathrm{NEMV}} =
+g(x)</span> efikasan i: <span class="math display">
+\mathrm{var}(\hat{\theta}_{\mathrm{NEMV}}) = \frac{1}{I(\theta)}
+</span></p>
+</div></details>
+<hr />
+<h2 data-number="7" id="crdg-za-funkciju-parametra"><span
+class="header-section-number">7</span> CRDG za funkciju parametra</h2>
+<details class="card">
+<summary>
+<strong>Kako glasi CRDG za <span class="math inline">\alpha =
+a(\theta)</span>?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+\mathrm{var}(\hat{\alpha}) \geq \frac{\left( \frac{da(\theta)}{d\theta}
+\right)^2}{I(\theta)}
+</span></p>
+</div></details>
+<hr />
+<h2 data-number="8" id="vektorski-slučaj"><span
+class="header-section-number">8</span> Vektorski slučaj</h2>
+<details class="card">
+<summary>
+<strong>Kako se definiše Fišerova matrica?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+[I(\theta)]_{ij} = -E\left[ \frac{\partial^2}{\partial \theta_i \partial
+\theta_j} \ln p(x; \theta) \right]
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako glasi CRDG u vektorskom slučaju?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+\mathbf{C}_{\hat{\theta}} - I^{-1}(\theta) \geq 0
+</span><br />
+Efikasnost:<br />
+<span class="math display">
+\nabla_{\theta} \ln p(x; \theta) = I(\theta) [g(x) - \theta]
+</span></p>
+</div></details>
+<hr />
+<h2 data-number="9" id="lgm-linearni-gaussovski-model-ols"><span
+class="header-section-number">9</span> LGM – Linearni Gaussovski Model
 (OLS)</h2>
 <ul>
 <li><strong>Model:</strong> <span
@@ -254,9 +365,9 @@ optimalnosti pod Gaussom.</li>
 identifikacija.</li>
 </ul>
 <hr />
-<h2 data-number="5"
+<h2 data-number="10"
 id="nlne-blue-najbolji-linearan-nepomeren-estimator"><span
-class="header-section-number">5</span> NLNE / BLUE – Najbolji Linearan
+class="header-section-number">10</span> NLNE / BLUE – Najbolji Linearan
 Nepomeren Estimator</h2>
 <ul>
 <li><strong>Poenta:</strong> Kada ne znamo kompletnu raspodelu, ali
@@ -276,9 +387,9 @@ je čak i optimalan (NLNE=NEMV).</li>
 merenja različite.</li>
 </ul>
 <hr />
-<h2 data-number="6"
+<h2 data-number="11"
 id="emv-mle-estimator-maksimalne-verodostojnosti"><span
-class="header-section-number">6</span> EMV / MLE – Estimator Maksimalne
+class="header-section-number">11</span> EMV / MLE – Estimator Maksimalne
 Verodostojnosti</h2>
 <ul>
 <li><strong>Poenta:</strong> Maksimizuje <span
@@ -295,9 +406,9 @@ p=\frac{1}{N}\sum x[n]</span>; konstanta u WGN: <span
 class="math inline">\hat A=\bar x</span>.</li>
 </ul>
 <hr />
-<h2 data-number="7"
+<h2 data-number="12"
 id="bayesovska-filozofija-i-emskg-posteriorna-sredina"><span
-class="header-section-number">7</span> Bayesovska filozofija i EMSKG
+class="header-section-number">12</span> Bayesovska filozofija i EMSKG
 (posteriorna sredina)</h2>
 <ul>
 <li><strong>Poenta:</strong> Parametar <span
@@ -316,9 +427,9 @@ NEMV u proseku.</li>
 priorom ⇒ shrinkage ka <span class="math inline">\mu_A</span>.</li>
 </ul>
 <hr />
-<h2 data-number="8" id="opšta-bayesovska-estimacija-cena-i-rizik"><span
-class="header-section-number">8</span> Opšta Bayesovska estimacija: cena
-i rizik</h2>
+<h2 data-number="13" id="opšta-bayesovska-estimacija-cena-i-rizik"><span
+class="header-section-number">13</span> Opšta Bayesovska estimacija:
+cena i rizik</h2>
 <ul>
 <li><strong>Poenta:</strong> Definišeš <strong>cenu</strong> <span
 class="math inline">C(\epsilon)</span> i minimizuješ
@@ -336,9 +447,9 @@ aplikacije (robustnost, tolerancija, greške tipa „preko praga“).</li>
 „odsečena“ Gaussova posteriorna.</li>
 </ul>
 <hr />
-<h2 data-number="9"
+<h2 data-number="14"
 id="linearna-bayesovska-estimacija-lemskg-i-geometrija"><span
-class="header-section-number">9</span> Linearna Bayesovska estimacija
+class="header-section-number">14</span> Linearna Bayesovska estimacija
 (LEMSKG) i geometrija</h2>
 <ul>
 <li><strong>LEMSKG:</strong> <span
@@ -357,8 +468,8 @@ za Kalmanov filter.</li>
 komponentu inovacije.</li>
 </ul>
 <hr />
-<h2 data-number="10" id="kalmanov-filter-kf"><span
-class="header-section-number">10</span> Kalmanov filter (KF)</h2>
+<h2 data-number="15" id="kalmanov-filter-kf"><span
+class="header-section-number">15</span> Kalmanov filter (KF)</h2>
 <ul>
 <li><strong>Model:</strong> Gauss–Markov stanje + BGŠ merenja.</li>
 <li><strong>Rekurzije (skalar):</strong>
@@ -380,8 +491,8 @@ odziv zavisi od <span
 class="math inline">\sigma_u^2,\sigma_w^2</span>.</li>
 </ul>
 <hr />
-<h2 data-number="11" id="povezanosti-redosled-učenja"><span
-class="header-section-number">11</span> Povezanosti (redosled
+<h2 data-number="16" id="povezanosti-redosled-učenja"><span
+class="header-section-number">16</span> Povezanosti (redosled
 učenja)</h2>
 <ol type="1">
 <li><strong>Uvod → SKG/bias–var</strong> (razumevanje metrike)</li>
@@ -395,5 +506,5 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813115650 --></body>
+</body>
 </html>
