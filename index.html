@@ -126,10 +126,25 @@ id="toc-vektorski-slučaj-blue-za-boldsymbolthetainmathbbrp"><span
 class="toc-section-number">5.5</span> Vektorski slučaj (BLUE za <span
 class="math inline">\boldsymbol{\theta}\in\mathbb{R}^p</span>)</a></li>
 </ul></li>
-<li><a href="#emv-mle-estimator-maksimalne-verodostojnosti"
-id="toc-emv-mle-estimator-maksimalne-verodostojnosti"><span
-class="toc-section-number">6</span> EMV / MLE – Estimator Maksimalne
-Verodostojnosti</a></li>
+<li><a href="#estimator-maksimalne-verodostojnosti-emv-mle"
+id="toc-estimator-maksimalne-verodostojnosti-emv-mle"><span
+class="toc-section-number">6</span> Estimator maksimalne verodostojnosti
+(EMV / MLE)</a>
+<ul>
+<li><a href="#definicija-i-motivacija"
+id="toc-definicija-i-motivacija"><span
+class="toc-section-number">6.1</span> Definicija i motivacija</a></li>
+<li><a href="#primeri" id="toc-primeri"><span
+class="toc-section-number">6.2</span> Primeri</a></li>
+<li><a href="#osobine-emv" id="toc-osobine-emv"><span
+class="toc-section-number">6.3</span> Osobine EMV</a></li>
+<li><a href="#numerička-maksimizacija-verodostojnosti"
+id="toc-numerička-maksimizacija-verodostojnosti"><span
+class="toc-section-number">6.4</span> Numerička maksimizacija
+verodostojnosti</a></li>
+<li><a href="#rezime" id="toc-rezime"><span
+class="toc-section-number">6.5</span> Rezime</a></li>
+</ul></li>
 <li><a href="#bayesovska-filozofija-i-emskg-posteriorna-sredina"
 id="toc-bayesovska-filozofija-i-emskg-posteriorna-sredina"><span
 class="toc-section-number">7</span> Bayesovska filozofija i EMSKG
@@ -1004,23 +1019,147 @@ nepomerenim.</p>
 </div></details>
 <hr />
 <h2 data-number="6"
-id="emv-mle-estimator-maksimalne-verodostojnosti"><span
-class="header-section-number">6</span> EMV / MLE – Estimator Maksimalne
-Verodostojnosti</h2>
-<ul>
-<li><strong>Poenta:</strong> Maksimizuje <span
-class="math inline">L(\theta)=p(x;\theta)</span> (ili <span
-class="math inline">\ell=\ln L</span>).</li>
-<li><strong>Osobine:</strong> asimptotski <strong>nepomeren, normalan,
-efikasan</strong> (za <span class="math inline">N\to\infty</span>).</li>
-<li><strong>Zašto:</strong> univerzalan i često praktičan kada
-NEMV/RBLST ne rade; daje iste rezultate kao OLS u Gaussovom
-slučaju.</li>
-<li><strong>Primer:</strong> Bernoulli <span
-class="math inline">p</span>: <span class="math inline">\hat
-p=\frac{1}{N}\sum x[n]</span>; konstanta u WGN: <span
-class="math inline">\hat A=\bar x</span>.</li>
-</ul>
+id="estimator-maksimalne-verodostojnosti-emv-mle"><span
+class="header-section-number">6</span> Estimator maksimalne
+verodostojnosti (EMV / MLE)</h2>
+<h3 data-number="6.1" id="definicija-i-motivacija"><span
+class="header-section-number">6.1</span> Definicija i motivacija</h3>
+<details class="card">
+<summary>
+<strong>Šta je estimator maksimalne verodostojnosti (EMV)?</strong>
+</summary>
+<div class="card-body">
+<p>EMV je estimator: <span class="math display">
+\hat{\theta} = \arg\max_{\theta} p(x; \theta) = \arg\max_{\theta}
+L(\theta) = \arg\max_{\theta} \ell(\theta),
+</span> gde je <span class="math inline">L(\theta)</span> funkcija
+verodostojnosti, a <span class="math inline">\ell(\theta)</span>
+log-verodostojnost.</p>
+<p><strong>Intuicija:</strong> biramo onu vrednost parametra <span
+class="math inline">\theta</span> koja čini posmatrane podatke
+<strong>najverovatnijim</strong>.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kada se koristi EMV?</strong>
+</summary>
+<div class="card-body">
+<p>Koristimo ga: - kada znamo tačnu formu raspodele <span
+class="math inline">p(x; \theta)</span>, - kada NEMV (MVUE) ne možemo
+naći preko Cramer–Rao teoreme ili drugih metoda.</p>
+</div></details>
+<hr />
+<h3 data-number="6.2" id="primeri"><span
+class="header-section-number">6.2</span> Primeri</h3>
+<details class="card">
+<summary>
+<strong>Primer: konstanta <span class="math inline">A</span> u Gaussovom
+šumu</strong>
+</summary>
+<div class="card-body">
+<p>Ako je <span class="math inline">x[n] \sim \mathcal{N}(A,
+\sigma^2)</span>, log-verodostojnost je: <span class="math display">
+\ell(A) = -\frac{N}{2} \ln(2\pi\sigma^2) - \frac{1}{2\sigma^2}
+\sum_{n=0}^{N-1} (x[n] - A)^2
+</span> Maksimizacijom po <span class="math inline">A</span> (<span
+class="math inline">\ell&#39;(A) = 0</span>) dobijamo: <span
+class="math display">
+\hat{A}_{\text{EMV}} = \bar{x}
+</span> što je isto kao i NEMV.</p>
+<p><strong>Komentar:</strong> u ovom slučaju EMV je
+<strong>efikasan</strong> i dostiže CRDG.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Primer: Bernoulli raspodela</strong>
+</summary>
+<div class="card-body">
+<p>Ako je <span class="math inline">x[n] \sim
+\text{Bernoulli}(\varphi)</span>,<br />
+sa <span class="math inline">N_1 = \sum x[n]</span> i <span
+class="math inline">N_0 = N - N_1</span>: <span class="math display">
+L(\varphi) = \varphi^{N_1} (1 - \varphi)^{N_0}
+</span> Maksimizacija daje: <span class="math display">
+\hat{\varphi} = \frac{N_1}{N}
+</span> <strong>Komentar:</strong> intuitivno, procena parametra <span
+class="math inline">\varphi</span> je samo relativna učestalost
+uspeha.</p>
+</div></details>
+<hr />
+<h3 data-number="6.3" id="osobine-emv"><span
+class="header-section-number">6.3</span> Osobine EMV</h3>
+<details class="card">
+<summary>
+<strong>Koje su asimptotske osobine EMV-a?</strong>
+</summary>
+<div class="card-body">
+<p>Ako su <span class="math inline">\ell&#39;(\theta)</span> i <span
+class="math inline">\ell&#39;&#39;(\theta)</span> definisani, <span
+class="math inline">I(\theta) \neq 0</span> i <span
+class="math inline">E[\ell&#39;(\theta)] = 0</span>, tada: <span
+class="math display">
+\hat{\theta}_{\text{EMV}} \;\; \overset{a}{\sim} \;\; \mathcal{N} \left(
+\theta, I^{-1}(\theta) \right), \quad N \to \infty
+</span> odnosno EMV je: - asimptotski <strong>normalan</strong> -
+asimptotski <strong>nepomeren</strong> - asimptotski
+<strong>efikasan</strong></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Primer: konstanta <span class="math inline">A</span> u Gaussovom
+šumu varijanse <span class="math inline">A</span></strong>
+</summary>
+<div class="card-body">
+<p>Model: <span class="math inline">x[n] \sim \mathcal{N}(A,
+A)</span><br />
+Posle diferenciranja i rešavanja kvadratne jednačine: <span
+class="math display">
+\hat{A} = -\frac{1}{2} + \sqrt{\frac{1}{N} \sum_{n=0}^{N-1} x^2[n] +
+\frac{1}{4}}
+</span> Za <span class="math inline">N \to \infty</span>: <span
+class="math display">
+\hat{A} \; \overset{a}{\sim} \; \mathcal{N} \left( A,
+\frac{A^2}{N\left(A + \frac12\right)} \right)
+</span></p>
+<p><strong>Komentar:</strong> ovde EMV <strong>nije</strong> linearna
+funkcija uzoraka, pa se razlikuje od BLUE.</p>
+</div></details>
+<hr />
+<h3 data-number="6.4" id="numerička-maksimizacija-verodostojnosti"><span
+class="header-section-number">6.4</span> Numerička maksimizacija
+verodostojnosti</h3>
+<details class="card">
+<summary>
+<strong>Kako numerički maksimizirati verodostojnost?</strong>
+</summary>
+<div class="card-body">
+<ol type="1">
+<li><strong>Pretraga po mreži:</strong> za <span
+class="math inline">\theta \in [a,b]</span> računamo <span
+class="math inline">p(x; \theta)</span> u tačkama <span
+class="math inline">a, a+\Delta\theta, \dots, b</span>.</li>
+<li><strong>Newton–Raphson metoda:</strong> <span class="math display">
+\theta_{k+1} = \theta_k -
+\frac{\ell&#39;(\theta_k)}{\ell&#39;&#39;(\theta_k)}
+</span> traži nulu prvog izvoda.</li>
+<li><strong>Metoda skorovanja:</strong> <span class="math display">
+\ell&#39;&#39;(\theta) \to E[\ell&#39;&#39;(\theta)] = -I(\theta), \quad
+\theta_{k+1} = \theta_k + I^{-1}(\theta_k) \, \ell&#39;(\theta_k)
+</span> ima manju zavisnost od konkretnog uzorka.</li>
+</ol>
+</div></details>
+<hr />
+<h3 data-number="6.5" id="rezime"><span
+class="header-section-number">6.5</span> Rezime</h3>
+<details class="card">
+<summary>
+<strong>Ključne tačke o EMV-u:</strong> - Maksimizuje verovatnoću
+posmatranih podataka. - Za konačno <span class="math inline">N</span>
+nema garancije optimalnosti. - Asimptotski normalan, nepomeren i
+efikasan. - Može zahtevati numeričke metode.
+</summary>
+<div class="card-body">
+</div></details>
 <hr />
 <h2 data-number="7"
 id="bayesovska-filozofija-i-emskg-posteriorna-sredina"><span
@@ -1122,5 +1261,5 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813153729 --></body>
+</body>
 </html>
