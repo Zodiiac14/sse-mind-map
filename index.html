@@ -218,9 +218,10 @@ class="toc-section-number">9.5</span> Vektorski LEMSKG</a></li>
 </ul></li>
 <li><a href="#kalmanov-filter-kf" id="toc-kalmanov-filter-kf"><span
 class="toc-section-number">10</span> Kalmanov filter (KF)</a></li>
-<li><a href="#pregled-i-povezanost-formula"
-id="toc-pregled-i-povezanost-formula"><span
-class="toc-section-number">11</span> Pregled i povezanost formula</a>
+<li><a href="#pregled-svih-ključnih-formula-i-veza-među-njima"
+id="toc-pregled-svih-ključnih-formula-i-veza-među-njima"><span
+class="toc-section-number">11</span> Pregled svih ključnih formula i
+veza među njima</a>
 <ul>
 <li><a href="#verodostojnost-i-log-verodostojnost"
 id="toc-verodostojnost-i-log-verodostojnost"><span
@@ -229,28 +230,115 @@ log-verodostojnost</a></li>
 <li><a href="#fišerova-informacija-1"
 id="toc-fišerova-informacija-1"><span
 class="toc-section-number">11.2</span> Fišerova informacija</a></li>
-<li><a href="#crdg-cramérrao-donja-granica-1"
-id="toc-crdg-cramérrao-donja-granica-1"><span
-class="toc-section-number">11.3</span> CRDG – Cramér–Rao Donja
-Granica</a></li>
-<li><a href="#nlne-blue-best-linear-unbiased-i-lemskg-linearni-mmse"
-id="toc-nlne-blue-best-linear-unbiased-i-lemskg-linearni-mmse"><span
-class="toc-section-number">11.4</span> NLNE / BLUE (best linear
-unbiased) i LEMSKG (linearni MMSE)</a></li>
-<li><a href="#linearni-gaussovski-lg-bayes-model-posterior"
-id="toc-linearni-gaussovski-lg-bayes-model-posterior"><span
-class="toc-section-number">11.5</span> Linearni Gaussovski (LG) Bayes
-model – posterior</a></li>
-<li><a href="#mle-emv" id="toc-mle-emv"><span
-class="toc-section-number">11.6</span> MLE (EMV)</a></li>
-<li><a href="#bayes-posterior-rizik-i-optimalni-estimatori"
-id="toc-bayes-posterior-rizik-i-optimalni-estimatori"><span
-class="toc-section-number">11.7</span> Bayes: posterior, rizik i
-optimalni estimatori</a></li>
-<li><a href="#veze-između-pristupa-blue-mvue-bayes-mle"
-id="toc-veze-između-pristupa-blue-mvue-bayes-mle"><span
-class="toc-section-number">11.8</span> Veze između pristupa (BLUE, MVUE,
-Bayes, MLE)</a></li>
+<li><a href="#uslov-regularnosti-1" id="toc-uslov-regularnosti-1"><span
+class="toc-section-number">11.3</span> Uslov regularnosti</a></li>
+<li><a href="#šta-važi-za-fišera-pod-ur"
+id="toc-šta-važi-za-fišera-pod-ur"><span
+class="toc-section-number">11.4</span> Šta važi za Fišera pod
+UR</a></li>
+<li><a href="#iskaz-crdg-cramérrao-donja-granica"
+id="toc-iskaz-crdg-cramérrao-donja-granica"><span
+class="toc-section-number">11.5</span> Iskaz CRDG (Cramér–Rao Donja
+Granica)</a></li>
+<li><a href="#uslov-jednakosti-u-crdg"
+id="toc-uslov-jednakosti-u-crdg"><span
+class="toc-section-number">11.6</span> Uslov jednakosti u CRDG</a></li>
+<li><a href="#crdg-za-signale-u-belom-gaussovom-šumu-sntheta"
+id="toc-crdg-za-signale-u-belom-gaussovom-šumu-sntheta"><span
+class="toc-section-number">11.7</span> CRDG za signale u belom Gaussovom
+šumu <span class="math inline">s[n;\theta]</span></a></li>
+<li><a href="#crdg-za-funkciju-parametra-alpha-atheta"
+id="toc-crdg-za-funkciju-parametra-alpha-atheta"><span
+class="toc-section-number">11.8</span> CRDG za funkciju parametra <span
+class="math inline">\alpha = a(\theta)</span></a></li>
+<li><a href="#fišerova-matrica-informacije-vektorski-parametar"
+id="toc-fišerova-matrica-informacije-vektorski-parametar"><span
+class="toc-section-number">11.9</span> Fišerova matrica informacije
+(vektorski parametar)</a></li>
+<li><a href="#uslov-regularnosti-za-fišerovu-matricu"
+id="toc-uslov-regularnosti-za-fišerovu-matricu"><span
+class="toc-section-number">11.10</span> Uslov regularnosti za Fišerovu
+matricu</a></li>
+<li><a href="#crdg-za-vektorsko-theta"
+id="toc-crdg-za-vektorsko-theta"><span
+class="toc-section-number">11.11</span> CRDG za vektorsko <span
+class="math inline">\theta</span></a></li>
+<li><a href="#transformacija-parametara-sa-jakobijanom"
+id="toc-transformacija-parametara-sa-jakobijanom"><span
+class="toc-section-number">11.12</span> Transformacija parametara sa
+Jakobijanom</a></li>
+<li><a href="#linearni-gaussovski-model"
+id="toc-linearni-gaussovski-model"><span
+class="toc-section-number">11.13</span> Linearni Gaussovski
+model</a></li>
+<li><a href="#estimator-i-kovarijaciona-matrica-u-lg-modelu"
+id="toc-estimator-i-kovarijaciona-matrica-u-lg-modelu"><span
+class="toc-section-number">11.14</span> Estimator i kovarijaciona
+matrica u LG modelu</a></li>
+<li><a href="#isti-model-kada-je-šum-obojen"
+id="toc-isti-model-kada-je-šum-obojen"><span
+class="toc-section-number">11.15</span> Isti model kada je šum
+obojen</a></li>
+<li><a href="#blue-best-linear-unbiased-estimator-oblik-i-varijansa"
+id="toc-blue-best-linear-unbiased-estimator-oblik-i-varijansa"><span
+class="toc-section-number">11.16</span> BLUE (Best Linear Unbiased
+Estimator) oblik i varijansa</a></li>
+<li><a href="#vektorski-blue" id="toc-vektorski-blue"><span
+class="toc-section-number">11.17</span> Vektorski BLUE</a></li>
+<li><a href="#zašto-je-lg-gauss-mvue-blue"
+id="toc-zašto-je-lg-gauss-mvue-blue"><span
+class="toc-section-number">11.18</span> Zašto je LG Gauss MVUE =
+BLUE</a></li>
+<li><a href="#mle-estimator" id="toc-mle-estimator"><span
+class="toc-section-number">11.19</span> MLE estimator</a></li>
+<li><a href="#newtonraphson-metoda" id="toc-newtonraphson-metoda"><span
+class="toc-section-number">11.20</span> Newton–Raphson metoda</a></li>
+<li><a href="#metoda-skorovanja" id="toc-metoda-skorovanja"><span
+class="toc-section-number">11.21</span> Metoda skorovanja</a></li>
+<li><a href="#emskg-est.-min.-sred.-kv.-greške"
+id="toc-emskg-est.-min.-sred.-kv.-greške"><span
+class="toc-section-number">11.22</span> EMSKG (Est. Min. Sred. Kv.
+Greške)</a></li>
+<li><a href="#bmse-kada-nađemo-emskg"
+id="toc-bmse-kada-nađemo-emskg"><span
+class="toc-section-number">11.23</span> BMSE kada nađemo EMSKG</a></li>
+<li><a href="#poređenje-bmse_textemskg-i-mse_textnemv"
+id="toc-poređenje-bmse_textemskg-i-mse_textnemv"><span
+class="toc-section-number">11.24</span> Poređenje BMSE<span
+class="math inline">_{\text{EMSKG}}</span> i MSE<span
+class="math inline">_{\text{nemv}}</span></a></li>
+<li><a href="#osobine-gaussove-fgv-mu_thetax-i-c_thetax"
+id="toc-osobine-gaussove-fgv-mu_thetax-i-c_thetax"><span
+class="toc-section-number">11.25</span> Osobine Gaussove FGV <span
+class="math inline">\mu_{\theta|x}</span> i <span
+class="math inline">C_{\theta|x}</span></a></li>
+<li><a href="#linearni-gaussovskobejzovski-model"
+id="toc-linearni-gaussovskobejzovski-model"><span
+class="toc-section-number">11.26</span> Linearni Gaussovsko–Bejzovski
+model</a></li>
+<li><a href="#lemma-o-inverziji-i-oznaka-s"
+id="toc-lemma-o-inverziji-i-oznaka-s"><span
+class="toc-section-number">11.27</span> Lemma o inverziji i oznaka <span
+class="math inline">s</span></a></li>
+<li><a href="#opšta-bayesovska-estimacija-cena-i-rizik"
+id="toc-opšta-bayesovska-estimacija-cena-i-rizik"><span
+class="toc-section-number">11.28</span> Opšta Bayesovska estimacija:
+cena i rizik</a></li>
+<li><a href="#optimalni-estimatori-po-kriterijumu"
+id="toc-optimalni-estimatori-po-kriterijumu"><span
+class="toc-section-number">11.29</span> Optimalni estimatori po
+kriterijumu</a></li>
+<li><a href="#lemskg-skalarni-i-vektorski"
+id="toc-lemskg-skalarni-i-vektorski"><span
+class="toc-section-number">11.30</span> LEMSKG (skalarni i
+vektorski)</a></li>
+<li><a href="#zašto-je-isti-kao-u-gaussbejzovskom-lg-modelu"
+id="toc-zašto-je-isti-kao-u-gaussbejzovskom-lg-modelu"><span
+class="toc-section-number">11.31</span> Zašto je isti kao u
+Gauss–Bejzovskom LG modelu</a></li>
+<li><a href="#bmse-sve-moguće-forme"
+id="toc-bmse-sve-moguće-forme"><span
+class="toc-section-number">11.32</span> BMSE – sve moguće forme</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -1824,269 +1912,303 @@ odziv zavisi od <span
 class="math inline">\sigma_u^2,\sigma_w^2</span>.</li>
 </ul>
 <hr />
-<h2 data-number="11" id="pregled-i-povezanost-formula"><span
-class="header-section-number">11</span> Pregled i povezanost
-formula</h2>
+<h2 data-number="11"
+id="pregled-svih-ključnih-formula-i-veza-među-njima"><span
+class="header-section-number">11</span> Pregled svih ključnih formula i
+veza među njima</h2>
+<hr />
 <h3 data-number="11.1" id="verodostojnost-i-log-verodostojnost"><span
 class="header-section-number">11.1</span> Verodostojnost i
 log-verodostojnost</h3>
-<details class="card">
-<summary>
-<strong>Formule</strong>
-</summary>
-<div class="card-body">
 <p><span class="math display">
-L(\theta)=p(x;\theta),\qquad \ell(\theta)=\ln p(x;\theta)
+L(\theta) = p(x;\theta), \quad \ell(\theta) = \ln p(x;\theta)
+</span> Za NJR uzorke:<br />
+<span class="math display">
+\ell(\theta) = \sum_{n} \ln p(x[n];\theta)
 </span></p>
-<p><strong>Napomene</strong></p>
-<ul>
-<li>Aditivnost za IID uzorke: <span
-class="math inline">\ell(\theta)=\sum_{n}\ln
-p(x[n];\theta)</span>.<br />
-</li>
-</ul>
-</div></details>
 <hr />
 <h3 data-number="11.2" id="fišerova-informacija-1"><span
 class="header-section-number">11.2</span> Fišerova informacija</h3>
-<details class="card">
-<summary>
-<strong>Skalarni slučaj</strong>
-</summary>
-<div class="card-body">
 <p><span class="math display">
-I(\theta) = -E\!\left[\frac{\partial^2}{\partial\theta^2}\ln
-p(x;\theta)\right]
-= E\!\left[\left(\frac{\partial}{\partial\theta}\ln
-p(x;\theta)\right)^{\!2}\right]
+I(\theta) = -E\!\left[ \frac{\partial^2}{\partial\theta^2} \ln
+p(x;\theta) \right]
+= E\!\left[ \left( \frac{\partial}{\partial\theta} \ln p(x;\theta)
+\right)^2 \right]
 </span></p>
-<p><strong>Zašto su iste?</strong><br />
-Pod <strong>uslovom regularnosti</strong> (može se zameniti redosled
-izvoda i integrala; skup podrške ne zavisi od <span
-class="math inline">\theta</span>), važi <span
-class="math inline">E[\partial_\theta \ln p]=0</span>, pa su dve
-definicije ekvivalentne.</p>
-</div></details>
-<details class="card">
-<summary>
-<strong>Matrica Fisherove informacije (vektorski parametar)</strong>
-</summary>
-<div class="card-body">
-<p><span class="math display">
-I(\theta)]_{ij}
-= -E\!\left[\frac{\partial^2}{\partial\theta_i\partial\theta_j}\ln
-p(x;\theta)\right]
-= E\!\left[\partial_{\theta_i}\ln p \;\partial_{\theta_j}\ln p\right
-</span></p>
-</div></details>
 <hr />
-<h3 data-number="11.3" id="crdg-cramérrao-donja-granica-1"><span
-class="header-section-number">11.3</span> CRDG – Cramér–Rao Donja
-Granica</h3>
-<details class="card">
-<summary>
-<strong>Skalar</strong>
-</summary>
-<div class="card-body">
+<h3 data-number="11.3" id="uslov-regularnosti-1"><span
+class="header-section-number">11.3</span> Uslov regularnosti</h3>
 <p><span class="math display">
-\mathrm{var}(\hat{\theta}) \;\ge\; \frac{1}{I(\theta)}
-</span></p>
-<p><strong>Vektor</strong></p>
-<p><span class="math display">
-C_{\hat{\theta}} - I(\theta)^{-1} \;\succeq\; 0
-</span></p>
-<p><strong>Efikasnost i uslov jednakosti</strong></p>
-<p><span class="math display">
-\nabla_\theta \ln p(x;\theta) \;=\; I(\theta)\,[g(x)-\theta]
-\;\Rightarrow\; C_{\hat{\theta}}=I^{-1}(\theta)
-</span></p>
-<p><strong>Transformacija parametara</strong></p>
-<p><span class="math display">
-\alpha=a(\theta),\quad C_{\hat{\alpha}} \;\succeq\;
-J(a)\,I^{-1}(\theta)\,J(a)^{T},\quad
-J(a)=\frac{\partial a}{\partial\theta}
-</span></p>
-</div></details>
+E\!\left[ \frac{\partial}{\partial\theta} \ln p(x;\theta) \right] = 0
+</span> Dozvoljava zamenu izvoda i integrala.</p>
 <hr />
-<h3 data-number="11.4"
-id="nlne-blue-best-linear-unbiased-i-lemskg-linearni-mmse"><span
-class="header-section-number">11.4</span> NLNE / BLUE (best linear
-unbiased) i LEMSKG (linearni MMSE)</h3>
-<details class="card">
-<summary>
-<strong>Skalarni BLUE (poznat <span class="math inline">E[x]=\theta
-s</span>, <span class="math inline">\mathrm{cov}(x)=C</span>)</strong>
-</summary>
-<div class="card-body">
-<p><span class="math display">
-\hat{\theta}=\frac{s^{T}C^{-1}x}{s^{T}C^{-1}s},\qquad
-\mathrm{var}(\hat{\theta})=\frac{1}{s^{T}C^{-1}s}
+<h3 data-number="11.4" id="šta-važi-za-fišera-pod-ur"><span
+class="header-section-number">11.4</span> Šta važi za Fišera pod UR</h3>
+<p>Pod uslovom regularnosti: <span class="math display">
+I(\theta) = E\!\left[ \left( \frac{\partial}{\partial\theta} \ln
+p(x;\theta) \right)^2 \right]
+= -E\!\left[ \frac{\partial^2}{\partial\theta^2} \ln p(x;\theta) \right]
 </span></p>
-<p>U belom šumu <span class="math inline">C=\sigma^2 I</span>: <span
-class="math inline">\hat{\theta}=\dfrac{s^T x}{s^T s}</span>.</p>
-</div></details>
-<details class="card">
-<summary>
-<strong>Vektorski BLUE/GLS (model <span
-class="math inline">x=H\theta+w</span>, <span
-class="math inline">\mathrm{cov}(w)=C_w</span>)</strong>
-</summary>
-<div class="card-body">
-<p><span class="math display">
-\hat{\theta}=(H^T C_w^{-1}H)^{-1}H^TC_w^{-1}x,\qquad
-C_{\hat{\theta}}=(H^T C_w^{-1}H)^{-1}
-</span></p>
-<p>Uslov nepomerenosti: <span class="math inline">A H=I</span> za <span
-class="math inline">\hat{\theta}=A x</span>.</p>
-</div></details>
-<details class="card">
-<summary>
-<strong>LEMSKG (generalni linearni MMSE)</strong>
-</summary>
-<div class="card-body">
-<p><span class="math display">
-\hat{\theta}=E\{\theta\}+C_{\theta x}\,C_x^{-1}(x-E\{x\}),\qquad
-\mathrm{Bmse}=\mathrm{var}(\theta)-C_{\theta x}\,C_x^{-1}C_{x\theta}
-</span></p>
-<p>Geometrija: <span class="math inline">\hat{\theta}</span> je
-<strong>projekcija</strong> <span class="math inline">\theta</span> na
-prostor generisan <span class="math inline">x</span>.<br />
-<strong>Veza sa Gauss–Bayes:</strong> isti izrazi važe i u linearnom
-Gaussovom modelu.</p>
-</div></details>
 <hr />
-<h3 data-number="11.5"
-id="linearni-gaussovski-lg-bayes-model-posterior"><span
-class="header-section-number">11.5</span> Linearni Gaussovski (LG) Bayes
-model – posterior</h3>
-<details class="card">
-<summary>
-<strong>Posteriorna kovarijansa i sredina (<span
-class="math inline">x=H\theta+w</span>, <span
-class="math inline">\theta\!\sim\!N(\mu_\theta,C_\theta)</span>, <span
-class="math inline">w\!\sim\!N(0,C_w)</span>)</strong>
-</summary>
-<div class="card-body">
+<h3 data-number="11.5" id="iskaz-crdg-cramérrao-donja-granica"><span
+class="header-section-number">11.5</span> Iskaz CRDG (Cramér–Rao Donja
+Granica)</h3>
 <p><span class="math display">
-C_{\theta|x} = \big(C_\theta^{-1}+H^T C_w^{-1} H\big)^{-1}
-</span> <span class="math display">
-\mu_{\theta|x}=\mu_\theta+C_{\theta|x} H^T C_w^{-1}\,(x-H\mu_\theta)
+\mathrm{var}(\hat{\theta}) \ge \frac{1}{I(\theta)}
 </span></p>
-<p><strong>Ekvivalentan oblik (lema o inverziji matrice)</strong></p>
-<p><span class="math display">
-C_{\theta|x}=C_\theta - C_\theta H^T\,(H C_\theta H^T + C_w)^{-1} H
-C_\theta
-</span></p>
-</div></details>
 <hr />
-<h3 data-number="11.6" id="mle-emv"><span
-class="header-section-number">11.6</span> MLE (EMV)</h3>
-<details class="card">
-<summary>
-<strong>Definicija i osobine</strong>
-</summary>
-<div class="card-body">
-<p><span class="math display">
-\hat{\theta}_{\text{MLE}}=\arg\max_\theta p(x;\theta)
-=\arg\max_\theta \ell(\theta),\qquad
-\ell&#39;(\hat{\theta})=0
-</span></p>
-<p>Asimptotski (pod standardnim uslovima):<br />
-<span class="math inline">\hat{\theta}_{\text{MLE}} \overset{a}{\sim}
-N(\theta,\, I^{-1}(\theta))</span> — <strong>normalan, nepomeren i
-efikasan</strong> za <span class="math inline">N\to\infty</span>.</p>
-</div></details>
-<details class="card">
-<summary>
-<strong>Primeri i numerika</strong>
-</summary>
-<div class="card-body">
-<ul>
-<li>Bernoulli: <span
-class="math inline">\hat{\varphi}=\dfrac{N_1}{N}</span> (moda
-verovatnoće).<br />
-</li>
-<li>Gauss <span class="math inline">A</span> poznata <span
-class="math inline">\sigma^2</span>: <span
-class="math inline">\hat{A}=\bar{x}</span>.<br />
-</li>
-<li>Newton–Raphson: <span
-class="math inline">\theta_{k+1}=\theta_k-\dfrac{\ell&#39;(\theta_k)}{\ell&#39;&#39;(\theta_k)}</span>.<br />
-</li>
-<li>Skorovanje: <span class="math inline">\theta_{k+1}=\theta_k +
-I^{-1}(\theta_k)\,\ell&#39;(\theta_k)</span>.</li>
-</ul>
-</div></details>
+<h3 data-number="11.6" id="uslov-jednakosti-u-crdg"><span
+class="header-section-number">11.6</span> Uslov jednakosti u CRDG</h3>
+<p>Jednakost važi ako: <span class="math display">
+\frac{\partial}{\partial\theta} \ln p(x;\theta) = I(\theta) \,
+(\hat{\theta}(x) - \theta)
+</span> što znači da je estimator “efikasan”.</p>
 <hr />
 <h3 data-number="11.7"
-id="bayes-posterior-rizik-i-optimalni-estimatori"><span
-class="header-section-number">11.7</span> Bayes: posterior, rizik i
-optimalni estimatori</h3>
-<details class="card">
-<summary>
-<strong>Posterior i Bayesov rizik</strong>
-</summary>
-<div class="card-body">
-<p><span class="math display">
-p(\theta|x)=\frac{p(x|\theta)\,p(\theta)}{p(x)},\qquad
-R=E\{C(\theta-\hat{\theta})\}=\int\!\Big[\int
-C(\theta-\hat{\theta})\,p(\theta|x)\,d\theta\Big]p(x)\,dx
+id="crdg-za-signale-u-belom-gaussovom-šumu-sntheta"><span
+class="header-section-number">11.7</span> CRDG za signale u belom
+Gaussovom šumu <span class="math inline">s[n;\theta]</span></h3>
+<p>Ako je: <span class="math display">
+x[n] = s[n;\theta] + w[n], \quad w[n] \sim \mathcal{N}(0,\sigma^2)
+</span> onda: <span class="math display">
+I(\theta) = \frac{1}{\sigma^2} \sum_{n=0}^{N-1} \left( \frac{\partial
+s[n;\theta]}{\partial\theta} \right)^2
+</span> <span class="math display">
+\Rightarrow \quad \mathrm{var}(\hat{\theta}) \ge \frac{\sigma^2}{\sum
+\left( \frac{\partial s}{\partial\theta} \right)^2 }
 </span></p>
-<p><strong>Optimalni estimatori</strong></p>
-<ul>
-<li><p><strong>Kvadratna cena:</strong> <span
-class="math inline">\Rightarrow</span> <strong>EMSKG</strong>: <span
-class="math inline">\hat{\theta}=E\{\theta|x\}</span></p></li>
-<li><p><strong>Apsolutna cena:</strong> <span
-class="math inline">\Rightarrow</span> <strong>medijana</strong>
-posteriora</p></li>
-<li><p><strong>0/1 cena:</strong> (mali <span
-class="math inline">\delta</span>) <span
-class="math inline">\Rightarrow</span> <strong>MAP</strong> <span
-class="math inline">\arg\max_\theta p(\theta|x)</span></p></li>
-</ul>
-</div></details>
-<details class="card">
-<summary>
-<strong>Primer (apriorna uniformna) i “zatvorena forma”</strong>
-</summary>
-<div class="card-body">
-<p>Uniformna apriorna na opsegu <span
-class="math inline">[-\!A_0,A_0]</span> i Gaussov likelihood daju
-<strong>odsečenu normalnu</strong> za <span
-class="math inline">p(A|x)</span> sa modom u <span
-class="math inline">\bar{x}</span>; za velika <span
-class="math inline">N</span> posterior se koncentriše oko <span
-class="math inline">\bar{x}</span>. “Zatvorena forma” = eksplicitna
-formula bez numeričke integracije.</p>
-</div></details>
 <hr />
 <h3 data-number="11.8"
-id="veze-između-pristupa-blue-mvue-bayes-mle"><span
-class="header-section-number">11.8</span> Veze između pristupa (BLUE,
-MVUE, Bayes, MLE)</h3>
-<details class="card">
-<summary>
-<strong>Kada su iste / kako prelaziš</strong>
-</summary>
-<div class="card-body">
+id="crdg-za-funkciju-parametra-alpha-atheta"><span
+class="header-section-number">11.8</span> CRDG za funkciju parametra
+<span class="math inline">\alpha = a(\theta)</span></h3>
+<p><span class="math display">
+\mathrm{var}(\hat{\alpha}) \ge \frac{\left( \frac{\partial
+a}{\partial\theta} \right)^2}{I(\theta)}
+</span></p>
+<hr />
+<h3 data-number="11.9"
+id="fišerova-matrica-informacije-vektorski-parametar"><span
+class="header-section-number">11.9</span> Fišerova matrica informacije
+(vektorski parametar)</h3>
+<p><span class="math display">
+[I(\theta)]_{ij} = -E\!\left[ \frac{\partial^2}{\partial\theta_i
+\partial\theta_j} \ln p(x;\theta) \right]
+= E\!\left[ \frac{\partial \ln p}{\partial\theta_i} \cdot \frac{\partial
+\ln p}{\partial\theta_j} \right]
+</span></p>
+<hr />
+<h3 data-number="11.10"
+id="uslov-regularnosti-za-fišerovu-matricu"><span
+class="header-section-number">11.10</span> Uslov regularnosti za
+Fišerovu matricu</h3>
+<p><span class="math display">
+E\!\left[ \frac{\partial \ln p(x;\theta)}{\partial\theta_i} \right] = 0,
+\quad \forall i
+</span></p>
+<hr />
+<h3 data-number="11.11" id="crdg-za-vektorsko-theta"><span
+class="header-section-number">11.11</span> CRDG za vektorsko <span
+class="math inline">\theta</span></h3>
+<p><span class="math display">
+C_{\hat{\theta}} \succeq I(\theta)^{-1}
+</span> Jednakost važi ako: <span class="math display">
+\nabla_\theta \ln p(x;\theta) = I(\theta) \, (\hat{\theta}(x) - \theta)
+</span></p>
+<hr />
+<h3 data-number="11.12"
+id="transformacija-parametara-sa-jakobijanom"><span
+class="header-section-number">11.12</span> Transformacija parametara sa
+Jakobijanom</h3>
+<p>Ako je <span class="math inline">\alpha = a(\theta)</span> i <span
+class="math inline">J = \frac{\partial a}{\partial \theta}</span>: <span
+class="math display">
+C_{\hat{\alpha}} \succeq J \, I(\theta)^{-1} \, J^T
+</span></p>
+<hr />
+<h3 data-number="11.13" id="linearni-gaussovski-model"><span
+class="header-section-number">11.13</span> Linearni Gaussovski
+model</h3>
+<p><span class="math display">
+x = H\theta + w, \quad w \sim \mathcal{N}(0, C_w)
+</span></p>
+<hr />
+<h3 data-number="11.14"
+id="estimator-i-kovarijaciona-matrica-u-lg-modelu"><span
+class="header-section-number">11.14</span> Estimator i kovarijaciona
+matrica u LG modelu</h3>
+<p><span class="math display">
+\hat{\theta} = (H^T C_w^{-1} H)^{-1} H^T C_w^{-1} x
+</span> <span class="math display">
+C_{\hat{\theta}} = (H^T C_w^{-1} H)^{-1}
+</span></p>
+<hr />
+<h3 data-number="11.15" id="isti-model-kada-je-šum-obojen"><span
+class="header-section-number">11.15</span> Isti model kada je šum
+obojen</h3>
+<p>Jednako važi jer <span class="math inline">C_w</span> može biti
+proizvoljna pozitivno-definitna matrica.</p>
+<hr />
+<h3 data-number="11.16"
+id="blue-best-linear-unbiased-estimator-oblik-i-varijansa"><span
+class="header-section-number">11.16</span> BLUE (Best Linear Unbiased
+Estimator) oblik i varijansa</h3>
+<p>Skalarni slučaj: <span class="math display">
+\hat{\theta} = \frac{s^T C^{-1} x}{s^T C^{-1} s}, \quad
+\mathrm{var}(\hat{\theta}) = \frac{1}{s^T C^{-1} s}
+</span></p>
+<hr />
+<h3 data-number="11.17" id="vektorski-blue"><span
+class="header-section-number">11.17</span> Vektorski BLUE</h3>
+<p><span class="math display">
+\hat{\theta} = (H^T C_w^{-1} H)^{-1} H^T C_w^{-1} x
+</span> <span class="math display">
+C_{\hat{\theta}} = (H^T C_w^{-1} H)^{-1}
+</span></p>
+<hr />
+<h3 data-number="11.18" id="zašto-je-lg-gauss-mvue-blue"><span
+class="header-section-number">11.18</span> Zašto je LG Gauss MVUE =
+BLUE</h3>
+<p>U linearnom Gaussovom modelu, BLUE je nepomeren i dostiže CRDG, pa je
+ujedno i MVUE.</p>
+<hr />
+<h3 data-number="11.19" id="mle-estimator"><span
+class="header-section-number">11.19</span> MLE estimator</h3>
+<p><span class="math display">
+\hat{\theta}_{\text{MLE}} = \arg\max_\theta p(x;\theta) =
+\arg\max_\theta \ell(\theta)
+</span> Uslov maksimuma: <span
+class="math inline">\ell&#39;(\hat{\theta}) = 0</span>.</p>
+<hr />
+<h3 data-number="11.20" id="newtonraphson-metoda"><span
+class="header-section-number">11.20</span> Newton–Raphson metoda</h3>
+<p><span class="math display">
+\theta_{k+1} = \theta_k -
+\frac{\ell&#39;(\theta_k)}{\ell&#39;&#39;(\theta_k)}
+</span></p>
+<hr />
+<h3 data-number="11.21" id="metoda-skorovanja"><span
+class="header-section-number">11.21</span> Metoda skorovanja</h3>
+<p><span class="math display">
+\theta_{k+1} = \theta_k + I(\theta_k)^{-1} \, \ell&#39;(\theta_k)
+</span></p>
+<hr />
+<h3 data-number="11.22" id="emskg-est.-min.-sred.-kv.-greške"><span
+class="header-section-number">11.22</span> EMSKG (Est. Min. Sred. Kv.
+Greške)</h3>
+<p><span class="math display">
+\hat{\theta} = E\{\theta|x\}
+</span></p>
+<hr />
+<h3 data-number="11.23" id="bmse-kada-nađemo-emskg"><span
+class="header-section-number">11.23</span> BMSE kada nađemo EMSKG</h3>
+<p><span class="math display">
+\mathrm{BMSE} = E\{ (\theta - \hat{\theta})^2 \} =
+E\{\mathrm{var}(\theta|x)\}
+</span></p>
+<hr />
+<h3 data-number="11.24"
+id="poređenje-bmse_textemskg-i-mse_textnemv"><span
+class="header-section-number">11.24</span> Poređenje BMSE<span
+class="math inline">_{\text{EMSKG}}</span> i MSE<span
+class="math inline">_{\text{nemv}}</span></h3>
+<p>BMSE EMSKG je minimalna MSE za dati prior i model, pa je: <span
+class="math display">
+\mathrm{BMSE}_{\text{EMSKG}} \le \mathrm{MSE}_{\text{bilo kog
+nepomerenog}}
+</span></p>
+<hr />
+<h3 data-number="11.25"
+id="osobine-gaussove-fgv-mu_thetax-i-c_thetax"><span
+class="header-section-number">11.25</span> Osobine Gaussove FGV <span
+class="math inline">\mu_{\theta|x}</span> i <span
+class="math inline">C_{\theta|x}</span></h3>
+<p>U Gaussovskom slučaju, posterior <span
+class="math inline">\theta|x</span> je normalan: <span
+class="math display">
+\theta|x \sim \mathcal{N}(\mu_{\theta|x}, C_{\theta|x})
+</span></p>
+<hr />
+<h3 data-number="11.26" id="linearni-gaussovskobejzovski-model"><span
+class="header-section-number">11.26</span> Linearni Gaussovsko–Bejzovski
+model</h3>
+<p><span class="math display">
+\mu_{\theta|x} = \mu_\theta + C_{\theta|x} H^T C_w^{-1} (x -
+H\mu_\theta)
+</span> <span class="math display">
+C_{\theta|x} = (C_\theta^{-1} + H^T C_w^{-1} H)^{-1}
+</span></p>
+<hr />
+<h3 data-number="11.27" id="lemma-o-inverziji-i-oznaka-s"><span
+class="header-section-number">11.27</span> Lemma o inverziji i oznaka
+<span class="math inline">s</span></h3>
+<p>Po lemi o inverziji matrice: <span class="math display">
+C_{\theta|x} = C_\theta - C_\theta H^T (H C_\theta H^T + C_w)^{-1} H
+C_\theta
+</span> Takođe: <span class="math display">
+\mu_{\theta|x} = \mu_\theta + C_\theta H^T (H C_\theta H^T + C_w)^{-1}
+(x - H\mu_\theta)
+</span></p>
+<hr />
+<h3 data-number="11.28"
+id="opšta-bayesovska-estimacija-cena-i-rizik"><span
+class="header-section-number">11.28</span> Opšta Bayesovska estimacija:
+cena i rizik</h3>
+<p>Rizik: <span class="math display">
+R = E\{ C(\theta, \hat{\theta}(x)) \}
+</span> Posteriorni rizik: <span class="math display">
+r(\hat{\theta}|x) = \int C(\theta, \hat{\theta}) p(\theta|x) \, d\theta
+</span> Optimalni estimator minimizuje <span
+class="math inline">r(\cdot|x)</span>.</p>
+<hr />
+<h3 data-number="11.29" id="optimalni-estimatori-po-kriterijumu"><span
+class="header-section-number">11.29</span> Optimalni estimatori po
+kriterijumu</h3>
 <ul>
-<li><strong>LG Gauss</strong>: BLUE <span class="math inline">=</span>
-MVUE <span class="math inline">=</span> Bayes MMSE <span
-class="math inline">=</span> LEMSKG (isti izrazi za <span
-class="math inline">\mu_{\theta|x}</span>, <span
-class="math inline">C_{\theta|x}</span>).<br />
-</li>
-<li><strong>Asimptotika</strong>: MLE <span
-class="math inline">\to</span> efikasan i (asymp.) nepomeren <span
-class="math inline">\Rightarrow</span> dostiže CRDG za <span
-class="math inline">N\to\infty</span>.<br />
-</li>
-<li><strong>Bez dobrog priora i puno podataka</strong>: Bayes MMSE <span
-class="math inline">\approx</span> MVUE/MLE.</li>
+<li><p><strong>Kvadratna cena</strong> → EMSKG: <span
+class="math inline">\hat{\theta} = E\{\theta|x\}</span></p></li>
+<li><p><strong>Apsolutna cena</strong> → medijana posteriora</p></li>
+<li><p><strong>0-1 cena</strong> → MAP: <span
+class="math inline">\arg\max_\theta p(\theta|x)</span></p></li>
 </ul>
-</div></details>
+<hr />
+<h3 data-number="11.30" id="lemskg-skalarni-i-vektorski"><span
+class="header-section-number">11.30</span> LEMSKG (skalarni i
+vektorski)</h3>
+<p>Skalarni: <span class="math display">
+\hat{\theta} = E\{\theta\} +
+\frac{\mathrm{cov}(\theta,x)}{\mathrm{var}(x)} (x - E\{x\})
+</span> Vektorski: <span class="math display">
+\hat{\theta} = E\{\theta\} + C_{\theta x} C_x^{-1} (x - E\{x\})
+</span></p>
+<hr />
+<h3 data-number="11.31"
+id="zašto-je-isti-kao-u-gaussbejzovskom-lg-modelu"><span
+class="header-section-number">11.31</span> Zašto je isti kao u
+Gauss–Bejzovskom LG modelu</h3>
+<p>U linearnom Gaussovskom modelu, EMSKG ima isti oblik kao Bayesov MMSE
+jer posterior ostaje normalan.</p>
+<hr />
+<h3 data-number="11.32" id="bmse-sve-moguće-forme"><span
+class="header-section-number">11.32</span> BMSE – sve moguće forme</h3>
+<ul>
+<li>Opšta definicija: <span class="math display">
+\mathrm{BMSE} = E\{ (\theta - \hat{\theta}(x))^2 \}
+</span></li>
+<li>Za EMSKG: <span class="math display">
+\mathrm{BMSE} = E\{ \mathrm{var}(\theta|x) \}
+</span></li>
+<li>Za linearni model: <span class="math display">
+\mathrm{BMSE} = \mathrm{var}(\theta) - C_{\theta x} C_x^{-1} C_{x\theta}
+</span></li>
+<li>Gaussovski slučaj: <span class="math display">
+\mathrm{BMSE} = \mathrm{tr}(C_{\theta|x})
+</span> <strong>Tumačenje:</strong> Svaka forma predstavlja istu
+veličinu u drugačijim uslovima ili zapisu — prva je opšta, druga koristi
+svojstvo EMSKG, treća dolazi iz linearnog modela, četvrta iz Gaussovskog
+zatvorenog oblika.</li>
+</ul>
 <hr />
 <p><a href="#top" class="back-to-top">⇧</a></p>
-<!-- cache-bust 20250813221544 --></body>
+</body>
 </html>
