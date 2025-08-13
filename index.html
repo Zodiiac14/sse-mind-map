@@ -1564,6 +1564,22 @@ E x_i)
 </div></details>
 <details class="card">
 <summary>
+<strong>Čemu je jednaka EMSKG za <span
+class="math inline">\theta_i</span>?</strong>
+</summary>
+<div class="card-body">
+<p>Za komponentu <span class="math inline">\theta_i</span> vektora <span
+class="math inline">\theta</span>, srednja kvadratna greška estimatora
+(EMSKG) je jednaka:</p>
+<p><span class="math display">
+\text{EMSKG}(\theta_i) = \mathrm{var}(\hat{\theta}_i) + \left[
+\mathrm{bias}(\hat{\theta}_i) \right]^2
+</span></p>
+<p>Ovo pokazuje da se ukupna greška sastoji iz varijanse estimatora i
+kvadrata pomaka.</p>
+</div></details>
+<details class="card">
+<summary>
 <strong>Da li je EMSKG nepomeren estimator?</strong>
 </summary>
 <div class="card-body">
@@ -1581,6 +1597,25 @@ E\{\varepsilon\} = E\{\theta - E_{\theta|x}(\theta)\} = 0
 </span> U vektorskom obliku: <span class="math display">
 M_{\hat{\theta}} = E_x \, C_{\theta|x}
 </span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Ako su <span class="math inline">X</span> i <span
+class="math inline">\theta</span> združeno normalne, kakva je raspodela
+greške <span class="math inline">\varepsilon</span>?</strong>
+</summary>
+<div class="card-body">
+<p>Ako su <span class="math inline">X</span> i <span
+class="math inline">\theta</span> združeno normalne slučajne
+promenljive, tada je i greška estimacije <span
+class="math inline">\varepsilon = \hat{\theta} - \theta</span> takođe
+normalno distribuirana.</p>
+<p><strong>Intuicija:</strong><br />
+- Linearna kombinacija normalnih slučajnih promenljivih je opet
+normalna.<br />
+- Kako je <span class="math inline">\varepsilon</span> linearna
+kombinacija <span class="math inline">X</span> i <span
+class="math inline">\theta</span>, normalnost se čuva.</p>
 </div></details>
 <hr />
 <h3 data-number="8.3" id="osobine-mape"><span
@@ -1661,5 +1696,5 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813201722 --></body>
+</body>
 </html>
