@@ -1822,8 +1822,8 @@ p(x;\theta) \right]
 E\!\left[ \frac{\partial}{\partial\theta} \ln p(x;\theta) \right] = 0
 </span> Dozvoljava zamenu izvoda i integrala.</p>
 <hr />
-<p><strong>4. Šta važi za Fišera pod UR</strong> Pod uslovom
-regularnosti: <span class="math display">
+<p><strong>4. Šta važi za Fišera pod UR</strong></p>
+<p>Pod uslovom regularnosti: <span class="math display">
 I(\theta) = E\!\left[ \left( \frac{\partial}{\partial\theta} \ln
 p(x;\theta) \right)^2 \right]
 = -E\!\left[ \frac{\partial^2}{\partial\theta^2} \ln p(x;\theta) \right]
@@ -1834,15 +1834,15 @@ class="math display">
 \mathrm{var}(\hat{\theta}) \ge \frac{1}{I(\theta)}
 </span></p>
 <hr />
-<p><strong>6. Uslov jednakosti u CRDG</strong> Jednakost važi ako: <span
-class="math display">
+<p><strong>6. Uslov jednakosti u CRDG</strong></p>
+<p>Jednakost važi ako: <span class="math display">
 \frac{\partial}{\partial\theta} \ln p(x;\theta) = I(\theta) \,
 (\hat{\theta}(x) - \theta)
 </span> što znači da je estimator “efikasan”.</p>
 <hr />
 <p><strong>7. CRDG za signale u belom Gaussovom šumu <span
-class="math inline">s[n;\theta]</span></strong> Ako je: <span
-class="math display">
+class="math inline">s[n;\theta]</span></strong></p>
+<p>Ako je: <span class="math display">
 x[n] = s[n;\theta] + w[n], \quad w[n] \sim \mathcal{N}(0,\sigma^2)
 </span> onda: <span class="math display">
 I(\theta) = \frac{1}{\sigma^2} \sum_{n=0}^{N-1} \left( \frac{\partial
@@ -1880,8 +1880,8 @@ C_{\hat{\theta}} \succeq I(\theta)^{-1}
 \nabla_\theta \ln p(x;\theta) = I(\theta) \, (\hat{\theta}(x) - \theta)
 </span></p>
 <hr />
-<p><strong>12. Transformacija parametara sa Jakobijanom</strong> Ako je
-<span class="math inline">\alpha = a(\theta)</span> i <span
+<p><strong>12. Transformacija parametara sa Jakobijanom</strong></p>
+<p>Ako je <span class="math inline">\alpha = a(\theta)</span> i <span
 class="math inline">J = \frac{\partial a}{\partial \theta}</span>: <span
 class="math display">
 C_{\hat{\alpha}} \succeq J \, I(\theta)^{-1} \, J^T
@@ -1899,25 +1899,24 @@ x = H\theta + w, \quad w \sim \mathcal{N}(0, C_w)
 C_{\hat{\theta}} = (H^T C_w^{-1} H)^{-1}
 </span></p>
 <hr />
-<p><strong>15. Isti model kada je šum obojen</strong> Jednako važi jer
-<span class="math inline">C_w</span> može biti proizvoljna
-pozitivno-definitna matrica.</p>
+<p>**15. Prazan</p>
 <hr />
 <p><strong>16. BLUE (Best Linear Unbiased Estimator) oblik i
-varijansa</strong> Skalarni slučaj: <span class="math display">
+varijansa</strong></p>
+<p><em>Skalarni slučaj:</em> <span class="math display">
 \hat{\theta} = \frac{s^T C^{-1} x}{s^T C^{-1} s}, \quad
 \mathrm{var}(\hat{\theta}) = \frac{1}{s^T C^{-1} s}
 </span></p>
 <hr />
-<p><strong>17. Vektorski BLUE</strong> <span class="math display">
+<p><em>Vektorski slučaj:</em> <span class="math display">
 \hat{\theta} = (H^T C_w^{-1} H)^{-1} H^T C_w^{-1} x
 </span> <span class="math display">
 C_{\hat{\theta}} = (H^T C_w^{-1} H)^{-1}
 </span></p>
 <hr />
-<p><strong>18. Zašto je LG Gauss MVUE = BLUE</strong> U linearnom
-Gaussovom modelu, BLUE je nepomeren i dostiže CRDG, pa je ujedno i
-MVUE.</p>
+<p><strong>18. Zašto je LG Gauss MVUE = BLUE</strong></p>
+<p>U linearnom Gaussovom modelu, BLUE je nepomeren i dostiže CRDG, pa je
+ujedno i MVUE.</p>
 <hr />
 <p><strong>19. MLE estimator</strong> <span class="math display">
 \hat{\theta}_{\text{MLE}} = \arg\max_\theta p(x;\theta) =
@@ -1948,16 +1947,18 @@ E\{\mathrm{var}(\theta|x)\}
 <hr />
 <p><strong>24. Poređenje BMSE<span
 class="math inline">_{\text{EMSKG}}</span> i MSE<span
-class="math inline">_{\text{nemv}}</span></strong> BMSE EMSKG je
-minimalna MSE za dati prior i model, pa je: <span class="math display">
+class="math inline">_{\text{nemv}}</span></strong></p>
+<p>BMSE EMSKG je minimalna MSE za dati prior i model, pa je: <span
+class="math display">
 \mathrm{BMSE}_{\text{EMSKG}} \le \mathrm{MSE}_{\text{bilo kog
 nepomerenog}}
 </span></p>
 <hr />
 <p><strong>25. Osobine Gaussove FGV <span
 class="math inline">\mu_{\theta|x}</span> i <span
-class="math inline">C_{\theta|x}</span></strong> U Gaussovskom slučaju,
-posterior <span class="math inline">\theta|x</span> je normalan: <span
+class="math inline">C_{\theta|x}</span></strong></p>
+<p>U Gaussovskom slučaju, posterior <span
+class="math inline">\theta|x</span> je normalan: <span
 class="math display">
 \theta|x \sim \mathcal{N}(\mu_{\theta|x}, C_{\theta|x})
 </span></p>
@@ -1971,8 +1972,8 @@ C_{\theta|x} = (C_\theta^{-1} + H^T C_w^{-1} H)^{-1}
 </span></p>
 <hr />
 <p><strong>27. Lemma o inverziji i oznaka <span
-class="math inline">s</span></strong> Po lemi o inverziji matrice: <span
-class="math display">
+class="math inline">s</span></strong></p>
+<p>Po lemi o inverziji matrice: <span class="math display">
 C_{\theta|x} = C_\theta - C_\theta H^T (H C_\theta H^T + C_w)^{-1} H
 C_\theta
 </span> Takođe: <span class="math display">
@@ -2005,9 +2006,10 @@ class="math display">
 \hat{\theta} = E\{\theta\} + C_{\theta x} C_x^{-1} (x - E\{x\})
 </span></p>
 <hr />
-<p><strong>31. Zašto je isti kao u Gauss–Bejzovskom LG modelu</strong> U
-linearnom Gaussovskom modelu, EMSKG ima isti oblik kao Bayesov MMSE jer
-posterior ostaje normalan.</p>
+<p><strong>31. Zašto je isti kao u Gauss–Bejzovskom LG
+modelu</strong></p>
+<p>U linearnom Gaussovskom modelu, EMSKG ima isti oblik kao Bayesov MMSE
+jer posterior ostaje normalan.</p>
 <hr />
 <p><strong>32. BMSE – sve moguće forme</strong> - Opšta definicija:
 <span class="math display">
@@ -2042,10 +2044,13 @@ nepomerenih estimatora.</p>
 C_{\hat{\theta}_{\text{BLUE}}} = (H^T C_w^{-1} H)^{-1}
 </span></p>
 <hr />
-<p><strong>2. MVUE – Minimum Variance Unbiased Estimator</strong> -
-Definicija: nepomeren estimator sa najmanjom mogućom varijansom. -
-<strong>U linearnom Gaussovskom modelu:</strong> MVUE = BLUE (jer BLUE
-dostiže CRDG).</p>
+<p><strong>2. MVUE – Minimum Variance Unbiased Estimator</strong></p>
+<p><em>Definicija:</em> nepomeren estimator sa najmanjom mogućom
+varijansom.</p>
+<ul>
+<li><strong>U linearnom Gaussovskom modelu:</strong> MVUE = BLUE (jer
+BLUE dostiže CRDG).</li>
+</ul>
 <hr />
 <p><strong>3. MLE – Maximum Likelihood Estimator</strong> <span
 class="math display">
@@ -2067,8 +2072,8 @@ model.</p>
 <p><strong>5. MAP – Maximum A Posteriori</strong> <span
 class="math display">
 \hat{\theta}_{\text{MAP}} = \arg\max_\theta p(\theta|x)
-</span> - Za uniformni prior: MAP = MLE. - Varijansa zavisi od oblika
-posteriora, nema opšti zatvoren oblik.</p>
+</span> <em>Za uniformni prior:</em> MAP = MLE.</p>
+<p>Varijansa zavisi od oblika posteriora, nema opšti zatvoren oblik.</p>
 <hr />
 <p><strong>6. LEMSKG – Linearni Estimator minimalne srednje kvadratne
 greške</strong></p>
@@ -2097,11 +2102,14 @@ C_\theta
 veličine i LEMSKG, isti oblik.</p>
 <hr />
 <p><strong>9. Veze među estimatorima</strong> - <strong>BLUE =
-MVUE</strong> ako su šum i signal normalni. - <strong>MAP = MLE</strong>
-za uniformni prior. - <strong>LEMSKG = EMSKG</strong> za Gaussovske
-slučajeve. - <strong>EMSKG</strong> dostiže BMSE, dok
-<strong>BLUE</strong> dostiže CRDG (u nepomerenom slučaju).</p>
+MVUE</strong> ako su šum i signal normalni</p>
+<ul>
+<li><p><strong>MAP = MLE</strong> za uniformni prior</p></li>
+<li><p><strong>LEMSKG = EMSKG</strong> za Gaussovske slučajeve</p></li>
+<li><p><strong>EMSKG</strong> dostiže BMSE, dok <strong>BLUE</strong>
+dostiže CRDG (u nepomerenom slučaju)</p></li>
+</ul>
 <hr />
 <p><a href="#top" class="back-to-top">⇧</a></p>
-<!-- cache-bust 20250813235544 --></body>
+</body>
 </html>
