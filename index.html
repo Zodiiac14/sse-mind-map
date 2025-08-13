@@ -614,39 +614,6 @@ class="header-section-number">4.1</span> Efikasan estimator u LG
 modelu</h3>
 <details class="card">
 <summary>
-<strong>Kada prema Cramér–Rao teoremi postoji NEMV (MVUE) u LG
-modelu?</strong>
-</summary>
-<div class="card-body">
-<p>Ako važi: <span class="math display">
-\frac{\partial}{\partial \theta} \ln p(x; \theta) = I(\theta) \, [g(x) -
-\theta]
-</span></p>
-</div></details>
-<details class="card">
-<summary>
-<strong>Kako izgleda log-verodostojnost za LG model?</strong>
-</summary>
-<div class="card-body">
-<p>Za <span class="math inline">x \sim \mathcal{N}(H\theta, \sigma^2
-I)</span>: <span class="math display">
-\ln p(x; \theta) = -\frac{N}{2} \ln (2\pi\sigma^2) - \frac{1}{2\sigma^2}
-(x - H\theta)^T (x - H\theta)
-</span></p>
-</div></details>
-<details class="card">
-<summary>
-<strong>Kako izgleda prvi izvod log-verodostojnosti po <span
-class="math inline">\theta</span>?</strong>
-</summary>
-<div class="card-body">
-<p><span class="math display">
-\frac{\partial}{\partial \theta} \ln p(x; \theta) = \frac{1}{\sigma^2}
-\left( H^T x - H^T H \theta \right)
-</span></p>
-</div></details>
-<details class="card">
-<summary>
 <strong>Koji je efikasan estimator u LG modelu?</strong>
 </summary>
 <div class="card-body">
@@ -657,6 +624,61 @@ class="math display">
 </span> sa kovarijacionom matricom: <span class="math display">
 C_{\hat{\theta}} = \sigma^2 (H^T H)^{-1}
 </span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Koja su osnovna pravila diferenciranja kod vektora i
+matrica?</strong>
+</summary>
+<div class="card-body">
+<p>Ako je <span class="math inline">b</span> vektor i <span
+class="math inline">A</span> simetrična matrica, važe: <span
+class="math display">
+\frac{\partial (b^T \theta)}{\partial \theta} = b, \quad
+\frac{\partial (\theta^T A \theta)}{\partial \theta} = 2A\theta
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Šta znači uslov rang(<span class="math inline">H^T H</span>) =
+p?</strong>
+</summary>
+<div class="card-body">
+<p>To znači da je rang matrice <span class="math inline">H^T H</span>
+jednak broju kolona matrice <span class="math inline">H</span>, tj. da
+su kolone matrice <span class="math inline">H</span> linearno
+nezavisne.<br />
+Ovaj uslov je neophodan da bi <span class="math inline">(H^T
+H)^{-1}</span> postojala.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Šta je pseudo-inverzija matrice?</strong>
+</summary>
+<div class="card-body">
+<p>Pseudo-inverzija (Moore–Penrose-ova inverzija) je generalizacija
+inverza matrice koja postoji i kada matrica nije kvadratna ili nije
+punog ranga.<br />
+Ona omogućava rešavanje sistema najmanjih kvadrata kada <span
+class="math inline">H</span> nije kvadratna, prema formuli: <span
+class="math display">
+H^+ = (H^T H)^{-1} H^T
+</span> za slučaj kada <span class="math inline">H</span> ima pun rang
+kolona.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako izgleda <span class="math inline">\hat{\theta}</span> kada
+je <span class="math inline">H</span> kvadratna i invertibilna
+matrica?</strong>
+</summary>
+<div class="card-body">
+<p>Ako je <span class="math inline">H</span> kvadratna (<span
+class="math inline">N = p</span>) i invertibilna, tada estimator ima
+oblik: <span class="math display">
+\hat{\theta} = H^{-1} x
+</span> što je tačno rešenje sistema <span class="math inline">x =
+H\theta</span> bez potrebe za metodom najmanjih kvadrata.</p>
 </div></details>
 <hr />
 <h3 data-number="4.2" id="primeri-primene-lg-modela"><span
@@ -914,5 +936,5 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813142308 --></body>
+</body>
 </html>
