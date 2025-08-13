@@ -66,37 +66,47 @@ class="toc-section-number">6</span> CRDG – Teorema</a></li>
 <li><a href="#crdg-za-funkciju-parametra"
 id="toc-crdg-za-funkciju-parametra"><span
 class="toc-section-number">7</span> CRDG za funkciju parametra</a></li>
-<li><a href="#vektorski-slučaj" id="toc-vektorski-slučaj"><span
-class="toc-section-number">8</span> Vektorski slučaj</a></li>
+<li><a href="#očuvanje-efikasnosti-estimatora"
+id="toc-očuvanje-efikasnosti-estimatora"><span
+class="toc-section-number">8</span> Očuvanje efikasnosti
+estimatora</a></li>
+<li><a href="#konzistentnost-i-asimptotske-osobine"
+id="toc-konzistentnost-i-asimptotske-osobine"><span
+class="toc-section-number">9</span> Konzistentnost i asimptotske
+osobine</a></li>
+<li><a href="#signali-sn-theta-u-belom-gaussovom-šumu"
+id="toc-signali-sn-theta-u-belom-gaussovom-šumu"><span
+class="toc-section-number">10</span> Signali <span
+class="math inline">s[n; \theta]</span> u belom Gaussovom šumu</a></li>
 <li><a href="#lgm-linearni-gaussovski-model-ols"
 id="toc-lgm-linearni-gaussovski-model-ols"><span
-class="toc-section-number">9</span> LGM – Linearni Gaussovski Model
+class="toc-section-number">11</span> LGM – Linearni Gaussovski Model
 (OLS)</a></li>
 <li><a href="#nlne-blue-najbolji-linearan-nepomeren-estimator"
 id="toc-nlne-blue-najbolji-linearan-nepomeren-estimator"><span
-class="toc-section-number">10</span> NLNE / BLUE – Najbolji Linearan
+class="toc-section-number">12</span> NLNE / BLUE – Najbolji Linearan
 Nepomeren Estimator</a></li>
 <li><a href="#emv-mle-estimator-maksimalne-verodostojnosti"
 id="toc-emv-mle-estimator-maksimalne-verodostojnosti"><span
-class="toc-section-number">11</span> EMV / MLE – Estimator Maksimalne
+class="toc-section-number">13</span> EMV / MLE – Estimator Maksimalne
 Verodostojnosti</a></li>
 <li><a href="#bayesovska-filozofija-i-emskg-posteriorna-sredina"
 id="toc-bayesovska-filozofija-i-emskg-posteriorna-sredina"><span
-class="toc-section-number">12</span> Bayesovska filozofija i EMSKG
+class="toc-section-number">14</span> Bayesovska filozofija i EMSKG
 (posteriorna sredina)</a></li>
 <li><a href="#opšta-bayesovska-estimacija-cena-i-rizik"
 id="toc-opšta-bayesovska-estimacija-cena-i-rizik"><span
-class="toc-section-number">13</span> Opšta Bayesovska estimacija: cena i
+class="toc-section-number">15</span> Opšta Bayesovska estimacija: cena i
 rizik</a></li>
 <li><a href="#linearna-bayesovska-estimacija-lemskg-i-geometrija"
 id="toc-linearna-bayesovska-estimacija-lemskg-i-geometrija"><span
-class="toc-section-number">14</span> Linearna Bayesovska estimacija
+class="toc-section-number">16</span> Linearna Bayesovska estimacija
 (LEMSKG) i geometrija</a></li>
 <li><a href="#kalmanov-filter-kf" id="toc-kalmanov-filter-kf"><span
-class="toc-section-number">15</span> Kalmanov filter (KF)</a></li>
+class="toc-section-number">17</span> Kalmanov filter (KF)</a></li>
 <li><a href="#povezanosti-redosled-učenja"
 id="toc-povezanosti-redosled-učenja"><span
-class="toc-section-number">16</span> Povezanosti (redosled
+class="toc-section-number">18</span> Povezanosti (redosled
 učenja)</a></li>
 </ul>
 </nav>
@@ -318,34 +328,139 @@ a(\theta)</span>?</strong>
 </span></p>
 </div></details>
 <hr />
-<h2 data-number="8" id="vektorski-slučaj"><span
-class="header-section-number">8</span> Vektorski slučaj</h2>
+<h2 data-number="8" id="očuvanje-efikasnosti-estimatora"><span
+class="header-section-number">8</span> Očuvanje efikasnosti
+estimatora</h2>
 <details class="card">
 <summary>
-<strong>Kako se definiše Fišerova matrica?</strong>
+<strong>Kada je efikasnost očuvana kod transformacije
+estimatora?</strong>
 </summary>
 <div class="card-body">
-<p><span class="math display">
-[I(\theta)]_{ij} = -E\left[ \frac{\partial^2}{\partial \theta_i \partial
-\theta_j} \ln p(x; \theta) \right]
+<p>Ako je <span class="math inline">\hat{\theta}</span> efikasan
+estimator za <span class="math inline">\theta</span>, onda je <span
+class="math inline">\hat{\alpha} = a(\hat{\theta})</span> takođe
+efikasan <strong>ako</strong> transformacija ima oblik:<br />
+<span class="math display">
+a(\theta) = c\,\theta + d
+</span><br />
+U tom slučaju: <span class="math display">
+\mathrm{var}(\hat{\alpha}) = c^2\,\mathrm{var}(\hat{\theta}) =
+\frac{c^2}{I(\theta)}
 </span></p>
 </div></details>
 <details class="card">
 <summary>
-<strong>Kako glasi CRDG u vektorskom slučaju?</strong>
+<strong>Kada efikasnost nije očuvana?</strong>
+</summary>
+<div class="card-body">
+<p>Ako <span class="math inline">a(\theta)</span> nije linearna funkcija
+parametra, efikasnost u opštem slučaju <strong>nije</strong>
+očuvana.<br />
+Primer: <span class="math inline">A</span> u belom Gaussovom šumu —
+<span class="math inline">\hat{A} = \bar{x}</span> efikasan, ali <span
+class="math inline">\hat{\alpha} = \bar{x}^2</span> nije ni nepomeren ni
+efikasan estimator za <span class="math inline">\alpha = A^2</span>.</p>
+</div></details>
+<hr />
+<h2 data-number="9" id="konzistentnost-i-asimptotske-osobine"><span
+class="header-section-number">9</span> Konzistentnost i asimptotske
+osobine</h2>
+<details class="card">
+<summary>
+<strong>Definicija konzistentnog estimatora</strong>
+</summary>
+<div class="card-body">
+<p>Estimator <span class="math inline">\hat{\theta}</span> je
+konzistentan ako: <span class="math display">
+\lim_{N \to \infty} \mathrm{var}(\hat{\theta}) = 0
+</span> odnosno, <span class="math inline">\hat{\theta} \xrightarrow{P}
+\theta</span> kada <span class="math inline">N</span> raste.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Definicija asimptotski nepomerenog estimatora</strong>
+</summary>
+<div class="card-body">
+<p>Estimator <span class="math inline">\hat{\theta}</span> je
+asimptotski nepomeren ako: <span class="math display">
+\lim_{N \to \infty} E[\hat{\theta}] = \theta
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Definicija asimptotski efikasnog estimatora</strong>
+</summary>
+<div class="card-body">
+<p>Estimator <span class="math inline">\hat{\theta}</span> je
+asimptotski efikasan ako: <span class="math display">
+\lim_{N \to \infty} \mathrm{var}(\hat{\theta}) = \frac{1}{I(\theta)}
+</span> odnosno, za veliko <span class="math inline">N</span> dostiže
+CRDG.</p>
+</div></details>
+<hr />
+<h2 data-number="10" id="signali-sn-theta-u-belom-gaussovom-šumu"><span
+class="header-section-number">10</span> Signali <span
+class="math inline">s[n; \theta]</span> u belom Gaussovom šumu</h2>
+<details class="card">
+<summary>
+<strong>Kako izgleda model signala u belom Gaussovom šumu?</strong>
 </summary>
 <div class="card-body">
 <p><span class="math display">
-\mathbf{C}_{\hat{\theta}} - I^{-1}(\theta) \geq 0
+x[n] = s[n; \theta] + w[n], \quad n = 0, 1, \dots, N-1
 </span><br />
-Efikasnost:<br />
-<span class="math display">
-\nabla_{\theta} \ln p(x; \theta) = I(\theta) [g(x) - \theta]
+gde je <span class="math inline">w[n] \sim \mathcal{N}(0,
+\sigma^2)</span> – beli Gaussov šum.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako izgleda log-verodostojnost za ovaj model?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+\ln p(x; \theta) = -\frac{N}{2} \ln(2\pi\sigma^2) - \frac{1}{2\sigma^2}
+\sum_{n=0}^{N-1} (x[n] - s[n; \theta])^2
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Prvi izvod log-verodostojnosti po <span
+class="math inline">\theta</span>:</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+\frac{\partial}{\partial \theta} \ln p(x; \theta) = \frac{1}{\sigma^2}
+\sum_{n=0}^{N-1} (x[n] - s[n; \theta]) \frac{\partial s[n;
+\theta]}{\partial \theta}
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Drugi izvod log-verodostojnosti po <span
+class="math inline">\theta</span>:</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+\frac{\partial^2}{\partial \theta^2} \ln p(x; \theta) =
+\frac{1}{\sigma^2} \sum_{n=0}^{N-1} \left[ (x[n] - s[n; \theta])
+\frac{\partial^2 s[n; \theta]}{\partial \theta^2} - \left(
+\frac{\partial s[n; \theta]}{\partial \theta} \right)^2 \right]
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Fišerova informacija za signale u belom Gaussovom šumu:</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+I(\theta) = \frac{1}{\sigma^2} \sum_{n=0}^{N-1} \left( \frac{\partial
+s[n; \theta]}{\partial \theta} \right)^2
 </span></p>
 </div></details>
 <hr />
-<h2 data-number="9" id="lgm-linearni-gaussovski-model-ols"><span
-class="header-section-number">9</span> LGM – Linearni Gaussovski Model
+<h2 data-number="11" id="lgm-linearni-gaussovski-model-ols"><span
+class="header-section-number">11</span> LGM – Linearni Gaussovski Model
 (OLS)</h2>
 <ul>
 <li><strong>Model:</strong> <span
@@ -365,9 +480,9 @@ optimalnosti pod Gaussom.</li>
 identifikacija.</li>
 </ul>
 <hr />
-<h2 data-number="10"
+<h2 data-number="12"
 id="nlne-blue-najbolji-linearan-nepomeren-estimator"><span
-class="header-section-number">10</span> NLNE / BLUE – Najbolji Linearan
+class="header-section-number">12</span> NLNE / BLUE – Najbolji Linearan
 Nepomeren Estimator</h2>
 <ul>
 <li><strong>Poenta:</strong> Kada ne znamo kompletnu raspodelu, ali
@@ -387,9 +502,9 @@ je čak i optimalan (NLNE=NEMV).</li>
 merenja različite.</li>
 </ul>
 <hr />
-<h2 data-number="11"
+<h2 data-number="13"
 id="emv-mle-estimator-maksimalne-verodostojnosti"><span
-class="header-section-number">11</span> EMV / MLE – Estimator Maksimalne
+class="header-section-number">13</span> EMV / MLE – Estimator Maksimalne
 Verodostojnosti</h2>
 <ul>
 <li><strong>Poenta:</strong> Maksimizuje <span
@@ -406,9 +521,9 @@ p=\frac{1}{N}\sum x[n]</span>; konstanta u WGN: <span
 class="math inline">\hat A=\bar x</span>.</li>
 </ul>
 <hr />
-<h2 data-number="12"
+<h2 data-number="14"
 id="bayesovska-filozofija-i-emskg-posteriorna-sredina"><span
-class="header-section-number">12</span> Bayesovska filozofija i EMSKG
+class="header-section-number">14</span> Bayesovska filozofija i EMSKG
 (posteriorna sredina)</h2>
 <ul>
 <li><strong>Poenta:</strong> Parametar <span
@@ -427,8 +542,8 @@ NEMV u proseku.</li>
 priorom ⇒ shrinkage ka <span class="math inline">\mu_A</span>.</li>
 </ul>
 <hr />
-<h2 data-number="13" id="opšta-bayesovska-estimacija-cena-i-rizik"><span
-class="header-section-number">13</span> Opšta Bayesovska estimacija:
+<h2 data-number="15" id="opšta-bayesovska-estimacija-cena-i-rizik"><span
+class="header-section-number">15</span> Opšta Bayesovska estimacija:
 cena i rizik</h2>
 <ul>
 <li><strong>Poenta:</strong> Definišeš <strong>cenu</strong> <span
@@ -447,9 +562,9 @@ aplikacije (robustnost, tolerancija, greške tipa „preko praga“).</li>
 „odsečena“ Gaussova posteriorna.</li>
 </ul>
 <hr />
-<h2 data-number="14"
+<h2 data-number="16"
 id="linearna-bayesovska-estimacija-lemskg-i-geometrija"><span
-class="header-section-number">14</span> Linearna Bayesovska estimacija
+class="header-section-number">16</span> Linearna Bayesovska estimacija
 (LEMSKG) i geometrija</h2>
 <ul>
 <li><strong>LEMSKG:</strong> <span
@@ -468,8 +583,8 @@ za Kalmanov filter.</li>
 komponentu inovacije.</li>
 </ul>
 <hr />
-<h2 data-number="15" id="kalmanov-filter-kf"><span
-class="header-section-number">15</span> Kalmanov filter (KF)</h2>
+<h2 data-number="17" id="kalmanov-filter-kf"><span
+class="header-section-number">17</span> Kalmanov filter (KF)</h2>
 <ul>
 <li><strong>Model:</strong> Gauss–Markov stanje + BGŠ merenja.</li>
 <li><strong>Rekurzije (skalar):</strong>
@@ -491,8 +606,8 @@ odziv zavisi od <span
 class="math inline">\sigma_u^2,\sigma_w^2</span>.</li>
 </ul>
 <hr />
-<h2 data-number="16" id="povezanosti-redosled-učenja"><span
-class="header-section-number">16</span> Povezanosti (redosled
+<h2 data-number="18" id="povezanosti-redosled-učenja"><span
+class="header-section-number">18</span> Povezanosti (redosled
 učenja)</h2>
 <ol type="1">
 <li><strong>Uvod → SKG/bias–var</strong> (razumevanje metrike)</li>
@@ -506,5 +621,5 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813123131 --></body>
+</body>
 </html>
