@@ -103,10 +103,35 @@ class="toc-section-number">4.4</span> Obojeni šum</a></li>
 <li><a href="#posebni-slučajevi" id="toc-posebni-slučajevi"><span
 class="toc-section-number">4.5</span> Posebni slučajevi</a></li>
 </ul></li>
-<li><a href="#nlne-blue-najbolji-linearan-nepomeren-estimator"
-id="toc-nlne-blue-najbolji-linearan-nepomeren-estimator"><span
-class="toc-section-number">5</span> NLNE / BLUE – Najbolji Linearan
-Nepomeren Estimator</a></li>
+<li><a href="#nlne-najbolji-linearan-nepomeren-estimator-blue"
+id="toc-nlne-najbolji-linearan-nepomeren-estimator-blue"><span
+class="toc-section-number">5</span> NLNE – Najbolji linearan nepomeren
+estimator (BLUE)</a>
+<ul>
+<li><a href="#motivacija" id="toc-motivacija"><span
+class="toc-section-number">5.1</span> Motivacija</a></li>
+<li><a href="#uslov-nepomerenosti-skalarni-slučaj"
+id="toc-uslov-nepomerenosti-skalarni-slučaj"><span
+class="toc-section-number">5.2</span> Uslov nepomerenosti (skalarni
+slučaj)</a></li>
+<li><a href="#nalaženje-nlne-skalarni-slučaj"
+id="toc-nalaženje-nlne-skalarni-slučaj"><span
+class="toc-section-number">5.3</span> Nalaženje NLNE (skalarni
+slučaj)</a></li>
+<li><a href="#kada-nlne-nije-adekvatan"
+id="toc-kada-nlne-nije-adekvatan"><span
+class="toc-section-number">5.4</span> Kada NLNE nije adekvatan?</a></li>
+<li><a href="#vektorski-slučaj-blue-za-boldsymbolthetainmathbbrp"
+id="toc-vektorski-slučaj-blue-za-boldsymbolthetainmathbbrp"><span
+class="toc-section-number">5.5</span> Vektorski slučaj (BLUE za <span
+class="math inline">\boldsymbol{\theta}\in\mathbb{R}^p</span>)</a></li>
+<li><a href="#kratki-primeri-i-komentari"
+id="toc-kratki-primeri-i-komentari"><span
+class="toc-section-number">5.6</span> Kratki primeri i
+komentari</a></li>
+<li><a href="#rezime-što-zapamtiti" id="toc-rezime-što-zapamtiti"><span
+class="toc-section-number">5.7</span> Rezime (što zapamtiti)</a></li>
+</ul></li>
 <li><a href="#emv-mle-estimator-maksimalne-verodostojnosti"
 id="toc-emv-mle-estimator-maksimalne-verodostojnosti"><span
 class="toc-section-number">6</span> EMV / MLE – Estimator Maksimalne
@@ -825,26 +850,226 @@ x&#39; = x - s
 </div></details>
 <hr />
 <h2 data-number="5"
-id="nlne-blue-najbolji-linearan-nepomeren-estimator"><span
-class="header-section-number">5</span> NLNE / BLUE – Najbolji Linearan
-Nepomeren Estimator</h2>
-<ul>
-<li><strong>Poenta:</strong> Kada ne znamo kompletnu raspodelu, ali
-znamo <span class="math inline">E\{x\}</span> i <span
-class="math inline">\operatorname{cov}(x)</span>, tražimo
-<strong>najbolji linearan nepomeren</strong> estimator.</li>
-<li><strong>Skalarni slučaj:</strong> za <span class="math inline">E
-x=\theta s</span>, optimum <span class="math inline">a^*=C^{-1}s/(s^T
-C^{-1}s)</span>, varijansa <span class="math inline">1/(s^T
-C^{-1}s)</span>.</li>
-<li><strong>Vektorski slučaj:</strong> <span
-class="math inline">\hat\theta=(H^T C^{-1} H)^{-1} H^T C^{-1} x</span>
-(isti oblik kao LGM sa obojenim šumom).</li>
-<li><strong>Zašto:</strong> robustan okvir kada pdf nije poznat; u LGM
-je čak i optimalan (NLNE=NEMV).</li>
-<li><strong>Primer:</strong> ponderisano srednje kada su varijanse
-merenja različite.</li>
-</ul>
+id="nlne-najbolji-linearan-nepomeren-estimator-blue"><span
+class="header-section-number">5</span> NLNE – Najbolji linearan
+nepomeren estimator (BLUE)</h2>
+<h3 data-number="5.1" id="motivacija"><span
+class="header-section-number">5.1</span> Motivacija</h3>
+<details class="card">
+<summary>
+<strong>Zašto uopšte uvodimo NLNE/BLUE?</strong>
+</summary>
+<div class="card-body">
+<p>Kada <span class="math inline">p(x;\theta)</span> nije poznata ili
+klasični kriterijumi (CRDG, rizično-bayesovski) nisu primenljivi,
+ograničavamo se na <strong>linearne</strong> estimatore i tražimo onaj
+koji je <strong>nepomeren</strong> i ima <strong>minimalnu
+varijansu</strong>.<br />
+Usvajamo linearni oblik: <span class="math display">
+\hat{\theta} = \sum_{n=0}^{N-1} a_n\, x[n] = \mathbf{a}^T \mathbf{x}.
+</span></p>
+<p><strong>Intuicija:</strong> dovoljno su nam <span
+class="math inline">E[\mathbf{x}]</span> i <span
+class="math inline">\mathrm{cov}(\mathbf{x})</span>; ne moramo znati
+celu raspodelu <span class="math inline">p(x;\theta)</span>.</p>
+</div></details>
+<hr />
+<h3 data-number="5.2" id="uslov-nepomerenosti-skalarni-slučaj"><span
+class="header-section-number">5.2</span> Uslov nepomerenosti (skalarni
+slučaj)</h3>
+<details class="card">
+<summary>
+<strong>Koji je uslov nepomerenosti za <span
+class="math inline">\hat{\theta}=\mathbf{a}^T\mathbf{x}</span>?</strong>
+</summary>
+<div class="card-body">
+<p>Ako je model očekivanja <span class="math inline">E[\mathbf{x}] =
+\theta\,\mathbf{s}</span> sa poznatim <span
+class="math inline">\mathbf{s}</span>, tada: <span class="math display">
+E[\hat{\theta}] = \theta \;\;\Longleftrightarrow\;\; \mathbf{a}^T
+\mathbf{s} = 1.
+</span></p>
+<p><strong>Intuicija:</strong> težine <span
+class="math inline">\mathbf{a}</span> moraju “uhvatiti” skalu <span
+class="math inline">\mathbf{s}</span> tako da prosečno daju baš <span
+class="math inline">\theta</span>.</p>
+</div></details>
+<hr />
+<h3 data-number="5.3" id="nalaženje-nlne-skalarni-slučaj"><span
+class="header-section-number">5.3</span> Nalaženje NLNE (skalarni
+slučaj)</h3>
+<details class="card">
+<summary>
+<strong>Kako naći NLNE kada znamo <span
+class="math inline">\mathrm{cov}(\mathbf{x})=\mathbf{C}</span> i <span
+class="math inline">E[\mathbf{x}]=\theta\mathbf{s}</span>?</strong>
+</summary>
+<div class="card-body">
+<p>Minimizujemo varijansu uz uslov nepomerenosti: <span
+class="math display">
+\min_{\mathbf{a}}\;\mathbf{a}^T \mathbf{C}\,\mathbf{a}\quad
+\text{uz}\quad \mathbf{a}^T \mathbf{s}=1.
+</span> Lagrandžijan: <span class="math display">
+L(\mathbf{a},\lambda) = \mathbf{a}^T\mathbf{C}\mathbf{a} +
+\lambda\,(\mathbf{a}^T\mathbf{s}-1).
+</span> Rešenje: <span class="math display">
+\mathbf{a}_{\text{opt}} = \frac{\mathbf{C}^{-1}\mathbf{s}}{\mathbf{s}^T
+\mathbf{C}^{-1}\mathbf{s}},\qquad
+\mathrm{var}(\hat{\theta}) = \frac{1}{\mathbf{s}^T
+\mathbf{C}^{-1}\mathbf{s}}.
+</span></p>
+<p><strong>Komentar (intuicija):</strong> ovo je “pretezani korelator” –
+prvo <strong>izbeljivanje</strong> (<span
+class="math inline">\mathbf{C}^{-1}</span>), pa
+<strong>usklađivanje</strong> sa <span
+class="math inline">\mathbf{s}</span>. U belom šumu <span
+class="math inline">\mathbf{C}=\sigma^2\mathbf{I}</span> se svodi na
+<span class="math display">
+\mathbf{a}_{\text{opt}}=\frac{\mathbf{s}}{\mathbf{s}^T\mathbf{s}},\quad
+\hat{\theta}=\frac{\mathbf{s}^T\mathbf{x}}{\mathbf{s}^T\mathbf{s}}.
+</span></p>
+</div></details>
+<hr />
+<h3 data-number="5.4" id="kada-nlne-nije-adekvatan"><span
+class="header-section-number">5.4</span> Kada NLNE nije adekvatan?</h3>
+<details class="card">
+<summary>
+<strong>Postoji li situacija u kojoj linearni nepomeren estimator ne
+može da pomogne?</strong>
+</summary>
+<div class="card-body">
+<p>Da. Ako je, recimo, <span class="math inline">E[x[n]]=0</span>, a
+parametar je <span
+class="math inline">\theta=\mathrm{var}\{x[n]\}</span>, svaki linearni
+estimator <span class="math inline">\sum a_n x[n]</span> je
+<strong>nepomeren za nulu</strong>, pa ne možemo linearnim putem doći do
+<span class="math inline">\theta</span>.<br />
+<strong>Intuicija:</strong> kada je informacija o parametru
+“kvadratična”, treba nelinearan pristup (npr. koristiti <span
+class="math inline">x^2[n]</span>).</p>
+</div></details>
+<hr />
+<h3 data-number="5.5"
+id="vektorski-slučaj-blue-za-boldsymbolthetainmathbbrp"><span
+class="header-section-number">5.5</span> Vektorski slučaj (BLUE za <span
+class="math inline">\boldsymbol{\theta}\in\mathbb{R}^p</span>)</h3>
+<details class="card">
+<summary>
+<strong>Kako izgleda linearni nepomeren estimator vektora?</strong>
+</summary>
+<div class="card-body">
+<p>Uzimamo <span
+class="math inline">\hat{\boldsymbol{\theta}}=\mathbf{A}\mathbf{x}</span>
+i tražimo nepomerenost uz model <span
+class="math inline">E[\mathbf{x}]=\mathbf{H}\boldsymbol{\theta}</span>:
+<span class="math display">
+E[\hat{\boldsymbol{\theta}}]=\boldsymbol{\theta}
+\;\;\Longleftrightarrow\;\;
+\mathbf{A}\mathbf{H}=\mathbf{I}.
+</span> Komponentno: neka su <span
+class="math inline">\mathbf{a}_i^T</span> vrste od <span
+class="math inline">\mathbf{A}</span> i <span
+class="math inline">\mathbf{h}_j</span> kolone od <span
+class="math inline">\mathbf{H}</span>. Tada: <span class="math display">
+\mathbf{a}_i^T\mathbf{h}_j = \delta_{ij}.
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako naći <span class="math inline">\mathbf{A}</span> sa
+minimalnom kovarijansom?</strong>
+</summary>
+<div class="card-body">
+<p>Minimizujemo svaku <span
+class="math inline">\mathrm{var}(\hat{\theta}_i)=[\mathbf{A}\mathbf{C}\mathbf{A}^T]_{ii}</span>
+pod ograničenjem <span
+class="math inline">\mathbf{A}\mathbf{H}=\mathbf{I}</span>.<br />
+Rezultat (BLUE/GLS): <span class="math display">
+\boxed{\;
+\hat{\boldsymbol{\theta}} =
+(\mathbf{H}^T\mathbf{C}^{-1}\mathbf{H})^{-1}\mathbf{H}^T\mathbf{C}^{-1}\mathbf{x},\qquad
+\mathbf{C}_{\hat{\boldsymbol{\theta}}} =
+(\mathbf{H}^T\mathbf{C}^{-1}\mathbf{H})^{-1}
+\;}
+</span></p>
+<p><strong>Komentar (intuicija):</strong> ovo je <strong>generalizovani
+najmanji kvadrati (GLS)</strong> – merenja se teže po <span
+class="math inline">\mathbf{C}^{-1}</span> (manja varijansa ⇒ veći
+uticaj). Za <span
+class="math inline">\mathbf{C}=\sigma^2\mathbf{I}</span> dobijamo
+klasični OLS: <span class="math display">
+\hat{\boldsymbol{\theta}}=(\mathbf{H}^T\mathbf{H})^{-1}\mathbf{H}^T\mathbf{x}.
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kakva je veza sa NEMV (MVUE) u linearnom Gaussovom
+modelu?</strong>
+</summary>
+<div class="card-body">
+<p>Ako je <span
+class="math inline">\mathbf{x}=\mathbf{H}\boldsymbol{\theta}+\mathbf{w}</span>
+sa <span
+class="math inline">\mathbf{w}\sim\mathcal{N}(\mathbf{0},\mathbf{C})</span>,
+tada je BLUE iznad <strong>istovremeno i MVUE</strong>: <span
+class="math display">
+\text{NLNE} \equiv \text{NEMV} \quad (\text{u linearnom Gaussovom
+modelu}).
+</span></p>
+<p><strong>Intuicija:</strong> Gaussov slučaj “zatvara krug”: linearni,
+nepomeren i minimalne varijanse je ujedno i globalno optimalan među svim
+nepomerenim.</p>
+</div></details>
+<hr />
+<h3 data-number="5.6" id="kratki-primeri-i-komentari"><span
+class="header-section-number">5.6</span> Kratki primeri i komentari</h3>
+<details class="card">
+<summary>
+<strong>Primer (skalar, beli šum):</strong><br />
+Model <span class="math inline">E[\mathbf{x}]=\theta\,\mathbf{s}</span>,
+<span class="math inline">\mathbf{C}=\sigma^2\mathbf{I}</span>.<br />
+<strong>Rešenje:</strong> <span
+class="math inline">\;\hat{\theta}=\dfrac{\mathbf{s}^T\mathbf{x}}{\mathbf{s}^T\mathbf{s}},\;\;
+\mathrm{var}(\hat{\theta})=\dfrac{\sigma^2}{\mathbf{s}^T\mathbf{s}}.</span>
+</summary>
+<div class="card-body">
+<p><strong>Komentar:</strong> poredi “oblik” <span
+class="math inline">\mathbf{x}</span> sa šablonom <span
+class="math inline">\mathbf{s}</span>; što je energija šablona veća,
+preciznost je veća.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Primer (vektor, obojeni šum):</strong><br />
+<span
+class="math inline">\mathbf{x}=\mathbf{H}\boldsymbol{\theta}+\mathbf{w}</span>,
+<span
+class="math inline">\mathrm{cov}(\mathbf{x})=\mathbf{C}</span>.<br />
+<strong>Rešenje (GLS/BLUE):</strong> <span class="math display">
+\hat{\boldsymbol{\theta}}=(\mathbf{H}^T\mathbf{C}^{-1}\mathbf{H})^{-1}\mathbf{H}^T\mathbf{C}^{-1}\mathbf{x}.
+</span>
+</summary>
+<div class="card-body">
+<p><strong>Komentar:</strong> “izbeljivanjem” sa <span
+class="math inline">\mathbf{C}^{-1}</span> svodimo problem na OLS nad
+pretežiranim uzorcima; merenja sa velikom varijansom manje utiču.</p>
+</div></details>
+<hr />
+<h3 data-number="5.7" id="rezime-što-zapamtiti"><span
+class="header-section-number">5.7</span> Rezime (što zapamtiti)</h3>
+<details class="card">
+<summary>
+<strong>BLUE u jednoj liniji:</strong>
+</summary>
+<div class="card-body">
+<p>Skalar: <span class="math inline">\; \hat{\theta} =
+\dfrac{\mathbf{s}^T\mathbf{C}^{-1}\mathbf{x}}{\mathbf{s}^T\mathbf{C}^{-1}\mathbf{s}},\;\;
+\mathrm{var}(\hat{\theta}) =
+\dfrac{1}{\mathbf{s}^T\mathbf{C}^{-1}\mathbf{s}}.</span></p>
+<p>Vektor: <span class="math inline">\;
+\hat{\boldsymbol{\theta}}=(\mathbf{H}^T\mathbf{C}^{-1}\mathbf{H})^{-1}\mathbf{H}^T\mathbf{C}^{-1}\mathbf{x},\;\;
+\mathbf{C}_{\hat{\boldsymbol{\theta}}}=(\mathbf{H}^T\mathbf{C}^{-1}\mathbf{H})^{-1}.</span></p>
+</div></details>
 <hr />
 <h2 data-number="6"
 id="emv-mle-estimator-maksimalne-verodostojnosti"><span
@@ -965,5 +1190,5 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813143709 --></body>
+</body>
 </html>
