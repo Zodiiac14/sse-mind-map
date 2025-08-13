@@ -163,25 +163,35 @@ srednje-kvadratne greške (EMSKG)</a></li>
 id="toc-primer-konstanta-u-belom-gaussovom-šumu"><span
 class="toc-section-number">7.4</span> Primer: konstanta u belom
 Gaussovom šumu</a></li>
+</ul></li>
+<li><a
+href="#komentar-ako-je-n-veliko-varijansa-sigma2n-to-0-pa-se-raspodela-koncentriše-oko-barx-i-apriorno-znanje-postaje-nebitno.-estimacija-je-asimptotski-nepomerena."
+id="toc-komentar-ako-je-n-veliko-varijansa-sigma2n-to-0-pa-se-raspodela-koncentriše-oko-barx-i-apriorno-znanje-postaje-nebitno.-estimacija-je-asimptotski-nepomerena."><span
+class="toc-section-number">8</span> <strong>Komentar</strong>: Ako je
+<span class="math inline">N</span> veliko, varijansa <span
+class="math inline">\sigma^2/N \to 0</span>, pa se raspodela koncentriše
+oko <span class="math inline">\bar{x}</span> i apriorno znanje postaje
+nebitno. Estimacija je asimptotski nepomerena.</a>
+<ul>
 <li><a href="#osobine-gaussove-fgv" id="toc-osobine-gaussove-fgv"><span
-class="toc-section-number">7.5</span> Osobine Gaussove FGV</a></li>
+class="toc-section-number">8.1</span> Osobine Gaussove FGV</a></li>
 <li><a href="#bayesovski-linearan-model"
 id="toc-bayesovski-linearan-model"><span
-class="toc-section-number">7.6</span> Bayesovski linearan model</a></li>
+class="toc-section-number">8.2</span> Bayesovski linearan model</a></li>
 </ul></li>
 <li><a href="#opšta-bayesovska-estimacija-cena-i-rizik"
 id="toc-opšta-bayesovska-estimacija-cena-i-rizik"><span
-class="toc-section-number">8</span> Opšta Bayesovska estimacija: cena i
+class="toc-section-number">9</span> Opšta Bayesovska estimacija: cena i
 rizik</a></li>
 <li><a href="#linearna-bayesovska-estimacija-lemskg-i-geometrija"
 id="toc-linearna-bayesovska-estimacija-lemskg-i-geometrija"><span
-class="toc-section-number">9</span> Linearna Bayesovska estimacija
+class="toc-section-number">10</span> Linearna Bayesovska estimacija
 (LEMSKG) i geometrija</a></li>
 <li><a href="#kalmanov-filter-kf" id="toc-kalmanov-filter-kf"><span
-class="toc-section-number">10</span> Kalmanov filter (KF)</a></li>
+class="toc-section-number">11</span> Kalmanov filter (KF)</a></li>
 <li><a href="#povezanosti-redosled-učenja"
 id="toc-povezanosti-redosled-učenja"><span
-class="toc-section-number">11</span> Povezanosti (redosled
+class="toc-section-number">12</span> Povezanosti (redosled
 učenja)</a></li>
 </ul>
 </nav>
@@ -1270,14 +1280,15 @@ p(A|x) =
 c = \int_{-A_0}^{A_0} \varphi\left(A; \bar{x}, \frac{\sigma^2}{N}\right)
 \, dA
 </span></p>
-</div></details>
-<p><em>Komentar</em>: Ako je <span class="math inline">N</span> veliko,
-varijansa <span class="math inline">\sigma^2/N \to 0</span>, pa se
-raspodela koncentriše oko <span class="math inline">\bar{x}</span> i
-apriorno znanje postaje nebitno.</p>
-<hr />
-<h3 data-number="7.5" id="osobine-gaussove-fgv"><span
-class="header-section-number">7.5</span> Osobine Gaussove FGV</h3>
+<h2 data-number="8"
+id="komentar-ako-je-n-veliko-varijansa-sigma2n-to-0-pa-se-raspodela-koncentriše-oko-barx-i-apriorno-znanje-postaje-nebitno.-estimacija-je-asimptotski-nepomerena."><span
+class="header-section-number">8</span> <strong>Komentar</strong>: Ako je
+<span class="math inline">N</span> veliko, varijansa <span
+class="math inline">\sigma^2/N \to 0</span>, pa se raspodela koncentriše
+oko <span class="math inline">\bar{x}</span> i apriorno znanje postaje
+nebitno. Estimacija je asimptotski nepomerena.</h2>
+<h3 data-number="8.1" id="osobine-gaussove-fgv"><span
+class="header-section-number">8.1</span> Osobine Gaussove FGV</h3>
 <details class="card">
 <summary>
 <strong>Koji je oblik aposteriorne raspodele za združeno normalne <span
@@ -1299,8 +1310,8 @@ C_{\theta|x} = C_\theta - C_{\theta x} C_x^{-1} C_{x\theta}
 </span></p>
 </div></details>
 <hr />
-<h3 data-number="7.6" id="bayesovski-linearan-model"><span
-class="header-section-number">7.6</span> Bayesovski linearan model</h3>
+<h3 data-number="8.2" id="bayesovski-linearan-model"><span
+class="header-section-number">8.2</span> Bayesovski linearan model</h3>
 <details class="card">
 <summary>
 <strong>Koji su osnovni izrazi za Bayesovski linearan model <span
@@ -1319,8 +1330,8 @@ C_\theta
 </span></p>
 </div></details>
 <hr />
-<h2 data-number="8" id="opšta-bayesovska-estimacija-cena-i-rizik"><span
-class="header-section-number">8</span> Opšta Bayesovska estimacija: cena
+<h2 data-number="9" id="opšta-bayesovska-estimacija-cena-i-rizik"><span
+class="header-section-number">9</span> Opšta Bayesovska estimacija: cena
 i rizik</h2>
 <ul>
 <li><strong>Poenta:</strong> Definišeš <strong>cenu</strong> <span
@@ -1339,9 +1350,9 @@ aplikacije (robustnost, tolerancija, greške tipa „preko praga“).</li>
 „odsečena“ Gaussova posteriorna.</li>
 </ul>
 <hr />
-<h2 data-number="9"
+<h2 data-number="10"
 id="linearna-bayesovska-estimacija-lemskg-i-geometrija"><span
-class="header-section-number">9</span> Linearna Bayesovska estimacija
+class="header-section-number">10</span> Linearna Bayesovska estimacija
 (LEMSKG) i geometrija</h2>
 <ul>
 <li><strong>LEMSKG:</strong> <span
@@ -1360,8 +1371,8 @@ za Kalmanov filter.</li>
 komponentu inovacije.</li>
 </ul>
 <hr />
-<h2 data-number="10" id="kalmanov-filter-kf"><span
-class="header-section-number">10</span> Kalmanov filter (KF)</h2>
+<h2 data-number="11" id="kalmanov-filter-kf"><span
+class="header-section-number">11</span> Kalmanov filter (KF)</h2>
 <ul>
 <li><strong>Model:</strong> Gauss–Markov stanje + BGŠ merenja.</li>
 <li><strong>Rekurzije (skalar):</strong>
@@ -1383,8 +1394,8 @@ odziv zavisi od <span
 class="math inline">\sigma_u^2,\sigma_w^2</span>.</li>
 </ul>
 <hr />
-<h2 data-number="11" id="povezanosti-redosled-učenja"><span
-class="header-section-number">11</span> Povezanosti (redosled
+<h2 data-number="12" id="povezanosti-redosled-učenja"><span
+class="header-section-number">12</span> Povezanosti (redosled
 učenja)</h2>
 <ol type="1">
 <li><strong>Uvod → SKG/bias–var</strong> (razumevanje metrike)</li>
@@ -1398,5 +1409,6 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813155709 --></body>
+</div></details>
+</body>
 </html>
