@@ -193,10 +193,29 @@ class="toc-section-number">8.2</span> Osobine EMSKG</a></li>
 <li><a href="#osobine-mape" id="toc-osobine-mape"><span
 class="toc-section-number">8.3</span> Osobine MAPE</a></li>
 </ul></li>
-<li><a href="#linearna-bayesovska-estimacija-lemskg-i-geometrija"
-id="toc-linearna-bayesovska-estimacija-lemskg-i-geometrija"><span
+<li><a href="#linearna-bayesovska-estimacija-lbe"
+id="toc-linearna-bayesovska-estimacija-lbe"><span
 class="toc-section-number">9</span> Linearna Bayesovska estimacija
-(LEMSKG) i geometrija</a></li>
+(LBE)</a>
+<ul>
+<li><a href="#definicija-i-klasa-linearnog-estimatora"
+id="toc-definicija-i-klasa-linearnog-estimatora"><span
+class="toc-section-number">9.1</span> Definicija i klasa linearnog
+estimatora</a></li>
+<li><a href="#optimalni-koeficijenti-lemskg"
+id="toc-optimalni-koeficijenti-lemskg"><span
+class="toc-section-number">9.2</span> Optimalni koeficijenti
+LEMSKG</a></li>
+<li><a href="#geometrijska-interpretacija"
+id="toc-geometrijska-interpretacija"><span
+class="toc-section-number">9.3</span> Geometrijska
+interpretacija</a></li>
+<li><a href="#princip-ortogonalnosti"
+id="toc-princip-ortogonalnosti"><span
+class="toc-section-number">9.4</span> Princip ortogonalnosti</a></li>
+<li><a href="#vektorski-lemskg" id="toc-vektorski-lemskg"><span
+class="toc-section-number">9.5</span> Vektorski LEMSKG</a></li>
+</ul></li>
 <li><a href="#kalmanov-filter-kf" id="toc-kalmanov-filter-kf"><span
 class="toc-section-number">10</span> Kalmanov filter (KF)</a></li>
 <li><a href="#povezanosti-redosled-učenja"
@@ -1637,26 +1656,127 @@ parametara?</strong>
 = a\theta + b</span>.</p>
 </div></details>
 <hr />
-<h2 data-number="9"
-id="linearna-bayesovska-estimacija-lemskg-i-geometrija"><span
+<h2 data-number="9" id="linearna-bayesovska-estimacija-lbe"><span
 class="header-section-number">9</span> Linearna Bayesovska estimacija
-(LEMSKG) i geometrija</h2>
-<ul>
-<li><strong>LEMSKG:</strong> <span
-class="math inline">\hat\theta=E\theta + C_{\theta x} C_x^{-1}(x-E
-x)</span>. </li>
-<li><strong>Geometrija:</strong> projekcija <span
-class="math inline">\theta</span> na potprostor koji „nose” <span
-class="math inline">x</span>-ovi; <strong>princip
-ortogonalnosti</strong>.</li>
-<li><strong>Sekvencijalna forma (inovacije):</strong> rekurzivno
-ažuriranje preko <span class="math inline">k[n]</span> i kovarijanse
-greške <span class="math inline">M[n]</span>.</li>
-<li><strong>Zašto:</strong> isti oblik kao Gauss–Bayes; priprema teren
-za Kalmanov filter.</li>
-<li><strong>Primer:</strong> dodavanje nove merenja kao „projekcije“ na
-komponentu inovacije.</li>
-</ul>
+(LBE)</h2>
+<h3 data-number="9.1" id="definicija-i-klasa-linearnog-estimatora"><span
+class="header-section-number">9.1</span> Definicija i klasa linearnog
+estimatora</h3>
+<details class="card">
+<summary>
+<strong>Šta je klasa inkrementalno linearnih estimatora i šta je
+LEMSKG?</strong>
+</summary>
+<div class="card-body">
+<p>Klasa: <span class="math display">
+\hat{\theta}=\sum_{n=0}^{N-1} a_n\,x[n] + a_N \;=\; \mathbf{a}^T
+\mathbf{x} + a_N.
+</span> <strong>LEMSKG</strong> (linearni estimator minimalne SKG)
+rešava: <span class="math display">
+(\mathbf{a},a_N)=\arg\min_{\mathbf{a},a_N}
+E\!\left[(\theta-\mathbf{a}^T\mathbf{x}-a_N)^2\right].
+</span> (Napomena: LEMSKG je generalno suboptimalan u odnosu na
+nelinearni Bayesovski MMSE.) :contentReference<span
+data-index="0">oaicite:0</span> :contentReference<span
+data-index="1">oaicite:1</span></p>
+</div></details>
+<h3 data-number="9.2" id="optimalni-koeficijenti-lemskg"><span
+class="header-section-number">9.2</span> Optimalni koeficijenti
+LEMSKG</h3>
+<details class="card">
+<summary>
+<strong>Kako se računaju optimalni koeficijenti <span
+class="math inline">\mathbf{a}</span> i <span
+class="math inline">a_N</span>?</strong>
+</summary>
+<div class="card-body">
+<p>Ako su <span class="math inline">E\{\theta\}</span> i <span
+class="math inline">E\{\mathbf{x}\}</span> opšti (nenulta srednja):
+<span class="math display">
+\frac{\partial\,\mathrm{Bmse}(\hat{\theta})}{\partial a_N}=0 \Rightarrow
+a_N=E\{\theta\}-\mathbf{a}^T E\{\mathbf{x}\}.
+</span> Minimizacija po <span class="math inline">\mathbf{a}</span> daje
+kvadratnu formu: <span class="math display">
+E\!\big[(\mathbf{a}^T(\mathbf{x}-E\mathbf{x})-(\theta-E\theta))^2\big]
+= \mathbf{a}^T \mathbf{C}_x\,\mathbf{a}-2\,\mathbf{c}_{\theta
+x}^T\mathbf{a}+\mathrm{var}(\theta),
+</span> pa iz <span class="math inline">\nabla_{\mathbf{a}}=0</span>
+sledi <span class="math display">
+\boxed{\;\mathbf{a}= \mathbf{C}_x^{-1}\mathbf{c}_{x\theta}\;}
+</span> i na kraju <span class="math display">
+\boxed{\;\hat{\theta}=E\{\theta\}+\mathbf{c}_{\theta
+x}\,\mathbf{C}_x^{-1}\,(\mathbf{x}-E\{\mathbf{x}\})\;}\quad\text{(10.2)}
+</span> uz <span class="math display">
+\boxed{\;\mathrm{Bmse}(\hat{\theta})=\mathrm{var}(\theta)-\mathbf{c}_{\theta
+x}\,\mathbf{C}_x^{-1}\mathbf{c}_{x\theta}\;}\quad\text{(10.3)}.
+</span> <em>Intuicija:</em> “izbeljivanje” <span
+class="math inline">\mathbf{C}_x^{-1}</span> pa “usklađivanje” sa
+korelacijom <span class="math inline">\mathbf{c}_{\theta x}</span>.
+:contentReference<span data-index="2">oaicite:2</span></p>
+</div></details>
+<h3 data-number="9.3" id="geometrijska-interpretacija"><span
+class="header-section-number">9.3</span> Geometrijska
+interpretacija</h3>
+<details class="card">
+<summary>
+<strong>Kako izgleda geometrijska interpretacija LEMSKG-a?</strong>
+</summary>
+<div class="card-body">
+<p>Uz centriranje <span
+class="math inline">\theta&#39;=\theta-E\theta,\;
+\mathbf{x}&#39;=\mathbf{x}-E\mathbf{x}</span>, prostor slučajnih
+promenljivih nulte srednje je vektorski prostor sa skalarom <span
+class="math inline">\langle u,v\rangle=E(uv)</span>. Optimalno <span
+class="math inline">\hat{\theta}</span> je <strong>projekcija</strong>
+<span class="math inline">\theta</span> na potprostor koji generišu
+opservacije: <span class="math display">
+\frac{d}{da}E(\theta-a x)^2=0 \Rightarrow
+a=\frac{\langle\theta,x\rangle}{\langle x,x\rangle},\quad
+\hat{\theta}=\mathrm{proj}_{x}\theta.
+</span> <em>Intuicija:</em> greška je ortogonalna prostoru “objašnjenom”
+merenjima. :contentReference<span data-index="3">oaicite:3</span></p>
+</div></details>
+<h3 data-number="9.4" id="princip-ortogonalnosti"><span
+class="header-section-number">9.4</span> Princip ortogonalnosti</h3>
+<details class="card">
+<summary>
+<strong>Koji je princip ortogonalnosti i šta iz njega sledi?</strong>
+</summary>
+<div class="card-body">
+<p>Za <span
+class="math inline">\hat{\theta}=\mathbf{a}^T\mathbf{x}</span> (nulte
+srednje): <span class="math display">
+\varepsilon=\theta-\hat{\theta} \;\perp\;
+\{x[0],\dots,x[N-1]\},\quad\text{(10.4)}
+</span> odakle sledi sistem normalnih jednačina <span
+class="math inline">\mathbf{C}_x\,\mathbf{a}=\mathbf{c}_{x\theta}</span>,
+tj. <span
+class="math inline">\mathbf{a}=\mathbf{C}_x^{-1}\mathbf{c}_{x\theta}</span>,
+i formula (10.3) za <span class="math inline">\mathrm{Bmse}</span>.
+:contentReference<span data-index="4">oaicite:4</span></p>
+</div></details>
+<h3 data-number="9.5" id="vektorski-lemskg"><span
+class="header-section-number">9.5</span> Vektorski LEMSKG</h3>
+<details class="card">
+<summary>
+<strong>Kako izgleda vektorska forma LEMSKG-a i njegova
+kovarijansa?</strong>
+</summary>
+<div class="card-body">
+<p>Za vektorski parametar: <span class="math display">
+\boxed{\;\hat{\boldsymbol{\theta}}=E\{\boldsymbol{\theta}\}+
+\mathbf{C}_{\theta
+x}\,\mathbf{C}_x^{-1}(\mathbf{x}-E\{\mathbf{x}\})\;}\quad\text{(10.5)}
+</span> <span class="math display">
+\boxed{\;\mathbf{M}_{\hat{\boldsymbol{\theta}}}=\mathrm{Bmse}(\hat{\boldsymbol{\theta}})=
+\mathbf{C}_\theta-\mathbf{C}_{\theta
+x}\,\mathbf{C}_x^{-1}\mathbf{C}_{x\theta}\;}\quad\text{(10.6)}.
+</span> <em>Invarijantnost:</em> za <span
+class="math inline">\boldsymbol{\alpha}=A\boldsymbol{\theta}+b</span>
+važi <span
+class="math inline">\hat{\boldsymbol{\alpha}}=A\hat{\boldsymbol{\theta}}+b</span>.
+:contentReference<span data-index="5">oaicite:5</span></p>
+</div></details>
 <hr />
 <h2 data-number="10" id="kalmanov-filter-kf"><span
 class="header-section-number">10</span> Kalmanov filter (KF)</h2>
@@ -1696,5 +1816,5 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813203708 --></body>
+</body>
 </html>
