@@ -1396,24 +1396,24 @@ class="math inline">C_w</span> nepovoljne.</p>
 </div></details>
 <details class="card">
 <summary>
-<strong>Koja je alternativna forma za <span
+<details class="card">
+</summary>
+<div class="card-body">
+<summary>
+<strong>Kako izgleda alternativna forma za <span
 class="math inline">\mu_{\theta|x}</span> pomoću oznake <span
 class="math inline">s</span>?</strong>
 </summary>
 <div class="card-body">
-<p>Uvodimo oznaku: <span class="math display">
-s = C_\theta H^T \left( H C_\theta H^T + C_w \right)^{-1}
+<p>Definišemo: <span class="math display">
+s = H C_\theta H^T + C_w
 </span> Tada: <span class="math display">
-\mu_{\theta|x} = \mu_\theta + s \left( x - H \mu_\theta \right)
-</span> Ova forma pokazuje da je aposteriorna sredina apriorna sredina
-plus korekcija zavisna od reziduala <span class="math inline">x - H
-\mu_\theta</span>.</p>
-</div></details>
-<details class="card">
-<summary>
-<strong>Intuicija</strong>
-</summary>
-<div class="card-body">
+\mu_{\theta|x} = \mu_\theta + C_{\theta|x} H^T C_w^{-1} \left( x - H
+\mu_\theta \right)
+</span> Ova forma jasno pokazuje kako Bayesovski estimator koriguje
+apriornu sredinu na osnovu reziduala <span class="math inline">x -
+H\mu_\theta</span>.</p>
+<p><strong>Intuicija:</strong></p>
 <ul>
 <li><strong>Lema o inverziji matrice</strong>: omogućava da biraš
 redosled računanja i tako smanjiš složenost.<br />
@@ -1422,6 +1422,28 @@ redosled računanja i tako smanjiš složenost.<br />
 se kao “Bayesovski pojačivač” koji odlučuje koliko poverenja da daš
 novim merenjima u odnosu na apriorno verovanje.</li>
 </ul>
+</div></details>
+<details class="card">
+<summary>
+<strong>Šta su neželjeni parametri?</strong>
+</summary>
+<div class="card-body">
+<p>Neželjeni parametri (nuisance parameters) su oni koji se pojavljuju u
+modelu, ali nisu od direktnog interesa za estimaciju. Njihova prisutnost
+može komplikovati procenu željenih parametara jer utiču na funkciju
+verovatnoće.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako znamo da su <span class="math inline">x</span> i <span
+class="math inline">\theta</span> združeno normalni?</strong>
+</summary>
+<div class="card-body">
+<p>Ako je vektor <span class="math inline">\begin{bmatrix} x \\ \theta
+\end{bmatrix}</span> linearna kombinacija nezavisnih normalnih vektora,
+tada je i on normalno raspodeljen.<br />
+Linearna transformacija (npr. sabiranje ili množenje matricom) ne menja
+činjenicu da kombinacija ostaje Gaussova.</p>
 </div></details>
 <hr />
 <h2 data-number="8" id="opšta-bayesovska-estimacija-cena-i-rizik"><span
@@ -1503,5 +1525,6 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813194249 --></body>
+</div></details>
+</body>
 </html>
