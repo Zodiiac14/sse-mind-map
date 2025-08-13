@@ -180,10 +180,19 @@ class="toc-section-number">7.9</span> Alternativne forme za <span
 class="math inline">C_{\theta|x}</span> i <span
 class="math inline">\mu_{\theta|x}</span></a></li>
 </ul></li>
-<li><a href="#opšta-bayesovska-estimacija-cena-i-rizik"
-id="toc-opšta-bayesovska-estimacija-cena-i-rizik"><span
-class="toc-section-number">8</span> Opšta Bayesovska estimacija: cena i
-rizik</a></li>
+<li><a href="#opšta-bayesovska-estimacija"
+id="toc-opšta-bayesovska-estimacija"><span
+class="toc-section-number">8</span> Opšta Bayesovska estimacija</a>
+<ul>
+<li><a href="#osnovni-pojmovi" id="toc-osnovni-pojmovi"><span
+class="toc-section-number">8.1</span> Osnovni pojmovi</a></li>
+<li><a href="#osobine-emskg" id="toc-osobine-emskg"><span
+class="toc-section-number">8.2</span> Osobine EMSKG</a></li>
+<li><a href="#osobine-mape" id="toc-osobine-mape"><span
+class="toc-section-number">8.3</span> Osobine MAPE</a></li>
+<li><a href="#dodatna-pitanja" id="toc-dodatna-pitanja"><span
+class="toc-section-number">8.4</span> Dodatna pitanja</a></li>
+</ul></li>
 <li><a href="#linearna-bayesovska-estimacija-lemskg-i-geometrija"
 id="toc-linearna-bayesovska-estimacija-lemskg-i-geometrija"><span
 class="toc-section-number">9</span> Linearna Bayesovska estimacija
@@ -1466,25 +1475,173 @@ Linearna transformacija (npr. sabiranje ili množenje matricom) ne menja
 činjenicu da kombinacija ostaje Gaussova.</p>
 </div></details>
 <hr />
-<h2 data-number="8" id="opšta-bayesovska-estimacija-cena-i-rizik"><span
-class="header-section-number">8</span> Opšta Bayesovska estimacija: cena
-i rizik</h2>
-<ul>
-<li><strong>Poenta:</strong> Definišeš <strong>cenu</strong> <span
-class="math inline">C(\epsilon)</span> i minimizuješ
-<strong>rizik</strong> <span
-class="math inline">R=E\,C(\theta-\hat\theta)</span>.</li>
-<li><strong>Rezultati:</strong>
-<ul>
-<li>Kvadratna cena ⇒ <strong>posteriorna sredina</strong>.</li>
-<li>Apsolutna cena ⇒ <strong>posteriorna medijana</strong>.</li>
-<li>0/1 cena (δ→0) ⇒ <strong>MAP</strong> (posteriorni maksimum).</li>
-</ul></li>
-<li><strong>Zašto:</strong> omogućava izbor estimatora po zahtevu
-aplikacije (robustnost, tolerancija, greške tipa „preko praga“).</li>
-<li><strong>Primer:</strong> MAP sa uniformnim ograničenim priorom ⇒
-„odsečena“ Gaussova posteriorna.</li>
-</ul>
+<h2 data-number="8" id="opšta-bayesovska-estimacija"><span
+class="header-section-number">8</span> Opšta Bayesovska estimacija</h2>
+<h3 data-number="8.1" id="osnovni-pojmovi"><span
+class="header-section-number">8.1</span> Osnovni pojmovi</h3>
+<details class="card">
+<summary>
+<strong>Šta je greška estimacije i kako se definiše cena?</strong>
+</summary>
+<div class="card-body">
+<p>Greška estimacije: <span class="math inline">\varepsilon = \theta -
+\hat{\theta}</span><br />
+Cena <span class="math inline">C(\varepsilon)</span> određuje težinu
+greške:<br />
+- Kvadratna: <span class="math inline">C(\varepsilon) =
+\varepsilon^2</span><br />
+- Apsolutna: <span class="math inline">C(\varepsilon) =
+|\varepsilon|</span><br />
+- “0/1” cena:<br />
+<span class="math display">
+C(\varepsilon) =
+\begin{cases}
+0, &amp; |\varepsilon| \le \delta \\
+1, &amp; |\varepsilon| &gt; \delta
+\end{cases}
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako se definiše rizik i optimalni estimator u Bayesovskom
+smislu?</strong>
+</summary>
+<div class="card-body">
+<p>Rizik: <span class="math display">
+R = E\{ C(\varepsilon) \} =
+\int \left[ \int C(\theta - \hat{\theta})\, p(\theta | x) \, d\theta
+\right] p(x) \, dx
+</span> Optimalni estimator minimizuje rizik: <span
+class="math display">
+\hat{\theta}^* = \arg\min_{\hat{\theta}} \int C(\theta - \hat{\theta})
+\, p(\theta|x) \, d\theta
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako izgleda optimalni estimator za kvadratnu cenu?</strong>
+</summary>
+<div class="card-body">
+<p>Za kvadratnu cenu, optimalan je EMSKG: <span class="math display">
+\hat{\theta}_{\mathrm{emskg}} = E\{\theta | x\}
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako izgleda optimalni estimator za apsolutnu cenu?</strong>
+</summary>
+<div class="card-body">
+<p>Za apsolutnu cenu, uslov optimalnosti: <span class="math display">
+\int_{-\infty}^{\hat{\theta}} p(\theta|x)\, d\theta =
+\int_{\hat{\theta}}^{\infty} p(\theta|x)\, d\theta
+</span> Optimalni estimator je <strong>medijana</strong> aposteriorne
+raspodele.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako izgleda optimalni estimator za 0/1 cenu?</strong>
+</summary>
+<div class="card-body">
+<p>Za malo <span class="math inline">\delta</span>: <span
+class="math display">
+\hat{\theta}^* = \arg\max_{\theta} p(\theta | x) = \arg\max_{\theta}
+p(x|\theta) p(\theta)
+</span> Ovo je <strong>MAP</strong> (maximum a posteriori)
+estimator.</p>
+</div></details>
+<hr />
+<h3 data-number="8.2" id="osobine-emskg"><span
+class="header-section-number">8.2</span> Osobine EMSKG</h3>
+<details class="card">
+<summary>
+<strong>Šta je invarijantnost EMSKG-a?</strong>
+</summary>
+<div class="card-body">
+<p>Ako je <span class="math inline">\alpha = A\theta + b</span>, onda:
+<span class="math display">
+\hat{\alpha} = E\{\alpha|x\} = A \hat{\theta} + b
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako izgleda aditivnost EMSKG-a u Gaussovskom modelu za
+nezavisne <span class="math inline">x_1</span> i <span
+class="math inline">x_2</span>?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+\hat{\theta} = E\theta + \sum_{i=1}^2 C_{\theta x_i} C_{x_i}^{-1} (x_i -
+E x_i)
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Da li je EMSKG nepomeren estimator?</strong>
+</summary>
+<div class="card-body">
+<p>Da, EMSKG je nepomeren: <span class="math display">
+E\{\varepsilon\} = E\{\theta - E_{\theta|x}(\theta)\} = 0
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako izgleda varijansa greške kod EMSKG-a?</strong>
+</summary>
+<div class="card-body">
+<p>U skalaru: <span class="math display">
+\mathrm{var}(\hat{\theta}) = \mathrm{Bmse}(\hat{\theta})
+</span> U vektorskom obliku: <span class="math display">
+M_{\hat{\theta}} = E_x \, C_{\theta|x}
+</span></p>
+</div></details>
+<hr />
+<h3 data-number="8.3" id="osobine-mape"><span
+class="header-section-number">8.3</span> Osobine MAPE</h3>
+<details class="card">
+<summary>
+<strong>Šta je prednost MAPE u odnosu na EMSKG?</strong>
+</summary>
+<div class="card-body">
+<p>MAPE ne zahteva integraciju, već samo maksimizaciju.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Da li je MAPE invarijantan na transformacije
+parametara?</strong>
+</summary>
+<div class="card-body">
+<p>Ne, osim za linearne transformacije <span class="math inline">\alpha
+= a\theta + b</span>.</p>
+</div></details>
+<hr />
+<h3 data-number="8.4" id="dodatna-pitanja"><span
+class="header-section-number">8.4</span> Dodatna pitanja</h3>
+<details class="card">
+<summary>
+<strong>Kako se osloboditi neželjenih parametara u Bayesovskom
+okviru?</strong>
+</summary>
+<div class="card-body">
+<p>Integracijom preko neželjenih parametara iz zajedničke gustine: <span
+class="math display">
+p(\theta | x) = \int p(\theta, \phi | x) \, d\phi
+</span> gde je <span class="math inline">\phi</span> neželjeni
+parametar.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako znamo da su <span class="math inline">x</span> i <span
+class="math inline">\theta</span> združeno normalni u Gaussovskom
+Bayesovskom modelu?</strong>
+</summary>
+<div class="card-body">
+<p>Ako je vektor <span class="math display">
+\begin{bmatrix} x \\ \theta \end{bmatrix}
+</span> linearno zavisan od nezavisnih normalnih vektora <span
+class="math inline">\theta</span> i <span class="math inline">w</span>,
+tada je on sam normalno raspodeljen (svojstvo linearne kombinacije
+normalnih).</p>
+</div></details>
 <hr />
 <h2 data-number="9"
 id="linearna-bayesovska-estimacija-lemskg-i-geometrija"><span
@@ -1545,5 +1702,5 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813195744 --></body>
+</body>
 </html>
