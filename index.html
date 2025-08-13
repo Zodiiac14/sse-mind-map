@@ -340,6 +340,48 @@ Gauss–Bejzovskom LG modelu</a></li>
 id="toc-bmse-sve-moguće-forme"><span
 class="toc-section-number">11.32</span> BMSE – sve moguće forme</a></li>
 </ul></li>
+<li><a href="#estimatori-i-njihove-varijanse-pregled-i-veze"
+id="toc-estimatori-i-njihove-varijanse-pregled-i-veze"><span
+class="toc-section-number">12</span> Estimatori i njihove varijanse –
+pregled i veze</a>
+<ul>
+<li><a href="#blue-best-linear-unbiased-estimator"
+id="toc-blue-best-linear-unbiased-estimator"><span
+class="toc-section-number">12.1</span> BLUE – Best Linear Unbiased
+Estimator</a></li>
+<li><a href="#mvue-minimum-variance-unbiased-estimator"
+id="toc-mvue-minimum-variance-unbiased-estimator"><span
+class="toc-section-number">12.2</span> MVUE – Minimum Variance Unbiased
+Estimator</a></li>
+<li><a href="#mle-maximum-likelihood-estimator"
+id="toc-mle-maximum-likelihood-estimator"><span
+class="toc-section-number">12.3</span> MLE – Maximum Likelihood
+Estimator</a></li>
+<li><a href="#emskg-estimator-minimalne-srednje-kvadratne-greške"
+id="toc-emskg-estimator-minimalne-srednje-kvadratne-greške"><span
+class="toc-section-number">12.4</span> EMSKG – Estimator minimalne
+srednje kvadratne greške</a></li>
+<li><a href="#map-maximum-a-posteriori"
+id="toc-map-maximum-a-posteriori"><span
+class="toc-section-number">12.5</span> MAP – Maximum A
+Posteriori</a></li>
+<li><a
+href="#lemskg-linearni-estimator-minimalne-srednje-kvadratne-greške"
+id="toc-lemskg-linearni-estimator-minimalne-srednje-kvadratne-greške"><span
+class="toc-section-number">12.6</span> LEMSKG – Linearni Estimator
+minimalne srednje kvadratne greške</a></li>
+<li><a href="#gaussovskobejzovski-linearni-model"
+id="toc-gaussovskobejzovski-linearni-model"><span
+class="toc-section-number">12.7</span> Gaussovsko–Bejzovski linearni
+model</a></li>
+<li><a href="#veze-među-estimatorima"
+id="toc-veze-među-estimatorima"><span
+class="toc-section-number">12.8</span> Veze među estimatorima</a></li>
+<li><a href="#poseban-osvrt-na-varijanse"
+id="toc-poseban-osvrt-na-varijanse"><span
+class="toc-section-number">12.9</span> Poseban osvrt na
+varijanse</a></li>
+</ul></li>
 </ul>
 </nav>
 <h2 data-number="1" id="uvod-i-motivacija"><span
@@ -2208,7 +2250,133 @@ veličinu u drugačijim uslovima ili zapisu — prva je opšta, druga koristi
 svojstvo EMSKG, treća dolazi iz linearnog modela, četvrta iz Gaussovskog
 zatvorenog oblika.</li>
 </ul>
+<h2 data-number="12"
+id="estimatori-i-njihove-varijanse-pregled-i-veze"><span
+class="header-section-number">12</span> Estimatori i njihove varijanse –
+pregled i veze</h2>
+<hr />
+<h3 data-number="12.1" id="blue-best-linear-unbiased-estimator"><span
+class="header-section-number">12.1</span> BLUE – Best Linear Unbiased
+Estimator</h3>
+<h4 data-number="12.1.1" id="skalarni-slučaj"><span
+class="header-section-number">12.1.1</span> Skalarni slučaj</h4>
+<p><span class="math display">
+\hat{\theta}_{\text{BLUE}} = \frac{s^T C_w^{-1} x}{s^T C_w^{-1} s}
+</span> <span class="math display">
+\mathrm{var}(\hat{\theta}_{\text{BLUE}}) = \frac{1}{s^T C_w^{-1} s}
+</span> <strong>Važi:</strong> kada je model linearan i <span
+class="math inline">\hat{\theta}</span> se traži unutar klase linearnih
+nepomerenih estimatora.</p>
+<hr />
+<h4 data-number="12.1.2" id="vektorski-slučaj"><span
+class="header-section-number">12.1.2</span> Vektorski slučaj</h4>
+<p><span class="math display">
+\hat{\theta}_{\text{BLUE}} = (H^T C_w^{-1} H)^{-1} H^T C_w^{-1} x
+</span> <span class="math display">
+C_{\hat{\theta}_{\text{BLUE}}} = (H^T C_w^{-1} H)^{-1}
+</span></p>
+<hr />
+<h3 data-number="12.2"
+id="mvue-minimum-variance-unbiased-estimator"><span
+class="header-section-number">12.2</span> MVUE – Minimum Variance
+Unbiased Estimator</h3>
+<ul>
+<li>Definicija: nepomeren estimator sa najmanjom mogućom
+varijansom.</li>
+<li><strong>U linearnom Gaussovskom modelu:</strong> MVUE = BLUE (jer
+BLUE dostiže CRDG).</li>
+</ul>
+<hr />
+<h3 data-number="12.3" id="mle-maximum-likelihood-estimator"><span
+class="header-section-number">12.3</span> MLE – Maximum Likelihood
+Estimator</h3>
+<p><span class="math display">
+\hat{\theta}_{\text{MLE}} = \arg\max_\theta p(x;\theta)
+</span> Asimptotske osobine: - Nepomerenost (asymptotic) - Efikasnost
+(<span class="math inline">\mathrm{var} \to 1/I(\theta)</span>) -
+Normalna raspodela za veliki <span class="math inline">N</span></p>
+<p><strong>Varijansa (asymptotic):</strong> <span class="math display">
+\mathrm{var}(\hat{\theta}_{\text{MLE}}) \approx \frac{1}{I(\theta)}
+</span></p>
+<hr />
+<h3 data-number="12.4"
+id="emskg-estimator-minimalne-srednje-kvadratne-greške"><span
+class="header-section-number">12.4</span> EMSKG – Estimator minimalne
+srednje kvadratne greške</h3>
+<p><span class="math display">
+\hat{\theta}_{\text{EMSKG}} = E\{\theta|x\}
+</span> <strong>Varijansa (Bayesovska, posteriorna):</strong> <span
+class="math display">
+\mathrm{var}(\theta|x) = E\{(\theta - E\{\theta|x\})^2 | x\}
+</span> <strong>Svojstvo:</strong> Minimizuje BMSE za dati prior i
+model.</p>
+<hr />
+<h3 data-number="12.5" id="map-maximum-a-posteriori"><span
+class="header-section-number">12.5</span> MAP – Maximum A
+Posteriori</h3>
+<p><span class="math display">
+\hat{\theta}_{\text{MAP}} = \arg\max_\theta p(\theta|x)
+</span> - Za uniformni prior: MAP = MLE. - Varijansa zavisi od oblika
+posteriora, nema opšti zatvoren oblik.</p>
+<hr />
+<h3 data-number="12.6"
+id="lemskg-linearni-estimator-minimalne-srednje-kvadratne-greške"><span
+class="header-section-number">12.6</span> LEMSKG – Linearni Estimator
+minimalne srednje kvadratne greške</h3>
+<h4 data-number="12.6.1" id="skalarni"><span
+class="header-section-number">12.6.1</span> Skalarni</h4>
+<p><span class="math display">
+\hat{\theta} = E\{\theta\} +
+\frac{\mathrm{cov}(\theta,x)}{\mathrm{var}(x)} (x - E\{x\})
+</span> <span class="math display">
+\mathrm{var}(\hat{\theta}) =
+\frac{\mathrm{cov}(\theta,x)^2}{\mathrm{var}(x)}
+</span></p>
+<hr />
+<h4 data-number="12.6.2" id="vektorski"><span
+class="header-section-number">12.6.2</span> Vektorski</h4>
+<p><span class="math display">
+\hat{\theta} = E\{\theta\} + C_{\theta x} C_x^{-1} (x - E\{x\})
+</span> <span class="math display">
+C_{\hat{\theta}} = C_{\theta x} C_x^{-1} C_{x\theta}
+</span></p>
+<hr />
+<h3 data-number="12.7" id="gaussovskobejzovski-linearni-model"><span
+class="header-section-number">12.7</span> Gaussovsko–Bejzovski linearni
+model</h3>
+<p><span class="math display">
+\hat{\theta} = \mu_\theta + C_\theta H^T (H C_\theta H^T + C_w)^{-1} (x
+- H\mu_\theta)
+</span> <span class="math display">
+C_{\hat{\theta}} = C_\theta - C_\theta H^T (H C_\theta H^T + C_w)^{-1} H
+C_\theta
+</span> <strong>Napomena:</strong> Ovo je ujedno EMSKG za Gaussovske
+veličine i LEMSKG, isti oblik.</p>
+<hr />
+<h3 data-number="12.8" id="veze-među-estimatorima"><span
+class="header-section-number">12.8</span> Veze među estimatorima</h3>
+<ul>
+<li><strong>BLUE = MVUE</strong> ako su šum i signal normalni.</li>
+<li><strong>MAP = MLE</strong> za uniformni prior.</li>
+<li><strong>LEMSKG = EMSKG</strong> za Gaussovske slučajeve.</li>
+<li><strong>EMSKG</strong> dostiže BMSE, dok <strong>BLUE</strong>
+dostiže CRDG (u nepomerenom slučaju).</li>
+</ul>
+<hr />
+<h3 data-number="12.9" id="poseban-osvrt-na-varijanse"><span
+class="header-section-number">12.9</span> Poseban osvrt na
+varijanse</h3>
+<ul>
+<li><strong>CRDG</strong>: donja granica varijanse nepomerenog
+estimatora: <span class="math display">
+\mathrm{var}(\hat{\theta}) \ge \frac{1}{I(\theta)}
+</span></li>
+<li><strong>Posteriorna varijansa</strong>: merenje nesigurnosti nakon
+posmatranja podataka, tipično za Bayesovske metode.</li>
+<li><strong>Kovarijaciona matrica</strong> u vektorskom slučaju: opisuje
+nesigurnost i međuzavisnost komponenti estimata.</li>
+</ul>
 <hr />
 <p><a href="#top" class="back-to-top">⇧</a></p>
-<!-- cache-bust 20250813234103 --></body>
+</body>
 </html>
