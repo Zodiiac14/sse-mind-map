@@ -63,22 +63,22 @@ class="toc-section-number">3.1</span> Fišerova informacija</a></li>
 class="toc-section-number">3.2</span> Uslov regularnosti</a></li>
 <li><a href="#crdg-teorema" id="toc-crdg-teorema"><span
 class="toc-section-number">3.3</span> CRDG – Teorema</a></li>
+<li><a href="#signali-sn-theta-u-belom-gaussovom-šumu"
+id="toc-signali-sn-theta-u-belom-gaussovom-šumu"><span
+class="toc-section-number">3.4</span> Signali <span
+class="math inline">s[n; \theta]</span> u belom Gaussovom šumu</a></li>
 <li><a href="#crdg-za-funkciju-parametra"
 id="toc-crdg-za-funkciju-parametra"><span
-class="toc-section-number">3.4</span> CRDG za funkciju
+class="toc-section-number">3.5</span> CRDG za funkciju
 parametra</a></li>
 <li><a href="#očuvanje-efikasnosti-estimatora"
 id="toc-očuvanje-efikasnosti-estimatora"><span
-class="toc-section-number">3.5</span> Očuvanje efikasnosti
+class="toc-section-number">3.6</span> Očuvanje efikasnosti
 estimatora</a></li>
 <li><a href="#konzistentnost-i-asimptotske-osobine"
 id="toc-konzistentnost-i-asimptotske-osobine"><span
-class="toc-section-number">3.6</span> Konzistentnost i asimptotske
+class="toc-section-number">3.7</span> Konzistentnost i asimptotske
 osobine</a></li>
-<li><a href="#signali-sn-theta-u-belom-gaussovom-šumu"
-id="toc-signali-sn-theta-u-belom-gaussovom-šumu"><span
-class="toc-section-number">3.7</span> Signali <span
-class="math inline">s[n; \theta]</span> u belom Gaussovom šumu</a></li>
 </ul></li>
 <li><a href="#linearni-gaussovski-modeli"
 id="toc-linearni-gaussovski-modeli"><span
@@ -297,7 +297,8 @@ Ovaj izraz nazivamo Fišerov skor.</p>
 informacije?</strong>
 </summary>
 <div class="card-body">
-<p>Ako je ispunjen uslov regularnosti, tada: <span class="math display">
+<p>Ako je ispunjen uslov regularnosti i izvod i integral mogu da zamene
+mesta, tada: <span class="math display">
 I(\theta) = -E\left[ \frac{\partial^2}{\partial \theta^2} \ln p(x;
 \theta) \right]
 = E\left[ \left( \frac{\partial}{\partial \theta} \ln p(x; \theta)
@@ -331,8 +332,33 @@ g(x)</span> efikasan i: <span class="math display">
 </span></p>
 </div></details>
 <hr />
-<h3 data-number="3.4" id="crdg-za-funkciju-parametra"><span
-class="header-section-number">3.4</span> CRDG za funkciju parametra</h3>
+<h3 data-number="3.4" id="signali-sn-theta-u-belom-gaussovom-šumu"><span
+class="header-section-number">3.4</span> Signali <span
+class="math inline">s[n; \theta]</span> u belom Gaussovom šumu</h3>
+<details class="card">
+<summary>
+<strong>Kako izgleda model signala u belom Gaussovom šumu?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+x[n] = s[n; \theta] + w[n], \quad n = 0, 1, \dots, N-1
+</span><br />
+gde je <span class="math inline">w[n] \sim \mathcal{N}(0,
+\sigma^2)</span> – beli Gaussov šum.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Fišerova informacija za signale u belom Gaussovom šumu:</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+I(\theta) = \frac{1}{\sigma^2} \sum_{n=0}^{N-1} \left( \frac{\partial
+s[n; \theta]}{\partial \theta} \right)^2
+</span></p>
+</div></details>
+<hr />
+<h3 data-number="3.5" id="crdg-za-funkciju-parametra"><span
+class="header-section-number">3.5</span> CRDG za funkciju parametra</h3>
 <details class="card">
 <summary>
 <strong>Kako glasi CRDG za <span class="math inline">\alpha =
@@ -345,8 +371,8 @@ a(\theta)</span>?</strong>
 </span></p>
 </div></details>
 <hr />
-<h3 data-number="3.5" id="očuvanje-efikasnosti-estimatora"><span
-class="header-section-number">3.5</span> Očuvanje efikasnosti
+<h3 data-number="3.6" id="očuvanje-efikasnosti-estimatora"><span
+class="header-section-number">3.6</span> Očuvanje efikasnosti
 estimatora</h3>
 <details class="card">
 <summary>
@@ -380,8 +406,8 @@ class="math inline">\hat{\alpha} = \bar{x}^2</span> nije ni nepomeren ni
 efikasan estimator za <span class="math inline">\alpha = A^2</span>.</p>
 </div></details>
 <hr />
-<h3 data-number="3.6" id="konzistentnost-i-asimptotske-osobine"><span
-class="header-section-number">3.6</span> Konzistentnost i asimptotske
+<h3 data-number="3.7" id="konzistentnost-i-asimptotske-osobine"><span
+class="header-section-number">3.7</span> Konzistentnost i asimptotske
 osobine</h3>
 <details class="card">
 <summary>
@@ -414,31 +440,6 @@ asimptotski efikasan ako: <span class="math display">
 \lim_{N \to \infty} \mathrm{var}(\hat{\theta}) = \frac{1}{I(\theta)}
 </span> odnosno, za veliko <span class="math inline">N</span> dostiže
 CRDG.</p>
-</div></details>
-<hr />
-<h3 data-number="3.7" id="signali-sn-theta-u-belom-gaussovom-šumu"><span
-class="header-section-number">3.7</span> Signali <span
-class="math inline">s[n; \theta]</span> u belom Gaussovom šumu</h3>
-<details class="card">
-<summary>
-<strong>Kako izgleda model signala u belom Gaussovom šumu?</strong>
-</summary>
-<div class="card-body">
-<p><span class="math display">
-x[n] = s[n; \theta] + w[n], \quad n = 0, 1, \dots, N-1
-</span><br />
-gde je <span class="math inline">w[n] \sim \mathcal{N}(0,
-\sigma^2)</span> – beli Gaussov šum.</p>
-</div></details>
-<details class="card">
-<summary>
-<strong>Fišerova informacija za signale u belom Gaussovom šumu:</strong>
-</summary>
-<div class="card-body">
-<p><span class="math display">
-I(\theta) = \frac{1}{\sigma^2} \sum_{n=0}^{N-1} \left( \frac{\partial
-s[n; \theta]}{\partial \theta} \right)^2
-</span></p>
 </div></details>
 <hr />
 <h2 data-number="4" id="linearni-gaussovski-modeli"><span
@@ -785,5 +786,5 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813130125 --></body>
+</body>
 </html>
