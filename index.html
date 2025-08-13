@@ -80,10 +80,25 @@ id="toc-signali-sn-theta-u-belom-gaussovom-šumu"><span
 class="toc-section-number">3.7</span> Signali <span
 class="math inline">s[n; \theta]</span> u belom Gaussovom šumu</a></li>
 </ul></li>
-<li><a href="#lgm-linearni-gaussovski-model-ols"
-id="toc-lgm-linearni-gaussovski-model-ols"><span
-class="toc-section-number">4</span> LGM – Linearni Gaussovski Model
-(OLS)</a></li>
+<li><a href="#linearni-gaussovski-modeli"
+id="toc-linearni-gaussovski-modeli"><span
+class="toc-section-number">4</span> Linearni Gaussovski Modeli</a>
+<ul>
+<li><a href="#efikasan-estimator-u-lg-modelu"
+id="toc-efikasan-estimator-u-lg-modelu"><span
+class="toc-section-number">4.1</span> Efikasan estimator u LG
+modelu</a></li>
+<li><a href="#primeri-primene-lg-modela"
+id="toc-primeri-primene-lg-modela"><span
+class="toc-section-number">4.2</span> Primeri primene LG modela</a></li>
+<li><a href="#uslov-invertibilnosti"
+id="toc-uslov-invertibilnosti"><span
+class="toc-section-number">4.3</span> Uslov invertibilnosti</a></li>
+<li><a href="#obojeni-šum" id="toc-obojeni-šum"><span
+class="toc-section-number">4.4</span> Obojeni šum</a></li>
+<li><a href="#posebni-slučajevi" id="toc-posebni-slučajevi"><span
+class="toc-section-number">4.5</span> Posebni slučajevi</a></li>
+</ul></li>
 <li><a href="#nlne-blue-najbolji-linearan-nepomeren-estimator"
 id="toc-nlne-blue-najbolji-linearan-nepomeren-estimator"><span
 class="toc-section-number">5</span> NLNE / BLUE – Najbolji Linearan
@@ -426,26 +441,204 @@ s[n; \theta]}{\partial \theta} \right)^2
 </span></p>
 </div></details>
 <hr />
-<h2 data-number="4" id="lgm-linearni-gaussovski-model-ols"><span
-class="header-section-number">4</span> LGM – Linearni Gaussovski Model
-(OLS)</h2>
-<ul>
-<li><strong>Model:</strong> <span
-class="math inline">x=H\,\theta+w</span>, <span
-class="math inline">w\sim\mathcal N(0,\sigma^2 I)</span>.</li>
-<li><strong>Efikasni estimator (i NEMV):</strong> <span
-class="math inline">\hat{\theta}=(H^T H)^{-1}H^T x</span>. </li>
-<li><strong>Varijansa:</strong> <span
-class="math inline">C_{\hat{\theta}}=\sigma^2 (H^T H)^{-1}</span>.</li>
-<li><strong>Obojeni šum:</strong> prewhitening sa <span
-class="math inline">C^{-1}=D^T D</span> ⇒ <span
-class="math inline">\hat\theta=(H^T C^{-1} H)^{-1}H^T
-C^{-1}x</span>.</li>
-<li><strong>Zašto:</strong> temelj regresije, identifikacije sistema i
-optimalnosti pod Gaussom.</li>
-<li><strong>Primeri:</strong> linearna/polinomijalna regresija; FIR
-identifikacija.</li>
-</ul>
+<h2 data-number="4" id="linearni-gaussovski-modeli"><span
+class="header-section-number">4</span> Linearni Gaussovski Modeli</h2>
+<details class="card">
+<summary>
+<strong>Šta je linearni Gaussovski model?</strong>
+</summary>
+<div class="card-body">
+<p>Model oblika: <span class="math display">
+x = H\theta + w
+</span> gde je: - <span class="math inline">x</span> – vektor
+opservacija dimenzije <span class="math inline">N \times 1</span> -
+<span class="math inline">\theta</span> – vektor nepoznatih parametara
+dimenzije <span class="math inline">p \times 1</span> - <span
+class="math inline">w</span> – beli Gaussov šum, <span
+class="math inline">w \sim \mathcal{N}(0, \sigma^2 I)</span> - <span
+class="math inline">H</span> – poznata opservaciona matrica <span
+class="math inline">N \times p</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Koji je primer linearnog Gaussovskog modela?</strong>
+</summary>
+<div class="card-body">
+<p>Primer: modelovanje cene akcije: <span class="math display">
+x[n] = \theta_0 + \theta_1 n + w[n], \quad n = 0, \dots, N-1
+</span> gde je: <span class="math display">
+H =
+\begin{bmatrix}
+1 &amp; 0 \\
+\vdots &amp; \vdots \\
+1 &amp; N-1
+\end{bmatrix}
+</span></p>
+</div></details>
+<hr />
+<h3 data-number="4.1" id="efikasan-estimator-u-lg-modelu"><span
+class="header-section-number">4.1</span> Efikasan estimator u LG
+modelu</h3>
+<details class="card">
+<summary>
+<strong>Kada prema Cramér–Rao teoremi postoji NEMV (MVUE) u LG
+modelu?</strong>
+</summary>
+<div class="card-body">
+<p>Ako važi: <span class="math display">
+\frac{\partial}{\partial \theta} \ln p(x; \theta) = I(\theta) \, [g(x) -
+\theta]
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako izgleda log-verodostojnost za LG model?</strong>
+</summary>
+<div class="card-body">
+<p>Za <span class="math inline">x \sim \mathcal{N}(H\theta, \sigma^2
+I)</span>: <span class="math display">
+\ln p(x; \theta) = -\frac{N}{2} \ln (2\pi\sigma^2) - \frac{1}{2\sigma^2}
+(x - H\theta)^T (x - H\theta)
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako izgleda prvi izvod log-verodostojnosti po <span
+class="math inline">\theta</span>?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+\frac{\partial}{\partial \theta} \ln p(x; \theta) = \frac{1}{\sigma^2}
+\left( H^T x - H^T H \theta \right)
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Koji je efikasan estimator u LG modelu?</strong>
+</summary>
+<div class="card-body">
+<p>Ako je rang(<span class="math inline">H^T H</span>) = <span
+class="math inline">p</span>, efikasan estimator je: <span
+class="math display">
+\hat{\theta} = (H^T H)^{-1} H^T x
+</span> sa kovarijacionom matricom: <span class="math display">
+C_{\hat{\theta}} = \sigma^2 (H^T H)^{-1}
+</span></p>
+</div></details>
+<hr />
+<h3 data-number="4.2" id="primeri-primene-lg-modela"><span
+class="header-section-number">4.2</span> Primeri primene LG modela</h3>
+<details class="card">
+<summary>
+<strong>Kako izgleda LG model u linearnoj regresiji?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+x[n] = \theta_0 + n\theta_1 + w[n]
+</span> Rang matrice <span class="math inline">H</span> je 2.
+Aproksimacija: <span class="math display">
+\hat{x}[n] = \hat{\theta}_0 + \hat{\theta}_1 n
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako izgleda LG model u polinomijalnoj regresiji?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+x[n] = \theta_0 + \theta_1 n + \dots + \theta_p n^p + w[n]
+</span> gde je: <span class="math display">
+[H]_{n,:} = [1, n, \dots, n^p]
+</span></p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako izgleda LG model kod identifikacije impulsnog odziva LTI
+sistema?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+x[n] = \sum_{k=0}^{p-1} \theta[k]\, u[n-k] + w[n]
+</span> Matrica <span class="math inline">H</span> sadrži pomerene
+verzije ulaznog signala <span class="math inline">u[n]</span>.</p>
+</div></details>
+<hr />
+<h3 data-number="4.3" id="uslov-invertibilnosti"><span
+class="header-section-number">4.3</span> Uslov invertibilnosti</h3>
+<details class="card">
+<summary>
+<strong>Koji je uslov invertibilnosti za LG model?</strong>
+</summary>
+<div class="card-body">
+<p>Matrica <span class="math inline">H</span> mora imati rang <span
+class="math inline">p</span> — kolone <span class="math inline">H</span>
+moraju biti linearno nezavisne.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Šta se dešava ako uslov invertibilnosti nije ispunjen?</strong>
+</summary>
+<div class="card-body">
+<p>Ako kolone <span class="math inline">H</span> nisu linearno
+nezavisne, rešenje po <span class="math inline">\theta</span> nije
+jednoznačno čak i bez šuma.</p>
+</div></details>
+<hr />
+<h3 data-number="4.4" id="obojeni-šum"><span
+class="header-section-number">4.4</span> Obojeni šum</h3>
+<details class="card">
+<summary>
+<strong>Šta je obojeni šum?</strong>
+</summary>
+<div class="card-body">
+<p>Šum sa kovarijacionom matricom <span class="math inline">C \neq
+\sigma^2 I</span>.<br />
+<span class="math inline">w \sim \mathcal{N}(0, C)</span> sa <span
+class="math inline">C &gt; 0</span>.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako se LG model transformiše u beli šum kod obojenog
+šuma?</strong>
+</summary>
+<div class="card-body">
+<p>Ako <span class="math inline">C^{-1} = D^T D</span> (npr. iz Cholesky
+dekompozicije), definišemo: <span class="math display">
+x&#39; = D x, \quad H&#39; = D H, \quad w&#39; = D w
+</span> Tada važi: <span class="math display">
+\hat{\theta} = (H^T C^{-1} H)^{-1} H^T C^{-1} x
+</span></p>
+</div></details>
+<hr />
+<h3 data-number="4.5" id="posebni-slučajevi"><span
+class="header-section-number">4.5</span> Posebni slučajevi</h3>
+<details class="card">
+<summary>
+<strong>Kako se procenjuje konstanta u nestacionarnom nekorelisnom
+Gaussovom šumu?</strong>
+</summary>
+<div class="card-body">
+<p>Ako je <span class="math inline">x[n] = A + w[n]</span>, <span
+class="math inline">w[n] \sim \mathcal{N}(0, \sigma_n^2)</span>, tada:
+<span class="math display">
+\hat{A} = \frac{\sum_{n=0}^{N-1}
+\frac{x[n]}{\sigma_n^2}}{\sum_{n=0}^{N-1} \frac{1}{\sigma_n^2}}
+</span> Merenja sa manjom varijansom dobijaju veći ponder.</p>
+</div></details>
+<details class="card">
+<summary>
+<strong>Kako se procenjuje <span class="math inline">\theta</span> kad
+signal ima poznatu komponentu <span
+class="math inline">s</span>?</strong>
+</summary>
+<div class="card-body">
+<p>Ako je <span class="math inline">x = H\theta + s + w</span>,<br />
+oduzimamo poznatu komponentu: <span class="math display">
+x&#39; = x - s
+</span> i računamo: <span class="math display">
+\hat{\theta} = (H^T H)^{-1} H^T (x - s)
+</span></p>
+</div></details>
 <hr />
 <h2 data-number="5"
 id="nlne-blue-najbolji-linearan-nepomeren-estimator"><span
@@ -588,5 +781,5 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813124522 --></body>
+</body>
 </html>
