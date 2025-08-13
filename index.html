@@ -1396,10 +1396,6 @@ class="math inline">C_w</span> nepovoljne.</p>
 </div></details>
 <details class="card">
 <summary>
-<details class="card">
-</summary>
-<div class="card-body">
-<summary>
 <strong>Kako izgleda alternativna forma za <span
 class="math inline">\mu_{\theta|x}</span> pomoću oznake <span
 class="math inline">s</span>?</strong>
@@ -1429,9 +1425,33 @@ novim merenjima u odnosu na apriorno verovanje.</li>
 </summary>
 <div class="card-body">
 <p>Neželjeni parametri (nuisance parameters) su oni koji se pojavljuju u
-modelu, ali nisu od direktnog interesa za estimaciju. Njihova prisutnost
-može komplikovati procenu željenih parametara jer utiču na funkciju
-verovatnoće.</p>
+statističkom modelu, ali nisu od direktnog interesa za procenu.<br />
+Oni mogu uticati na tačnost i efikasnost estimatora željenih
+parametara.</p>
+<p>Primer:<br />
+U modelu <span class="math inline">x = H\theta + w</span>, neka je <span
+class="math inline">\theta = \begin{bmatrix} \theta_1 \\ \theta_2
+\end{bmatrix}</span>,<br />
+ali nas zanima samo <span class="math inline">\theta_1</span>, dok <span
+class="math inline">\theta_2</span> predstavlja neželjeni parametar.</p>
+<hr />
+<p><strong>Kako se oslobađamo neželjenih parametara pomoću
+integraljenja?</strong></p>
+<p>Ako su neželjeni parametri slučajne promenljive sa poznatom apriornom
+raspodelom <span class="math inline">p(\eta)</span>, možemo ih
+eliminisati marginalizacijom (integraljenjem) iz zajedničke
+raspodele:</p>
+<p><span class="math display">
+p(x \mid \theta) = \int p(x \mid \theta, \eta) \, p(\eta) \, d\eta
+</span></p>
+<p>Ovim dobijamo tzv. marginalnu verovatnoću <span
+class="math inline">p(x \mid \theta)</span> koja više ne zavisi od <span
+class="math inline">\eta</span>.</p>
+<p><strong>Intuicija:</strong><br />
+- Integral “sabira” sve moguće vrednosti neželjenih parametara,
+ponderisane prema njihovoj verovatnoći.<br />
+- Na taj način u daljoj analizi radimo sa modelom u kojem se <span
+class="math inline">\eta</span> više ne pojavljuje.</p>
 </div></details>
 <details class="card">
 <summary>
@@ -1525,6 +1545,5 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-</div></details>
-<!-- cache-bust 20250813195257 --></body>
+</body>
 </html>
