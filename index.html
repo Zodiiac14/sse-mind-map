@@ -146,7 +146,29 @@ verodostojnosti</a></li>
 <li><a href="#bayesovska-filozofija-i-emskg-posteriorna-sredina"
 id="toc-bayesovska-filozofija-i-emskg-posteriorna-sredina"><span
 class="toc-section-number">7</span> Bayesovska filozofija i EMSKG
-(posteriorna sredina)</a></li>
+(posteriorna sredina)</a>
+<ul>
+<li><a href="#bayesovska-filozofija"
+id="toc-bayesovska-filozofija"><span
+class="toc-section-number">7.1</span> Bayesovska filozofija</a></li>
+<li><a href="#bayesovska-srednje-kvadratna-greška-bskg"
+id="toc-bayesovska-srednje-kvadratna-greška-bskg"><span
+class="toc-section-number">7.2</span> Bayesovska srednje-kvadratna
+greška (BSKG)</a></li>
+<li><a href="#estimator-minimalne-srednje-kvadratne-greške-emskg"
+id="toc-estimator-minimalne-srednje-kvadratne-greške-emskg"><span
+class="toc-section-number">7.3</span> Estimator minimalne
+srednje-kvadratne greške (EMSKG)</a></li>
+<li><a href="#primer-konstanta-u-belom-gaussovom-šumu"
+id="toc-primer-konstanta-u-belom-gaussovom-šumu"><span
+class="toc-section-number">7.4</span> Primer: konstanta u belom
+Gaussovom šumu</a></li>
+<li><a href="#osobine-gaussove-fgv" id="toc-osobine-gaussove-fgv"><span
+class="toc-section-number">7.5</span> Osobine Gaussove FGV</a></li>
+<li><a href="#bayesovski-linearan-model"
+id="toc-bayesovski-linearan-model"><span
+class="toc-section-number">7.6</span> Bayesovski linearan model</a></li>
+</ul></li>
 <li><a href="#opšta-bayesovska-estimacija-cena-i-rizik"
 id="toc-opšta-bayesovska-estimacija-cena-i-rizik"><span
 class="toc-section-number">8</span> Opšta Bayesovska estimacija: cena i
@@ -1161,22 +1183,146 @@ class="math inline">a, a+\Delta\theta, \dots, b</span>.</li>
 id="bayesovska-filozofija-i-emskg-posteriorna-sredina"><span
 class="header-section-number">7</span> Bayesovska filozofija i EMSKG
 (posteriorna sredina)</h2>
+<h3 data-number="7.1" id="bayesovska-filozofija"><span
+class="header-section-number">7.1</span> Bayesovska filozofija</h3>
+<details class="card">
+<summary>
+<strong>Šta je osnovna razlika između klasičnog i Bayesovskog pristupa
+estimaciji?</strong>
+</summary>
+<div class="card-body">
 <ul>
-<li><strong>Poenta:</strong> Parametar <span
-class="math inline">\theta</span> je slučajan; koristimo apriorno <span
-class="math inline">p(\theta)</span> i dobijamo aposteriorno <span
-class="math inline">p(\theta\mid x)\propto
-p(x\mid\theta)p(\theta)</span>.</li>
-<li><strong>Optimalno za kvadratnu cenu:</strong> <span
-class="math inline">\hat\theta=E(\theta\mid x)</span> = EMSKG.</li>
-<li><strong>Gauss–Gauss slučaj:</strong> zatvorena forma za <span
-class="math inline">\mu_{\theta\mid x}</span> i <span
-class="math inline">C_{\theta\mid x}</span>; „data–prior“ fuzija.</li>
-<li><strong>Zašto:</strong> ugradnja predznanja; često manja BSKG od
-NEMV u proseku.</li>
-<li><strong>Primer:</strong> konstanta sa uniformnim ili normalnim
-priorom ⇒ shrinkage ka <span class="math inline">\mu_A</span>.</li>
+<li><strong>Klasičan pristup</strong>: parametar <span
+class="math inline">\theta</span> je determinističan ali nepoznat.</li>
+<li><strong>Bayesovski pristup</strong>: parametar <span
+class="math inline">\theta</span> se tretira kao slučajna promenljiva sa
+apriornom raspodelom <span class="math inline">p(\theta)</span>.</li>
 </ul>
+<p><em>Komentar</em>: Bayesovska filozofija omogućava da u estimaciju
+uključimo predznanje o parametru.</p>
+</div></details>
+<hr />
+<details class="card">
+<summary>
+<strong>Kako se računa aposteriorna funkcija gustine verovatnoće <span
+class="math inline">p(\theta|x)</span>?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+p(\theta | x) = \frac{p(x | \theta) p(\theta)}{p(x)}
+</span></p>
+<p>gde je: <span class="math display">
+p(x) = \int p(x | \theta) p(\theta) \, d\theta
+</span></p>
+</div></details>
+<hr />
+<h3 data-number="7.2"
+id="bayesovska-srednje-kvadratna-greška-bskg"><span
+class="header-section-number">7.2</span> Bayesovska srednje-kvadratna
+greška (BSKG)</h3>
+<details class="card">
+<summary>
+<strong>Kako se definiše Bayesovska srednje-kvadratna greška?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+\mathrm{Bmse}(\hat{\theta}) = \iint \left[ \theta - \hat{\theta}(x)
+\right]^2 p(x,\theta) \, dx \, d\theta
+</span></p>
+<p><em>Komentar</em>: Za razliku od klasične SKG, BSKG se “uprosječuje”
+po <span class="math inline">\theta</span>, pa ne zavisi od njegove
+stvarne vrednosti.</p>
+</div></details>
+<hr />
+<h3 data-number="7.3"
+id="estimator-minimalne-srednje-kvadratne-greške-emskg"><span
+class="header-section-number">7.3</span> Estimator minimalne
+srednje-kvadratne greške (EMSKG)</h3>
+<details class="card">
+<summary>
+<strong>Kako izgleda EMSKG estimator?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+\hat{\theta} = \mathbb{E}[\theta | x]
+</span></p>
+<p><em>Komentar</em>: Ovo znači da je najbolja procena <span
+class="math inline">\theta</span> u Bayesovskom smislu njegov uslovni
+očekivani vrednost nakon posmatranja <span
+class="math inline">x</span>.</p>
+</div></details>
+<hr />
+<h3 data-number="7.4" id="primer-konstanta-u-belom-gaussovom-šumu"><span
+class="header-section-number">7.4</span> Primer: konstanta u belom
+Gaussovom šumu</h3>
+<details class="card">
+<summary>
+<strong>Kako se dobija aposteriorna raspodela ako je <span
+class="math inline">A \sim U[-A_0,A_0]</span> i <span
+class="math inline">x|A \sim \mathcal{N}(A\mathbf{1}, \sigma^2
+I)</span>?</strong>
+</summary>
+<div class="card-body">
+<p><span class="math display">
+p(A|x) =
+\begin{cases}
+\frac{1}{c} \, \varphi\left(A; \bar{x}, \frac{\sigma^2}{N}\right), &amp;
+|A| \leq A_0 \\
+0, &amp; |A| &gt; A_0
+\end{cases}
+</span></p>
+<p>gde je: <span class="math display">
+c = \int_{-A_0}^{A_0} \varphi\left(A; \bar{x}, \frac{\sigma^2}{N}\right)
+\, dA
+</span></p>
+</div></details>
+<p><em>Komentar</em>: Ako je <span class="math inline">N</span> veliko,
+varijansa <span class="math inline">\sigma^2/N \to 0</span>, pa se
+raspodela koncentriše oko <span class="math inline">\bar{x}</span> i
+apriorno znanje postaje nebitno.</p>
+<hr />
+<h3 data-number="7.5" id="osobine-gaussove-fgv"><span
+class="header-section-number">7.5</span> Osobine Gaussove FGV</h3>
+<details class="card">
+<summary>
+<strong>Koji je oblik aposteriorne raspodele za združeno normalne <span
+class="math inline">x</span> i <span
+class="math inline">\theta</span>?</strong>
+</summary>
+<div class="card-body">
+<p>Ako je: <span class="math display">
+\begin{bmatrix} x \\ \theta \end{bmatrix} \sim \mathcal{N}\left(
+\begin{bmatrix} \mathbb{E}x \\ \mathbb{E}\theta \end{bmatrix},
+\begin{bmatrix} C_x &amp; C_{x\theta} \\ C_{\theta x} &amp; C_\theta
+\end{bmatrix} \right)
+</span></p>
+<p>onda: <span class="math display">
+\mu_{\theta|x} = \mathbb{E}\theta + C_{\theta x} C_x^{-1} (x -
+\mathbb{E}x)
+</span> <span class="math display">
+C_{\theta|x} = C_\theta - C_{\theta x} C_x^{-1} C_{x\theta}
+</span></p>
+</div></details>
+<hr />
+<h3 data-number="7.6" id="bayesovski-linearan-model"><span
+class="header-section-number">7.6</span> Bayesovski linearan model</h3>
+<details class="card">
+<summary>
+<strong>Koji su osnovni izrazi za Bayesovski linearan model <span
+class="math inline">x = H\theta + w</span>?</strong>
+</summary>
+<div class="card-body">
+<p>Za <span class="math inline">\theta \sim \mathcal{N}(\mu_\theta,
+C_\theta)</span>, <span class="math inline">w \sim \mathcal{N}(0,
+C_w)</span>:</p>
+<p><span class="math display">
+\mu_{\theta|x} = \mu_\theta + C_\theta H^T (H C_\theta H^T + C_w)^{-1}
+(x - H\mu_\theta)
+</span> <span class="math display">
+C_{\theta|x} = C_\theta - C_\theta H^T (H C_\theta H^T + C_w)^{-1} H
+C_\theta
+</span></p>
+</div></details>
 <hr />
 <h2 data-number="8" id="opšta-bayesovska-estimacija-cena-i-rizik"><span
 class="header-section-number">8</span> Opšta Bayesovska estimacija: cena
@@ -1257,5 +1403,5 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813154820 --></body>
+</body>
 </html>
