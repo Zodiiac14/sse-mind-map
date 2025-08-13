@@ -685,37 +685,66 @@ H\theta</span> bez potrebe za metodom najmanjih kvadrata.</p>
 class="header-section-number">4.2</span> Primeri primene LG modela</h3>
 <details class="card">
 <summary>
-<strong>Kako izgleda LG model u linearnoj regresiji?</strong>
+<strong>U linearnoj regresiji imamo model:</strong> <span
+class="math display">
+x[n] = \theta_0 + n\theta_1 + w[n], \quad n = 0, \dots, N-1
+</span> <strong>Kako izgleda matrica <span class="math inline">H</span>
+u ovom slučaju?</strong>
 </summary>
 <div class="card-body">
 <p><span class="math display">
-x[n] = \theta_0 + n\theta_1 + w[n]
-</span> Rang matrice <span class="math inline">H</span> je 2.
-Aproksimacija: <span class="math display">
-\hat{x}[n] = \hat{\theta}_0 + \hat{\theta}_1 n
+H =
+\begin{bmatrix}
+1 &amp; 0 \\
+1 &amp; 1 \\
+1 &amp; 2 \\
+\vdots &amp; \vdots \\
+1 &amp; N-1
+\end{bmatrix}
 </span></p>
 </div></details>
 <details class="card">
 <summary>
-<strong>Kako izgleda LG model u polinomijalnoj regresiji?</strong>
+<strong>U polinomijalnoj regresiji reda <span
+class="math inline">p</span> imamo model:</strong> <span
+class="math display">
+x[n] = \theta_0 + \theta_1 n + \dots + \theta_p n^p + w[n], \quad n = 0,
+\dots, N-1
+</span> <strong>Kako izgleda matrica <span class="math inline">H</span>
+u ovom slučaju?</strong>
 </summary>
 <div class="card-body">
 <p><span class="math display">
-x[n] = \theta_0 + \theta_1 n + \dots + \theta_p n^p + w[n]
-</span> gde je: <span class="math display">
-[H]_{n,:} = [1, n, \dots, n^p]
+H =
+\begin{bmatrix}
+1 &amp; 0 &amp; 0^2 &amp; \dots &amp; 0^p \\
+1 &amp; 1 &amp; 1^2 &amp; \dots &amp; 1^p \\
+1 &amp; 2 &amp; 2^2 &amp; \dots &amp; 2^p \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; N-1 &amp; (N-1)^2 &amp; \dots &amp; (N-1)^p
+\end{bmatrix}
 </span></p>
 </div></details>
 <details class="card">
 <summary>
-<strong>Kako izgleda LG model kod identifikacije impulsnog odziva LTI
-sistema?</strong>
+<strong>Kod identifikacije impulsnog odziva LTI sistema imamo
+model:</strong> <span class="math display">
+x[n] = \sum_{k=0}^{p-1} \theta[k]\, u[n-k] + w[n], \quad n = 0, \dots,
+N-1
+</span> <strong>Kako izgleda matrica <span class="math inline">H</span>
+u ovom slučaju?</strong>
 </summary>
 <div class="card-body">
 <p><span class="math display">
-x[n] = \sum_{k=0}^{p-1} \theta[k]\, u[n-k] + w[n]
-</span> Matrica <span class="math inline">H</span> sadrži pomerene
-verzije ulaznog signala <span class="math inline">u[n]</span>.</p>
+H =
+\begin{bmatrix}
+u[0] &amp; 0 &amp; 0 &amp; \dots &amp; 0 \\
+u[1] &amp; u[0] &amp; 0 &amp; \dots &amp; 0 \\
+u[2] &amp; u[1] &amp; u[0] &amp; \dots &amp; 0 \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+u[N-1] &amp; u[N-2] &amp; u[N-3] &amp; \dots &amp; u[N-p]
+\end{bmatrix}
+</span></p>
 </div></details>
 <hr />
 <h3 data-number="4.3" id="uslov-invertibilnosti"><span
@@ -936,5 +965,5 @@ LGM)</li>
 <li><strong>Kalman</strong> (sekvencijalni EMSKG/LEMSKG u GMM)
 <a href="#top" class="back-to-top">⇧</a></li>
 </ol>
-<!-- cache-bust 20250813143201 --></body>
+</body>
 </html>
